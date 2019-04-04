@@ -8,7 +8,8 @@ import { Page } from 'tns-core-modules/ui/page/page';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers:[AuthServiceService]
 })
 export class LoginComponent implements OnInit {
 
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
     }
   }
   ngOnInit() {
+    console.log("Dlaczego kurna nie działasz");
     this.loginForm = this.formBuilder.group({
       Login: ['', Validators.required],
       Haslo: ['', Validators.required]
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit {
   get f() {return this.loginForm.controls; }
 
   onSubmit() {
+    console.log(this.f.Login.value, this.f.Haslo.value);
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
