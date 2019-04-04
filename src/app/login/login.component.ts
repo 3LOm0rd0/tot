@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
     }
     this.loading = true;
     this.authenticationService.login(this.f.Login.value, this.f.Haslo.value)
+   // this.authenticationService.login('admin', 'admin1')
     .pipe(first())
     .subscribe(
       data => {
@@ -60,6 +61,9 @@ export class LoginComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+  wypisz(){
+    console.log("CWeL PSL");
   }
 }
 

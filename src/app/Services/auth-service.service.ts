@@ -33,6 +33,7 @@ constructor(private http: HttpClient) {
         localStorage.setItem('currentUser', JSON.stringify(gracz));
         this.currentUserSubject.next(gracz);
       }
+      console.log(this.baseUrl + '/Gracz/authenticate')
       return gracz;
     }));
   }
