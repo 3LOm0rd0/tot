@@ -1,0 +1,50 @@
+<h1>Szczegoły wyścigu:</h1>
+
+<legend>Lista wyscigowa</legend>
+<table class="table table-dark table-active table-bordered table-striped table-hover ">
+  <td>Numer wierzchowca</td>
+  <td>Nazwa wierzchowca</td>
+  <td>Kurs w tym wyścigu:</td>
+  <tr *ngFor="let l of lista">
+    <td>{{l.nrWierzchowca}}</td>
+    <td>{{l.nazwaWierzchowca}}</td>
+    <td>{{l.kurs}}</td>
+  </tr> 
+</table >
+
+
+<div>
+ <h2>Wynik gonitwy nr: {{id}}</h2>
+ <table class="table table-dark table-active table-bordered table-striped table-hover ">
+ <tr >
+   <td>I miejsce</td>
+   <th>{{wynik?.konIMiejsce}}</th>
+ </tr>
+ <tr >
+   <td>II miejsce</td>
+   <th>{{wynik?.konIiMiejsce}}</th>
+ </tr>
+ <tr>
+  <td>III miejsce</td>
+  <th>{{wynik?.konIiiMiejsce}}</th>
+</tr>
+<tr>
+  <td>IV miejsce</td>
+  <th>{{wynik?.konIvMiejsce}}</th>
+</tr>
+<tr>
+  <td>V miejsce</td>
+  <th>{{wynik?.konVMiejsce}}</th>
+</tr>
+<tr>
+  <td>VI miejsce</td>
+  <th>{{wynik?.konViMiejsce}}</th>
+</tr>
+<tr>
+  <td>VII miejsce</td>
+  <th>{{wynik?.konViiMiejsce}}</th>
+</tr>
+</table>
+<button [routerLink]="['/wynik',id]" class="btn btn-success btn-lg btn-block btn-active" *ngIf="isAdmin">Aktualizuj wynik</button>
+
+</div>

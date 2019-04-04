@@ -1,0 +1,29 @@
+<!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
+
+
+<!-- <page-router-outlet></page-router-outlet> -->
+<!-- <app-admin></app-admin> -->
+
+<RadSideDrawer #drawer>
+  <GridLayout tkDrawerContent rows="*" class="sidedrawer sidedrawer-left">
+    <StackLayout class="sidedrawer-content">
+      <StackLayout nsRouterLink="jak-grac" clearHistory="true">
+          <Label class="link-label" text="LeLum PoLeLuM"></Label>
+      </StackLayout>
+      <StackLayout nsRouterLink="/admin"  clearHistory="true">
+        <Label class="link-label" text="Wódkie pijom"></Label>
+    </StackLayout>
+    <StackLayout nsRouterLink="gonitwy"  clearHistory="true">
+      <Label class="link-label" text="Fajny ten program"></Label>
+  </StackLayout>
+  <StackLayout nsRouterLink="/login"  clearHistory="true">
+    <Label class="link-label" text="Jak waszmość się zowie?"></Label>
+</StackLayout>
+    </StackLayout>
+
+
+  </GridLayout>
+
+
+  <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
+</RadSideDrawer>

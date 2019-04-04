@@ -1,0 +1,29 @@
+<!-- Slide Menu-->
+<div class="all-content">
+<aside>
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+        <div class="navbar-nav">
+            <ul>
+            <li><a class="active" routerLink="jak-grac">Jak Grac?</a></li>
+            <li><a  routerLink="/">Strona główna</a></li>
+            <li><a  routerLink="/admin" *ngIf="isAdmin">Admin</a></li>
+            <li><a  routerLink="gonitwy">Gonitwy</a></li>
+            <li><a  routerLink="moje-konto">Moje Konto</a></li>
+            <li><a  routerLink="historia">O wyścigach</a></li>
+            <li><a  (click)="logout()">Wyloguj</a></li>
+            </ul>
+        </div>
+    </nav>
+</aside>
+<!--main container-->
+<div class="jumbotron">
+        <div class="container">
+            <div class="row ">
+                <div >
+                    <app-alert></app-alert>
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>   
+</div>

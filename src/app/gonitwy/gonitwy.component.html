@@ -1,0 +1,59 @@
+<h1>Gonitwy </h1>
+<legend>Tabela gonitw które się odbyły</legend>
+<div class="table-wrapper-scroll-y">
+  
+  <table class="table table-bordered table-striped table-hover table-dark">
+    <thead>
+  <tr>
+    <td> Numer Sezonowy Gonitwy:</td>
+    <td>Wyscig o:</td>
+    <td>Godzina startu:</td>
+    <td>Data:</td>
+    <td>Dystans wyscigu(m):</td>
+    <td>Wiecej informacji:</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let g of gonitwy">
+    <td>{{g.nrGonitwyWSezonie}}</td>
+    <td>{{g.nazwaNagrody}}</td>
+    <td>{{g.godzinaRozpoczecia}}</td>
+    <td>{{g.data| date:'dd-MM-yyyy'}}</td>
+    <td>{{g.dlugosc}}</td>
+    <td><button class="btn btn-success btn-lg btn-active" [routerLink]="['/szczegoly-wyscigu',g.nrGonitwyWSezonie]">Tutaj</button> </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<div>
+  
+</div>
+<legend>Tabela gonitw które się odbedą</legend>
+<div class="table-wrapper-scroll-y">
+  
+  <table class="table table-bordered table-striped table-hover table-dark">
+    <tr>
+      <td> Numer Sezonowy Gonitwy:</td>
+      <td>Wyscig o:</td>
+      <td>Warunki:</td>
+      <td>Godzina startu:</td>
+      <td>Data:</td>
+      <td>Dystans wyscigu(m):</td>
+      <td *ngIf="!isAdmin">Obstaw:</td>
+      <td *ngIf="isAdmin">Aktualizacja</td>
+      <td *ngIf="isAdmin">Usuń</td>
+    </tr>
+    <tr *ngFor="let g of gonitwyFuture">
+      <td>{{g.nrGonitwyWSezonie}}</td>
+      <td>{{g.nazwaNagrody}}</td>
+      <td>{{g.warunkiGonitwy}}</td>
+      <td>{{g.godzinaRozpoczecia}}</td>
+      <td>{{g.data| date:'dd-MM-yyyy'}}</td>
+      <td>{{g.dlugosc}}</td>
+      <td *ngIf="!isAdmin"><button class="btn btn-warning btn active" *ngIf="!isAdmin" [routerLink]="['/obstaw',g.nrGonitwyWSezonie]">Obstaw wynik</button> </td>
+      <td *ngIf="isAdmin"><button class="btn btn-primary btn-active" *ngIf="isAdmin" [routerLink]="['/aktual-gonitwy',g.nrGonitwyWSezonie]">Aktualizuj</button></td>
+      <td *ngIf="isAdmin"><button class="btn btn-danger btn active" *ngIf="isAdmin" (click)='usunGonitwe(g.nrGonitwyWSezonie)'>Usuń gonitwę</button> </td>
+    </tr>
+  </table>
+</div>
+ <button class="btn btn-success btn-lg btn-block" *ngIf="isAdmin"(click)="ngDodajGonitwe()">Dodaj gonitwe</button>

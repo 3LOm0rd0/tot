@@ -1,0 +1,37 @@
+<StackLayout class="form" [formGroup]="loginForm">
+  <Label text="Login"> </Label>
+  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
+  [ngClass]="{ 'is-invalid': submitted && f.Login.errors }"></TextField>
+  <!-- a <Label **ngIf="submitted && f.Login.errors && f.Login.errors.required" text="Login jest wymagany"> </Label> -->
+  <StackLayout class="hr-dark m-10"></StackLayout>
+  <Label text="Haslo"> </Label>
+  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Haslo" [secure]="true" hint="Min 5 znaków"
+  [ngClass]="{ 'is-invalid': submitted && f.Haslo.errors }"></TextField>
+  <!-- <Label **ngIf="submitted && f.Haslo.errors && f.Haslo.errors.required" text="Haslo jest wymagane"> </Label> -->
+  <StackLayout class="hr-dark m-10"></StackLayout>
+</StackLayout>
+<!--
+Original Web template:
+
+<h2 class="title_head">Logowanie</h2>
+<form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="Login">Login</label>
+        <input placeholder="Login" type="text" formControlName="Login" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Login.errors }" />
+        <div *ngIf="submitted && f.Login.errors" class="invalid-feedback">
+            <div *ngIf="f.Login.errors.required">Login jest wymagany</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Haslo">Hasło</label>
+        <input placeholder="Hasło" type="password" formControlName="Haslo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Haslo.errors }" />
+        <div *ngIf="submitted && f.Haslo.errors" class="invalid-feedback">
+            <div *ngIf="f.Haslo.errors.required">Haslo jest wymagane</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Zaloguj</button>
+        <a routerLink="/register" class="btn btn-link">Zarejestruj<br/></a>
+    </div>
+</form>
+-->

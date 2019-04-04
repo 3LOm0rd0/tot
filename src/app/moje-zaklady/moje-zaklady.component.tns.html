@@ -1,0 +1,64 @@
+<StackLayout>
+  <Label text="moje-zaklady works" textWrap="true"></Label>
+  <Label text="This is a migrated component" textWrap="true"></Label>
+  <Label text="Update it to provide the UI elements required in your mobile app" textWrap="true"></Label>
+</StackLayout>
+
+<!--
+Original Web template:
+
+<legend>Lista zakladow przed rozegranymi wyscigami</legend>
+<table class="table table-bordered table-striped table-hover table-dark">
+    <tr>
+        <td>Nazwa zakladu:</td>
+        <td>Numer gonitwy w sezonie:</td>
+        <td>Postawione pieniadze</td>
+        <td>Typowanie 1</td>
+        <td >Typowanie 2</td>
+        <td >Typowanie 3</td>
+        <td >Typowanie 4</td>
+        <td>Odwołaj:</td>
+      </tr>
+      <tr *ngFor="let g of zakladyPrzed">
+        <td>{{g.nazwaZakladu}}</td>
+        <td>{{g.idGonitwy}}</td>
+        <td>{{g.stawka | currency: " "}} zł</td>
+        <td >{{g.typowanie1}}</td>
+        <td >{{g.typowanie2}}</td>
+        <td >{{g.typowanie3}}</td>
+        <td >{{g.typowanie4}}</td>
+        <td ><button class="btn btn-active btn-danger btn-lg" style="cursor:pointer" value="Usuń"  (click)="usunZaklad(g.idZakladu, g.stawka)">Usuń</button> </td>
+      </tr>
+    </table>
+    <br>
+     <legend>Lista zakladow po rozegranych wyscigach</legend>
+    <table class="table table-bordered table-striped table-hover table-dark">
+       
+          <tr>
+              <td>Nazwa zakladu:</td>
+              <td>Numer gonitwy w sezonie:</td>
+              <td>Postawione pieniadze</td>
+              <td>Typowanie 1</td>
+              <td >Typowanie 2</td>
+              <td >Typowanie 3</td>
+              <td >Typowanie 4</td>
+              <td> Status</td>
+              <td>Wygrane pieniądze:</td>
+            </tr>
+            <tr *ngFor="let g of zakladyPo">
+              <td>{{g.nazwaZakladu}}</td>
+              <td>{{g.idGonitwy}}</td>
+              <td>{{g.stawka}}</td>
+              <td >{{g.typowanie1}}</td>
+              <td >{{g.typowanie2}}</td>
+              <td >{{g.typowanie3}}</td>
+              <td >{{g.typowanie4}}</td>
+              <td> {{g.status}}</td>
+              <td>{{g.wygrana}}</td>
+            </tr>
+          </table>
+
+
+
+
+-->

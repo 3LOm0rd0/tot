@@ -1,0 +1,78 @@
+<StackLayout>
+  <Label text="wierzchowiec works" textWrap="true"></Label>
+  <Label text="This is a migrated component" textWrap="true"></Label>
+  <Label text="Update it to provide the UI elements required in your mobile app" textWrap="true"></Label>
+</StackLayout>
+
+<!--
+Original Web template:
+
+<router-outlet></router-outlet>
+<table>
+  <tr>
+    <td>Nr katalogowy</td>
+    <td>Nazwa</td>
+    <td>Rasa</td>
+    <td>Wiek</td>
+    <td>Maść</td>
+    <td>Plec</td>
+    <td>Znaki Szczegolne</td>
+    <td>Wlasciciel</td>
+   
+  </tr>
+  
+  <tr *ngFor="let konik of koniki">
+    <td>{{konik.nrWierzchowca}}</td>
+    <td>{{konik.nazwaWierzchowca}}</td>
+    <td>{{konik.rasa}}</td>
+    <td>{{konik.wiek}}</td>
+    <td>{{konik.umaszczenie}}</td>
+    <td>{{konik.plec}}</td>
+    <td>{{konik.znakiSzczegolne}}</td>
+    <td>{{konik.wlasciciel}}</td>
+    
+  </tr>
+  <a routerLink="/home"class="btn btn-link">Home</a>
+</table>
+<form [formGroup]="wierzchForm" (ngSubmit)="onSubmit()">
+    <div class="wierzch-form">
+      <label for="nazwaWierzchowca">Nazwa Wierzchowca:</label>
+      <input type="text" formControlName="nazwaWierzchowca"/>
+    </div>
+  
+    <div class="wierzch-form">
+      <label for="rasa">Rasa</label>
+      <input type="text" formControlName="rasa" />
+  
+    </div>
+    <div class="wierzch-form">
+      <label for="wiek">Wiek</label>
+      <input type="number" formControlName="wiek" />
+      
+    </div>
+    <div class="wierzch-form">
+      <label for="umaszczenie">Umaszczenie</label>
+      <input type="text" formControlName="umaszczenie" />
+    </div>
+    <div class="wierzch-form">
+      <label for="plec">Plec</label><br>
+      <input type="radio" formControlName="plec" value="ogier" />ogier<br>
+      <input type="radio" formControlName="plec" value="klacz"/>klacz<br>
+      <input type="radio" formControlName="plec" value="wałach"/>wałach
+
+    </div>
+    <div class="wierzch-form">
+      <label for="znakiSzczegolne">Znaki Szczegolne</label>
+      <input type="text" formControlName="znakiSzczegolne" />
+    </div>
+    <div class="wierzch-form">
+        <label for="wlasciciel">Imie i Nazwisko Właściciela</label>
+        <input type="text" formControlName="wlasciciel" />
+      </div>
+    <div class="wierzch-form">
+        <button [disabled]="loading" class="btn btn-primary">Dodaj wierzchowca</button>
+        <button [routerLink]="['/moje-konto']" class="btn btn-link">Wróć<br/></button>
+    </div>
+  </form>
+  <p>Wartosci: {{wierzchForm.value | json}}</p>
+-->
