@@ -16,6 +16,7 @@ baseUrl = environment.baseUrl;
 
 
 
+
 constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<Gracz>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -26,14 +27,13 @@ constructor(private http: HttpClient) {
    }
 
   login(Login: string, Haslo: string) {
-
     return this.http.post<any>(this.baseUrl + '/Gracz/authenticate', {Login: Login, Haslo: Haslo})
     .pipe(map(gracz => {
       if (gracz && gracz.token) {
         localStorage.setItem('currentUser', JSON.stringify(gracz));
         this.currentUserSubject.next(gracz);
       }
-      console.log(this.baseUrl + '/Gracz/authenticate')
+
       return gracz;
     }));
   }

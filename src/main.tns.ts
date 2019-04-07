@@ -10,4 +10,4 @@ import { AppModule } from './app/app.module';
 
 // platformNativeScriptDynamic().bootstrapModule(AppModule);
 
-platformNativeScriptDynamic({createFrameOnBootstrap: true, startPageActionBarHidden:true}).bootstrapModule(AppModule);
+platformNativeScriptDynamic({createFrameOnBootstrap: true}).bootstrapModule(AppModule);

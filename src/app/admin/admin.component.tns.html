@@ -1,17 +1,23 @@
-<ActionBar title="Gracze zarejestrowani" icon="" class="action-bar">
+<ActionBar title="Panel administratora" icon="" class="action-bar">
 </ActionBar>
-<Label  text="Lista graczy"></Label>
 
-<StackLayout class="container">
-<ListView [items]="gracze" class="list-group" height="60%">
-  <ng-template let-gracz="item">
-    <GridLayout class="user-container" columns="auto, *, auto">
-      <Label col="0" [text]="gracz.login" class="list-group-item"></Label>
-      <Label col="1" [text]="gracz.imie" class="list-group-item"></Label>
-      <Label col="2" [text]="gracz.nazwisko" class="list-group-item"></Label>
+
+<StackLayout class="container" >
+    <Label  text="Lista zarejestrowanych graczy:"></Label>
+    <StackLayout class="hr-dark m-10"></StackLayout>
+    <!-- <ScrollView > -->
+<ListView [items]="gracze" class="list-group" height="65%" >
+  <ng-template let-gracz="item" let-i="index">
+    <GridLayout flexWrap="wrap" class="user-container" columns="auto, auto, auto, auto" width="98%" >
+        <Label col="0" [text]="i+1" class="list-group-item" textWrap="true"></Label>
+      <Label col="1" [text]="gracz.login" class="list-group-item" textWrap="true"></Label>
+      <Label col="2" [text]="gracz.imie" class="list-group-item" textWrap="true"></Label>
+      <Label col="3" [text]="gracz.nazwisko" class="list-group-item" textWrap="true"></Label>
     </GridLayout>
+
   </ng-template>
 </ListView>
+<!-- </ScrollView> -->
 <GridLayout rows="auto" columns="*,auto">
     <Button col="0" width="50%" class="add-button" text="Zarządzaj wierzchowcami " nsRouterLink="/wierzchowiec"></Button>
     <Button col="1" width="50%"  class="add-button" text="Zarządzaj gonitwami" nsRouterLink="/gonitwy"></Button>

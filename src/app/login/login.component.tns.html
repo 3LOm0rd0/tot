@@ -1,17 +1,21 @@
-<StackLayout class="form" [formGroup]="loginForm">
+<StackLayout class="form" [formGroup]="loginForm" style="padding:8%">
   <Label text="Login"> </Label>
   <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
   [ngClass]="{ 'is-invalid': submitted && f.Login.errors }"></TextField>
-  <!-- a <Label **ngIf="submitted && f.Login.errors && f.Login.errors.required" text="Login jest wymagany"> </Label> -->
+
   <StackLayout class="hr-dark m-10"></StackLayout>
   <Label text="Haslo"> </Label>
   <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Haslo" [secure]="true" hint="Min 5 znaków"
   [ngClass]="{ 'is-invalid': submitted && f.Haslo.errors }"></TextField>
-  <!-- <Label **ngIf="submitted && f.Haslo.errors && f.Haslo.errors.required" text="Haslo jest wymagane"> </Label> -->
+
   <StackLayout class="hr-dark m-10"></StackLayout>
-  <Button text="kliknij" (tap)="onSubmit()"></Button>
-  <Button text="kliknssadasij" (tap)="wypisz()"></Button>
+  <Button [disabled]="loading"  text="Zaloguj" (tap)="onSubmit()"></Button>
+  <StackLayout>  <Label text="Nie masz jeszcze konta? Zarejestruj!" nsRouterLink="/register"> </Label>
+  </StackLayout>
+
 </StackLayout>
+
+
 <!--
 Original Web template:
 

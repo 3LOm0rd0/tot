@@ -1,49 +1,31 @@
-<StackLayout>
-  <Label text="jak-grac works" textWrap="true"></Label>
-  <Label text="This is a migrated component" textWrap="true"></Label>
-  <Label text="Update it to provide the UI elements required in your mobile app" textWrap="true"></Label>
+<ActionBar title="Jak grać" icon="" class="action-bar">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+<ScrollView>
+<StackLayout style="padding: 12%">
+  <Label text="Witamy w samouczku" class="h2 text-center" textWrap="true"></Label>
+  <Label text="Krok 1" class="h3 text-left" textWrap="true"></Label>
+  <Label text="Aby obstawić wynik należy gospodarować pewną sumą pieniędzy.Aby doładować swoje konto należy kliknąć pole MOJE KONTO w menu na górze ekranu a następnie przycisk" class="h4" textWrap="true"></Label>
+  <Button class="btn btn-primary" text="Doładuj konto"></Button>
+  <Label text="Krok 2" class="h3 text-left" textWrap="true"></Label>
+  <Label text="Następnie przechodzimy do zakładki GONITWY. Tam możemy zobaczyć gonitwy, które się już odbyły i gonitwy, które odbędą się wkrótce. Aby zobaczyć wyniki gonitw klikamy SZCZEGÓŁY. Aby przejść do obstawiania klikamy przycisk OBSTAW przy wyścigu,który nas interesuje" class="h4 " textWrap="true"></Label>
+  <Label text="Krok 3" class="h3 text-left" textWrap="true"></Label>
+  <Label text="Jesteśmy w panelu obstawiania.
+  Tutaj musimy wybrać RODZAJ GONITWY którego mamy 5 rodzajów:" class="h4 " textWrap="true"></Label>
+  <StackLayout style="margin-left:15">
+  <Label text="- ZWYCZAJNY-wybieramy jednego konia, który wygra wyścig" class="h5 text-left" textWrap="true"></Label>
+  <Label text="- PORZĄDEK-wybieramy dwa konie, które zajmą pierwsze dwa miejsca zgodnie z tym jak wyznaczyliśmy" class="h5 text-left" textWrap="true"></Label>
+  <Label text="- DWÓJKA-wybieramy dwa konie, które zajmą pierwsze dwa miejsca kolejność nie ma znaczenia" class="h5 text-left" textWrap="true"></Label>
+  <Label text="- TRÓJKA-wybieramy trzy konie, które zajmą pierwsze trzy miejsca" class="h5 text-left" textWrap="true"></Label>
+  <Label text="- CZWÓRKA-wybieramy cztery konie, które zajmą pierwsze cztery miejsca" class="h5 text-left" textWrap="true"></Label>
 </StackLayout>
+<Label text="następnie wpisujemy stawkę o jaką zagramy(Pamiętaj o doładowaniu konta :D ). Wybieramy wierzchowce w odpowiednich kolejnościach i klikamy DODAJ ZAKŁAD.
+(Masz możliwość obstawienia 3 takich samych wierzchowców na każdym miejscu. Tylko pamiętaj, że w takiej sytuacji nic nie zyskujesz!!!)." class="h4 " textWrap="true"></Label>
+  <Label text="Krok 4" class="h3 text-left" textWrap="true"></Label>
+  <Label text="Czekasz na wynik wyścigu. " class="h4 " textWrap="true"></Label>
+  <Label text="Krok 5" class="h3 text-left" textWrap="true"></Label>
+  <Label text="Ciesz się z wygranej!!!" class="h4 " textWrap="true"></Label>
+  <Label text="Pieniądze zostaną przelane na Twoje konto w totalizatorze !!!" class="h4 " textWrap="true"></Label>
+</StackLayout>
+</ScrollView>
 
-<!--
-Original Web template:
-
-<h1 class="text-left">Witamy w samouczku</h1>
-<h2>Krok 1</h2>
-<h3>
-  Aby obstawić wynik należy gospodarować pewną sumą pieniędzy.Aby doładować swoje konto należy kliknąć pole  MOJE KONTO w menu na górze ekranu a następnie przycisk <button class="btn btn-primary">"Doładuj konto"</button>
-</h3>
-<h2>Krok 2</h2>
-<h3>
-Następnie przechodzimy do zakładki GONITWY. Tam możemy zobaczyć gonitwy, które się już odbyły i gonitwy, które odbędą się wkrótce. Aby zobaczyć wyniki gonitw klikamy SZCZEGÓŁY. Aby przejść do obstawiania klikamy przycisk OBSTAW przy wyścigu,który nas interesuje
-
-</h3>
-<h2>Krok 3</h2>
-<h3>
-  Jesteśmy w panelu obstawiania.
-
-  Tutaj musimy wybrać RODZAJ GONITWY którego mamy 5 rodzajów:
-  <div class="align-middle">
-  <li class="list-group">Rodzaje gonitwy:
-    <ul class="list-group-item list-group-item-action">ZWYCZAJNY-wybieramy jednego konia, który wygra wyścig</ul>
-    <ul class="list-group-item list-group-item-action">PORZĄDEK-wybieramy dwa konie, które zajmą pierwsze dwa miejsca zgodnie z tym jak wyznaczyliśmy</ul>
-    <ul class="list-group-item list-group-item-action">DWÓJKA-wybieramy dwa konie, które zajmą pierwsze dwa miejsca kolejność nie ma znaczenia</ul>
-    <ul class="list-group-item list-group-item-action">TRÓJKA-wybieramy trzy konie, które zajmą pierwsze trzy miejsca</ul>
-    <ul class="list-group-item list-group-item-action">CZWÓRKA-wybieramy cztery konie, które zajmą pierwsze cztery miejsca</ul>
-  </li>
-  </div>
-
-  następnie wpisujemy stawkę o jaką zagramy(Pamiętaj o doładowaniu konta :D ). Wybieramy wierzchowce w odpowiednich kolejnościach i klikamy DODAJ ZAKŁAD.
-  (Masz możliwość obstawienia 3 takich samych wierzchowców na każdym miejscu. Tylko pamiętaj, że w takiej sytuacji nic nie zyskujesz!!!).
-</h3>
-<h2>Krok 4</h2>
-<h3>
-  Czekasz na wynik wyścigu. Może pojawić sie z opóźnieniem gdyż administracja musi wprowadzić go po weryfikacji miejsc i testach antydopingowych i antynarkotykowych.
-</h3>
-<h2>Krok 5</h2>
-<h3>
-  Ciesz sięz wygranej!!!!
-  Pieniądze zostaną przelane na Twoje konto w totalizatorze !!!
-</h3>
-
-
--->

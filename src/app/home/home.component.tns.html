@@ -1,32 +1,11 @@
-<StackLayout>
-  <Label text="home works" textWrap="true"></Label>
-  <Label text="This is a migrated component" textWrap="true"></Label>
-  <Label text="Update it to provide the UI elements required in your mobile app" textWrap="true"></Label>
+
+<ActionBar title="Hi  {{currentUser.imie}}!" icon="" class="action-bar">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+<StackLayout style="padding:9cm">
+  <Label class="h4" text="Witaj w totalizatorze wyścigów konnych. Nasz totalizator dostarczy Tobie niesamowitych wrażeń. Życzymy samych wygranych !!!" textWrap="true"  ></Label>
+<Label class="h5"  text="Jak zacząć grę w naszym totalizatorze?"></Label>
+<Label class="h4"  text="W cellu uzyskania dalszych informacji przejdź do samouczka" textWrap="true" ></Label>
+<Button col="1" width="50%"  class="btn btn-primary btn-rounded-lg" text="Samouczek" nsRouterLink="/jak-grac"></Button>
 </StackLayout>
 
-<!--
-Original Web template:
-
-
-
-
-
-    <div class="row">
-        <div class="col-8">
-<h1>STRONA GŁÓWNA</h1>
-<h1 class="text-center text-success">Hi  {{currentUser.imie}}!</h1>
-<h2 class="text-left">Witaj w totalizatorze wyścigów konnych. Nasz totalizator dostarczy Tobie niesamowitych wrażeń. Życzymy samych wygranych !!!</h2>
-<h3 class="text-left">Jak zacząć grę w naszym totalizatorze?</h3>
-<p>Wszystko jest opisane w samouczku.Do którego możesz przejść <button class="btn btn-active btn-primary btn-lg" routerLink="/jak-grac">tutaj</button></p>
-
-        </div>
-        <div class="col-2">
-
-        </div>
-        <div class="col-2">
-
-        </div>
-    </div>
-
-
--->

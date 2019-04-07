@@ -1,8 +1,33 @@
-<StackLayout>
-  <Label text="register works" textWrap="true"></Label>
-  <Label text="This is a migrated component" textWrap="true"></Label>
-  <Label text="Update it to provide the UI elements required in your mobile app" textWrap="true"></Label>
+<ActionBar title="Zarejestruj" icon="" class="action-bar">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back" nsRouterLink="/login"></NavigationButton>
+</ActionBar>
+<ScrollView>
+<StackLayout class="form" [formGroup]="registerForm" style="padding:8%">
+  <Label text="Wprowadź Imię"> </Label>
+  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Imie"
+  [ngClass]="{ 'is-invalid': submitted && f.Imie.errors }"></TextField>
+
+  <StackLayout class="hr-dark m-10"></StackLayout>
+  <Label text="Nazwisko"> </Label>
+  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Nazwisko"
+  [ngClass]="{ 'is-invalid': submitted && f.Nazwisko.errors }" ></TextField>
+
+  <StackLayout class="hr-dark m-10"></StackLayout>
+  <Label text="Login"> </Label>
+  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
+  [ngClass]="{ 'is-invalid': submitted && f.Login.errors }"></TextField>
+
+  <StackLayout class="hr-dark m-10"></StackLayout>
+  <Label text="Haslo"> </Label>
+  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Haslo" [secure]="true" hint="Min 5 znaków"
+  [ngClass]="{ 'is-invalid': submitted && f.Haslo.errors }"></TextField>
+
+  <StackLayout class="hr-dark m-10"></StackLayout>
+  <Button [disabled]="loading"  text="Zarejestruj" (tap)="onSubmit()"></Button>
+  <Label text="Masz już konto? Zaloguj się!" nsRouterLink="/login" > </Label>
 </StackLayout>
+</ScrollView>
+
 
 <!--
 Original Web template:
@@ -11,7 +36,7 @@ Original Web template:
 <div class="fieldset">
     <legend>Rejestracja</legend>
 <form action="#" method="post"data-validate="parsley" class="registration-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
-        
+
     <div class="row">
         <label for="Imie">Imie</label>
         <input type="text" placeholder="Wprowadź imię" formControlName="Imie" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Imie.errors }" />

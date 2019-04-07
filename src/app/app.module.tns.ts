@@ -8,9 +8,16 @@ import { AppComponent } from './app.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
  import { NativeScriptFormsModule } from 'nativescript-angular/forms';
-
-// Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
+ import {NativeScriptUISideDrawerModule} from 'nativescript-ui-sidedrawer/angular';
  import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
+ import { ReactiveFormsModule } from '@angular/forms';
+
+import { AuthGuard } from './helpers/authGuard';
+import { AuthServiceService } from './Services/auth-service.service';
+import { ObliczeniaService } from './Services/obliczenia.service';
+import { AlertService } from './Services/alert.service';
+import { UserService } from './Services/user-service.service';
+
 import { AdminComponent } from './admin/admin.component';
 import { AktualGonitwyComponent } from './aktual-gonitwy/aktual-gonitwy.component';
 import { AktualizacjaComponent } from './aktualizacja/aktualizacja.component';
@@ -31,13 +38,9 @@ import { WierzchowiecComponent } from './wierzchowiec/wierzchowiec.component';
 import { WynikComponent } from './wynik/wynik.component';
 import { ZarzadzajGonitwamiComponent } from './zarzadzaj-gonitwami/zarzadzaj-gonitwami.component';
 import { ZmianaHaslaComponent } from './zmiana-hasla/zmiana-hasla.component';
-import {NativeScriptUISideDrawerModule} from 'nativescript-ui-sidedrawer/angular';
-import { AuthGuard } from './helpers/authGuard';
-import { AuthServiceService } from './Services/auth-service.service';
-import { ObliczeniaService } from './Services/obliczenia.service';
-import { AlertService } from './Services/alert.service';
-import { UserService } from './Services/user-service.service';
-import { ReactiveFormsModule } from '@angular/forms';
+
+
+
 
 @NgModule({
   declarations: [
@@ -75,9 +78,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   providers: [
     AuthGuard,
     AuthServiceService,
-
     AlertService,
     ObliczeniaService,
+
     UserService,
   ],
   bootstrap: [AppComponent],

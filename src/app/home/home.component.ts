@@ -12,13 +12,13 @@ import {AuthServiceService} from '../Services/auth-service.service';
 export class HomeComponent implements OnInit {
 
   currentUser: Gracz;
-  userFromApi: Gracz; 
+  userFromApi: Gracz;
 
   constructor(private userService: UserService,
     private authenticationService: AuthServiceService) {
 
     this.currentUser=this.authenticationService.currentUserValue;
-    
+
    }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     this.userFromApi=u;
    });
   }
-  
-    
+
+
   }
 

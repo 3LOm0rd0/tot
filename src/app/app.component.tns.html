@@ -1,29 +1,28 @@
 <!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
 
-
 <!-- <page-router-outlet></page-router-outlet> -->
 <!-- <app-admin></app-admin> -->
 
 <RadSideDrawer #drawer>
-  <GridLayout tkDrawerContent rows="*" class="sidedrawer sidedrawer-left">
-    <StackLayout class="sidedrawer-content">
-      <StackLayout nsRouterLink="jak-grac" clearHistory="true">
-          <Label class="link-label" text="LeLum PoLeLuM"></Label>
-      </StackLayout>
-      <StackLayout nsRouterLink="/admin"  clearHistory="true">
-        <Label class="link-label" text="Wódkie pijom"></Label>
+  <GridLayout tkDrawerContent rows="auto,*" class="sideStackLayout">
+    <StackLayout class="sideTitleStackLayout">
+      <Label class="h3" text="Menu"></Label>
     </StackLayout>
-    <!-- <StackLayout nsRouterLink="gonitwy"  clearHistory="true">
-      <Label class="link-label" text="Fajny ten program"></Label>
-  </StackLayout> -->
-  <StackLayout nsRouterLink="/login"  clearHistory="true">
-    <Label class="link-label" text="Jak waszmość się zowie?"></Label>
-</StackLayout>
+    <StackLayout class="sideStackLayout" row="1">
+        <Label class="sideLabel" text="Jak Grać" nsRouterLink="jak-grac" (tap)="onCloseDrawerTap()"></Label>
+        <Label class="sideLabel" text="Strona Główna" nsRouterLink="/home" (tap)="onCloseDrawerTap()" *ngIf="currentUser"></Label>
+        <Label class="sideLabel" text="Gonitwy" nsRouterLink="gonitwy" (tap)="onCloseDrawerTap()" *ngIf="currentUser"></Label>
+        <Label class="sideLabel" text="Moje Konto" nsRouterLink="moje-konto" (tap)="onCloseDrawerTap()" *ngIf="currentUser"></Label>
+        <Label class="sideLabel" text="O wyścigach" nsRouterLink="historia" (tap)="onCloseDrawerTap()" *ngIf="currentUser"></Label>
+        <Label class="sideLabel" text="Panel administratora" nsRouterLink="/admin" (tap)="onCloseDrawerTap()" *ngIf="currentUser" ></Label>
+        <Label  class="sideLabel" text="Wyloguj" *ngIf="currentUser" (tap)="onCloseDrawerTap()" (tap)="logout()"></Label>
+        <Label  class="sideLabel" text="Zaloguj" *ngIf="!currentUser" (tap)="onCloseDrawerTap()" ></Label>
+
     </StackLayout>
-
-
   </GridLayout>
-
-
-  <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
+  <!-- <StackLayout tkMainContent>
+    <Label [text]="mainContentText" textWrap="true" class="drawerContentText"></Label>
+    <Button text="OPEN DRAWER" (tap)="openDrawer()" class="drawerContentButton"></Button>
+</StackLayout> -->
+  <page-router-outlet tkMainContent></page-router-outlet>
 </RadSideDrawer>

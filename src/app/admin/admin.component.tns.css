@@ -4,3 +4,6 @@ To learn more about styling in NativeScript see:
 https://docs.nativescript.org/angular/ui/styling
 */
 
+StackLayout{
+  border-color: red;
+}
