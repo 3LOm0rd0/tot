@@ -1,28 +1,33 @@
-<ActionBar title="Panel administratora" icon="" class="action-bar">
+<ActionBar title="Panel administratora" icon="" class="action-bar" height="12%">
 </ActionBar>
 
 
-<StackLayout class="container" >
-    <Label  text="Lista zarejestrowanych graczy:"></Label>
-    <StackLayout class="hr-dark m-10"></StackLayout>
+<StackLayout class="container" style="padding-left: 5%; padding-right: 5%" >
+    <Label class="h5" height="8%" text="Lista zarejestrowanych graczy:"></Label>
+    <!-- <Label col="0" text="ID" class="h4" textWrap="true"></Label>
+    <Label col="1" text="Login" class="h4" textWrap="true"></Label>
+    <Label col="2" text="Imie" class="h4" textWrap="true"></Label>
+    <Label col="3" text="Nazwisko" class="h4" textWrap="true"></Label> -->
+    <StackLayout class="hr-dark m-10" style="margin:0"></StackLayout>
     <!-- <ScrollView > -->
-<ListView [items]="gracze" class="list-group" height="65%" >
-  <ng-template let-gracz="item" let-i="index">
-    <GridLayout flexWrap="wrap" class="user-container" columns="auto, auto, auto, auto" width="98%" >
-        <Label col="0" [text]="i+1" class="list-group-item" textWrap="true"></Label>
-      <Label col="1" [text]="gracz.login" class="list-group-item" textWrap="true"></Label>
-      <Label col="2" [text]="gracz.imie" class="list-group-item" textWrap="true"></Label>
-      <Label col="3" [text]="gracz.nazwisko" class="list-group-item" textWrap="true"></Label>
+<ListView [items]="gracze" class="list-group" height="65%"  >
+  <ng-template let-gracz="item" let-i="index" >
+    <GridLayout flexWrap="wrap" class="user-container" columns="*, 2*, 2*, 2*" width="98%">
+        <Label col="0" [text]="i+1" class="h4" textWrap="true"></Label>
+      <Label col="1" [text]="gracz.login" class="h4" textWrap="true"></Label>
+      <Label col="2" [text]="gracz.imie" class="h4" textWrap="true"></Label>
+      <Label col="3" [text]="gracz.nazwisko" class="h4" textWrap="true"></Label>
     </GridLayout>
 
   </ng-template>
 </ListView>
 <!-- </ScrollView> -->
-<GridLayout rows="auto" columns="*,auto">
-    <Button col="0" width="50%" class="add-button" text="Zarządzaj wierzchowcami " nsRouterLink="/wierzchowiec"></Button>
-    <Button col="1" width="50%"  class="add-button" text="Zarządzaj gonitwami" nsRouterLink="/gonitwy"></Button>
+<GridLayout flexWrap="wrap" rows="auto" columns="*,*" >
+    <Button col="0" width="50%" class="btn btn-primary btn-rounded-mg" text="Zarządzaj psami"  nsRouterLink="/wierzchowiec"></Button>
+    <Button col="1" width="50%" class="btn btn-primary btn-rounded-mg" text="Zarządzaj gonitwami" nsRouterLink="/gonitwy"></Button>
 </GridLayout>
 </StackLayout>
+
 
 
 <!--

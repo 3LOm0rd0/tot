@@ -4,11 +4,13 @@
 <!-- <app-admin></app-admin> -->
 
 <RadSideDrawer #drawer>
+
   <GridLayout tkDrawerContent rows="auto,*" class="sideStackLayout">
+      <ScrollView height="100%">
     <StackLayout class="sideTitleStackLayout">
       <Label class="h3" text="Menu"></Label>
     </StackLayout>
-    <StackLayout class="sideStackLayout" row="1">
+    <StackLayout class="sideStackLayout" row="1" >
         <Label class="sideLabel" text="Jak Grać" nsRouterLink="jak-grac" (tap)="onCloseDrawerTap()"></Label>
         <Label class="sideLabel" text="Strona Główna" nsRouterLink="/home" (tap)="onCloseDrawerTap()" *ngIf="currentUser"></Label>
         <Label class="sideLabel" text="Gonitwy" nsRouterLink="gonitwy" (tap)="onCloseDrawerTap()" *ngIf="currentUser"></Label>
@@ -19,10 +21,13 @@
         <Label  class="sideLabel" text="Zaloguj" *ngIf="!currentUser" (tap)="onCloseDrawerTap()" ></Label>
 
     </StackLayout>
+  </ScrollView>
   </GridLayout>
+
   <!-- <StackLayout tkMainContent>
     <Label [text]="mainContentText" textWrap="true" class="drawerContentText"></Label>
     <Button text="OPEN DRAWER" (tap)="openDrawer()" class="drawerContentButton"></Button>
 </StackLayout> -->
   <page-router-outlet tkMainContent></page-router-outlet>
 </RadSideDrawer>
+
