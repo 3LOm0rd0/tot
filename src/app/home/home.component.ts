@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.userService.getById(this.currentUser.id).pipe(first()).subscribe(u=>{
-    this.userFromApi=u;
-   });
+  //   this.userService.getById(this.currentUser.id).pipe(first()).subscribe(u=>{
+  //   this.userFromApi=u;
+  //  });
   }
 
 

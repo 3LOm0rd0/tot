@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
         console.log('zalogowany');
-        this.router.navigate(['/home']);
+        this.router.navigate([this.returnUrl]);
 
       },
       error => {

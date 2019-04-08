@@ -7,10 +7,9 @@
 
   <GridLayout tkDrawerContent rows="auto,*" class="sideStackLayout">
       <ScrollView height="100%">
-    <StackLayout class="sideTitleStackLayout">
-      <Label class="h3" text="Menu"></Label>
-    </StackLayout>
+
     <StackLayout class="sideStackLayout" row="1" >
+        <Label class="h3" text="Menu"></Label>
         <Label class="sideLabel" text="Jak Grać" nsRouterLink="jak-grac" (tap)="onCloseDrawerTap()"></Label>
         <Label class="sideLabel" text="Strona Główna" nsRouterLink="/home" (tap)="onCloseDrawerTap()" *ngIf="currentUser"></Label>
         <Label class="sideLabel" text="Gonitwy" nsRouterLink="gonitwy" (tap)="onCloseDrawerTap()" *ngIf="currentUser"></Label>

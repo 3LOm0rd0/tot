@@ -73,7 +73,8 @@ import { ZmianaHaslaComponent } from './zmiana-hasla/zmiana-hasla.component';
     NativeScriptFormsModule,
     AppRoutingModule,
     NativeScriptUISideDrawerModule,
-    ReactiveFormsModule
+
+    ReactiveFormsModule,
   ],
   providers: [
     AuthGuard,

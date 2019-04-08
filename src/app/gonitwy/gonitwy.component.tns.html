@@ -2,39 +2,32 @@
   <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
 </ActionBar>
 
+
+<ListView [items]="gonitwy">
+
+        <GridLayout columns="25, 2*, *, *, *" class="p-5" [backgroundColor]="i == 0 ? '#ccc' : 'white'">
+            <Label col="0" text="Numer"></Label>
+            <Label col="1" text="Nazwa nagrody" textAlignment="left"></Label>
+            <Label col="2" text="Godzina"></Label>
+            <Label col="3" text="Data'"></Label>
+            <Label col="4" text="Długość"></Label>
+          </GridLayout>
+
+
+    <ng-template let-g="item" let-i="index">
+      <GridLayout columns="25, 2*, *, *, *" class="p-5" [backgroundColor]="i == 0 ? '#ccc' : 'white'">
+        <Label col="0" [text]="g.nrGonitwyWSezonie"></Label>
+        <Label col="1" [text]="g.nazwaNagrody" textAlignment="left"></Label>
+        <Label col="2" [text]="g.godzinaRozpoczecia"></Label>
+        <Label col="3" [text]="g.data | date:'shortDate'"></Label>
+        <Label col="4" [text]="g.dlugosc"></Label>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+
+
+
 <!--
-Original Web template:
-
-<h1>Gonitwy </h1>
-<legend>Tabela gonitw które się odbyły</legend>
-<div class="table-wrapper-scroll-y">
-
-  <table class="table table-bordered table-striped table-hover table-dark">
-    <thead>
-  <tr>
-    <td> Numer Sezonowy Gonitwy:</td>
-    <td>Wyscig o:</td>
-    <td>Godzina startu:</td>
-    <td>Data:</td>
-    <td>Dystans wyscigu(m):</td>
-    <td>Wiecej informacji:</td>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let g of gonitwy">
-    <td>{{g.nrGonitwyWSezonie}}</td>
-    <td>{{g.nazwaNagrody}}</td>
-    <td>{{g.godzinaRozpoczecia}}</td>
-    <td>{{g.data| date:'dd-MM-yyyy'}}</td>
-    <td>{{g.dlugosc}}</td>
-    <td><button class="btn btn-success btn-lg btn-active" [routerLink]="['/szczegoly-wyscigu',g.nrGonitwyWSezonie]">Tutaj</button> </td>
-  </tr>
-  </tbody>
-</table>
-</div>
-<div>
-
-</div>
 <legend>Tabela gonitw które się odbedą</legend>
 <div class="table-wrapper-scroll-y">
 
@@ -63,6 +56,6 @@ Original Web template:
     </tr>
   </table>
 </div>
- <button class="btn btn-success btn-lg btn-block" *ngIf="isAdmin"(click)="ngDodajGonitwe()">Dodaj gonitwe</button>
+ <button class="btn btn-success btn-lg btn-block" *ngIf="isAdmin"(click)="ngDodajGonitwe()">Dodaj gonitwe</button> -->
 
--->
+

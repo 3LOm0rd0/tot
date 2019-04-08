@@ -9,7 +9,7 @@
     <Label col="2" text="Imie" class="h4" textWrap="true"></Label>
     <Label col="3" text="Nazwisko" class="h4" textWrap="true"></Label> -->
     <StackLayout class="hr-dark m-10" style="margin:0"></StackLayout>
-    <!-- <ScrollView > -->
+
 <ListView [items]="gracze" class="list-group" height="65%"  >
   <ng-template let-gracz="item" let-i="index" >
     <GridLayout flexWrap="wrap" class="user-container" columns="*, 2*, 2*, 2*" width="98%">
@@ -21,7 +21,7 @@
 
   </ng-template>
 </ListView>
-<!-- </ScrollView> -->
+
 <GridLayout flexWrap="wrap" rows="auto" columns="*,*" >
     <Button col="0" width="50%" class="btn btn-primary btn-rounded-mg" text="Zarządzaj psami"  nsRouterLink="/wierzchowiec"></Button>
     <Button col="1" width="50%" class="btn btn-primary btn-rounded-mg" text="Zarządzaj gonitwami" nsRouterLink="/gonitwy"></Button>

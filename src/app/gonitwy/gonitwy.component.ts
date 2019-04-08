@@ -16,18 +16,20 @@ import { Router } from '@angular/router';
 
 export class GonitwyComponent implements OnInit {
 
-  gonitwy: GonitwaAll[]=[];
+   gonitwy: GonitwaAll[]=[];
+
   gInsert:GonitwaInsert;
   gonitwyFuture: GonitwaAll[]=[];
   currentUser:Gracz;
+
   constructor(private gonitwaService:GonitwaServiceService,
     private authenticationService:AuthServiceService,
     private alertService:AlertService,
     private router:Router,
     private route:Router) {
       this.authenticationService.currentUser.subscribe(s=>this.currentUser=s); }
-  
-  
+
+
   ngOnInit() {
   this.gonitwaService.getAll().pipe(first()).subscribe(s=>this.gonitwy=s);
     this.gonitwaService.getAllFuture().pipe(first()).subscribe(s=>this.gonitwyFuture=s);
