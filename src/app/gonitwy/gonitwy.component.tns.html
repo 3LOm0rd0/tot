@@ -5,7 +5,7 @@
 
 <ListView [items]="gonitwy">
 
-        <GridLayout columns="25, 2*, *, *, *" class="p-5" [backgroundColor]="i == 0 ? '#ccc' : 'white'">
+        <GridLayout columns="20, 2*, *, *, *" class="p-5" [backgroundColor]="i == 0 ? '#ccc' : 'white'">
             <Label col="0" text="Numer"></Label>
             <Label col="1" text="Nazwa nagrody" textAlignment="left"></Label>
             <Label col="2" text="Godzina"></Label>
@@ -15,12 +15,12 @@
 
 
     <ng-template let-g="item" let-i="index">
-      <GridLayout columns="25, 2*, *, *, *" class="p-5" [backgroundColor]="i == 0 ? '#ccc' : 'white'">
-        <Label col="0" [text]="g.nrGonitwyWSezonie"></Label>
-        <Label col="1" [text]="g.nazwaNagrody" textAlignment="left"></Label>
-        <Label col="2" [text]="g.godzinaRozpoczecia"></Label>
-        <Label col="3" [text]="g.data | date:'shortDate'"></Label>
-        <Label col="4" [text]="g.dlugosc"></Label>
+      <GridLayout columns="25, 6*, 2*, 3*, 2*" class="p-5"  [backgroundColor]="i == 0 ? '#ccc' : 'white'">
+        <Label class="h4" col="0" [text]="g.nrGonitwyWSezonie"></Label>
+        <Label class="h4" col="1" [text]="g.nazwaNagrody" textAlignment="left"></Label>
+        <Label class="h4" col="2" [text]="g.godzinaRozpoczecia | slice:0:5" textAlignment="left"></Label>
+        <Label class="h4" col="3" [text]="g.data | date:'shortDate'" textAlignment="center"></Label>
+        <Label class="h4" col="4" [text]="g.dlugosc" textAlignment="right"></Label>
       </GridLayout>
     </ng-template>
   </ListView>

@@ -33,6 +33,7 @@ export class GonitwyComponent implements OnInit {
   ngOnInit() {
   this.gonitwaService.getAll().pipe(first()).subscribe(s=>this.gonitwy=s);
     this.gonitwaService.getAllFuture().pipe(first()).subscribe(s=>this.gonitwyFuture=s);
+
 }
 get isAdmin(){
   return this.currentUser && this.currentUser.rola==Role.Admin;
