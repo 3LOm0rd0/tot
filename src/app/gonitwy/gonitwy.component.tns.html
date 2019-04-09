@@ -2,30 +2,38 @@
   <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
 </ActionBar>
 
+<GridLayout rows="30,*" columns="*">
+    <AbsoluteLayout orientation="horizontal" class="p-5" [backgroundColor]="i == 0 ? '#ccc' : 'white'">
+        <Label class="h5" text="Numer" left="2*" ></Label>
+        <Label class="h5"  text="Nazwa" left="57*"  textAlignment="left"></Label>
+        <Label class="h5"  text="Godzina" left="110*"></Label>
+        <Label class="h5"  text="Data" left="165*"></Label>
+        <Label class="h5"  text="Dystans" left="200*"></Label>
+      </AbsoluteLayout>
 
-<ListView [items]="gonitwy">
-
-        <GridLayout columns="20, 2*, *, *, *" class="p-5" [backgroundColor]="i == 0 ? '#ccc' : 'white'">
-            <Label col="0" text="Numer"></Label>
-            <Label col="1" text="Nazwa nagrody" textAlignment="left"></Label>
-            <Label col="2" text="Godzina"></Label>
-            <Label col="3" text="Data'"></Label>
-            <Label col="4" text="Długość"></Label>
-          </GridLayout>
-
+<ListView [items]="gonitwy" row="1" col="0">
 
     <ng-template let-g="item" let-i="index">
-      <GridLayout columns="25, 6*, 2*, 3*, 2*" class="p-5"  [backgroundColor]="i == 0 ? '#ccc' : 'white'">
-        <Label class="h4" col="0" [text]="g.nrGonitwyWSezonie"></Label>
+      <AbsoluteLayout orientation="horizontal">
+
+        <Label class="h4" left="15%" [text]="g.nrGonitwyWSezonie"></Label>
+        <Label class="h4" left="38%" [text]="g.nazwaNagrody" ></Label>
+        <Label class="h4" left="130%" [text]="g.godzinaRozpoczecia | slice:0:5" ></Label>
+        <Label class="h4" left="170%"  [text]="g.data | date:'shortDate'" ></Label>
+        <Label class="h4" left="220%"  [text]="g.dlugosc" ></Label>
+      </AbsoluteLayout>
+
+    </ng-template>
+  </ListView>
+</GridLayout>
+
+ <!-- <GridLayout columns="25, 6*, 2*, 3*, 2*" class="p-5"  [backgroundColor]="i == 0 ? '#ccc' : 'white'"> -->
+        <!-- <Label class="h4" col="0" [text]="g.nrGonitwyWSezonie"></Label>
         <Label class="h4" col="1" [text]="g.nazwaNagrody" textAlignment="left"></Label>
         <Label class="h4" col="2" [text]="g.godzinaRozpoczecia | slice:0:5" textAlignment="left"></Label>
         <Label class="h4" col="3" [text]="g.data | date:'shortDate'" textAlignment="center"></Label>
-        <Label class="h4" col="4" [text]="g.dlugosc" textAlignment="right"></Label>
-      </GridLayout>
-    </ng-template>
-  </ListView>
-
-
+        <Label class="h4" col="4" [text]="g.dlugosc" textAlignment="right"></Label> -->
+         <!-- </GridLayout> -->
 
 <!--
 <legend>Tabela gonitw które się odbedą</legend>

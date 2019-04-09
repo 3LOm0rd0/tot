@@ -28,14 +28,15 @@ export class AppComponent implements AfterViewInit, OnInit  {
   }
   @ViewChild(RadSideDrawerComponent) public drawerComponent: RadSideDrawerComponent;
     private drawer: RadSideDrawer;
+    public ngOnInit(){
+      this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
+  }
     ngAfterViewInit() {
       this.drawer = this.drawerComponent.sideDrawer;
       this._changeDetectionRef.detectChanges();
   }
 
-  ngOnInit() {
-      this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
-  }
+
 
   get mainContentText() {
       return this._mainContentText;

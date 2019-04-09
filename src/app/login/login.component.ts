@@ -1,3 +1,4 @@
+import { AppComponent } from './../../../.tmp_backup/platforms/android/app/src/main/assets/app/tns_modules/@nativescript/schematics/src/ng-new/shared/_files/__sourcedir__/app/app.component';
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../Services/auth-service.service';
 import {Router, ActivatedRoute} from '@angular/router';
@@ -5,6 +6,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {AlertService} from '../Services/alert.service';
  import { Page } from 'tns-core-modules/ui/page/page';
+import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
+
 
 @Component({
   selector: 'app-login',

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-gonitwy',
   templateUrl: './gonitwy.component.html',
-  styleUrls: ['./gonitwy.component.css']
+  styleUrls: ['./gonitwy.component.tns.css']
 })
 
 export class GonitwyComponent implements OnInit {
