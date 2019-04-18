@@ -1,8 +1,4 @@
-<StackLayout>
-  <Label text="obstaw works" textWrap="true"></Label>
-  <Label text="This is a migrated component" textWrap="true"></Label>
-  <Label text="Update it to provide the UI elements required in your mobile app" textWrap="true"></Label>
-</StackLayout>
+<app-action-bar title="Obstaw wyścig"></app-action-bar>
 
 <!--
 Original Web template:
@@ -16,7 +12,7 @@ Original Web template:
     <label for="RodzajZakladu">RodzajZakladu</label>
     <select formControlName="RodzajZakladu" (change)='onChange($event)' class="form-control" >
       <option placeholder="rodzaj zakładu" *ngFor="let r of rodzaje" [value]="r.id">
-        {{r.nazwaZakladu}} 
+        {{r.nazwaZakladu}}
       </option>
     </select>
   </div>
@@ -25,7 +21,7 @@ Original Web template:
     <input type="hidden" formControlName="IdGonitwy" />
   </div>
   <div class="form-group">
-    <input type="hidden" formControlName="IdGracza"/> 
+    <input type="hidden" formControlName="IdGracza"/>
   </div>
   <div class="form-group">
     <label for="Stawka">Stawka</label>
@@ -35,7 +31,7 @@ Original Web template:
     <label for="Typowanie1">Typ1</label>
     <select placeholder="Nazwa wierzchowca i kurs" formControlName="Typowanie1" class="form-control">
       <option *ngFor="let l of lista" [value]="l.nazwaWierzchowca">
-        {{l.nazwaWierzchowca}} 
+        {{l.nazwaWierzchowca}}
       </option>
     </select>
   </div>
@@ -51,7 +47,7 @@ Original Web template:
         <label for="Typowanie3">Typ3</label>
         <select placeholder="Nazwa wierzchowca i kurs" *ngIf="idP==4 || idP==5" formControlName="Typowanie3" class="form-control">
           <option *ngFor="let l of lista" [value]="l.nazwaWierzchowca">
-            {{l.nazwaWierzchowca}} 
+            {{l.nazwaWierzchowca}}
           </option>
         </select>
       </div>
@@ -59,7 +55,7 @@ Original Web template:
           <label for="Typowanie4">Typ4</label>
           <select placeholder="Nazwa wierzchowca i kurs" *ngIf=" idP==5"formControlName="Typowanie4" class="form-control">
             <option *ngFor="let l of lista" [value]="l.nazwaWierzchowca">
-              {{l.nazwaWierzchowca}} 
+              {{l.nazwaWierzchowca}}
             </option>
           </select>
         </div>

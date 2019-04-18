@@ -3,7 +3,7 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 require( 'nativescript-localstorage' );
 
 import { AppRoutingModule } from './app-routing.module.tns';
-import { AppComponent } from './app.component';
+
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -38,6 +38,8 @@ import { WierzchowiecComponent } from './wierzchowiec/wierzchowiec.component';
 import { WynikComponent } from './wynik/wynik.component';
 import { ZarzadzajGonitwamiComponent } from './zarzadzaj-gonitwami/zarzadzaj-gonitwami.component';
 import { ZmianaHaslaComponent } from './zmiana-hasla/zmiana-hasla.component';
+import { ActionBarComponent } from './action-bar/action-bar.component';
+import { AppComponent } from './app.component.tns';
 
 
 
@@ -65,6 +67,7 @@ import { ZmianaHaslaComponent } from './zmiana-hasla/zmiana-hasla.component';
     WynikComponent,
     ZarzadzajGonitwamiComponent,
     ZmianaHaslaComponent,
+    ActionBarComponent,
 
   ],
   imports: [

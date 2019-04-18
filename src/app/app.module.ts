@@ -32,6 +32,7 @@ import { AktualGonitwyComponent } from './aktual-gonitwy/aktual-gonitwy.componen
 import { ObliczeniaService } from './Services/obliczenia.service';
 import { DoladujKontoComponent } from './doladuj-konto/doladuj-konto.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ActionBarComponent } from './action-bar/action-bar.component';
 
 
 
@@ -58,7 +59,8 @@ import { PaymentComponent } from './payment/payment.component';
     WynikComponent,
     AktualGonitwyComponent,
     DoladujKontoComponent,
-    PaymentComponent
+    PaymentComponent,
+    ActionBarComponent
   ],
   imports: [
     BrowserModule,

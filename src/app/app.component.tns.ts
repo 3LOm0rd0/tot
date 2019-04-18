@@ -1,3 +1,4 @@
+import { RouterExtensions } from 'nativescript-angular/router';
 import { Component, AfterViewInit, ChangeDetectorRef, ViewChild, OnInit } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
 import { Router } from '@angular/router';
@@ -12,15 +13,15 @@ import { RadSideDrawerComponent } from 'nativescript-ui-sidedrawer/angular/side-
 @Component({
   moduleId: module.id,
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  // styleUrls: ['./app.component.tns.css'],
+  templateUrl: './app.component.tns.html',
+   styleUrls: ['./app.component.css'],
 })
 
 export class AppComponent implements AfterViewInit, OnInit  {
   private _mainContentText: string;
   currentUser: Gracz;
   constructor(page: Page,
-    private router: Router,
+    private router: RouterExtensions,
     private authenticationService: AuthServiceService,
     private _changeDetectionRef: ChangeDetectorRef ) {
   page.actionBarHidden = true;
@@ -60,7 +61,7 @@ export class AppComponent implements AfterViewInit, OnInit  {
   logout() {
     this.authenticationService.logout();
 
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login'],{clearHistory:true});
   }
 
 }

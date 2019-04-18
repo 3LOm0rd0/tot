@@ -1,12 +1,12 @@
-import { AppComponent } from './../../../.tmp_backup/platforms/android/app/src/main/assets/app/tns_modules/@nativescript/schematics/src/ng-new/shared/_files/__sourcedir__/app/app.component';
+import { RouterExtensions } from 'nativescript-angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../Services/auth-service.service';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {AlertService} from '../Services/alert.service';
  import { Page } from 'tns-core-modules/ui/page/page';
-import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
+
 
 
 @Component({
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   constructor(
     page: Page,
     private route: ActivatedRoute,
-    private router: Router,
+    private router: RouterExtensions,
     private authenticationService: AuthServiceService,
     private alertService: AlertService,
     private formBuilder: FormBuilder) {
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
         console.log('zalogowany');
-        this.router.navigate([this.returnUrl]);
+        this.router.navigate([this.returnUrl], {clearHistory: true});
 
       },
       error => {
