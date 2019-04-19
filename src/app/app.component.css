@@ -24,6 +24,31 @@ li a:hover{
   background-color: #111;
 }
 
+.drawer-container {
+  background: linear-gradient(140deg, #2b0c72, #593aa1);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15;
+}
 
+.sideStackLayout{
+  background: linear-gradient(140deg, #5727c5, #8970c2);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10%;
+}
+.sideLabel {
+  margin-left: 15%;
+  font-weight: bold;
+  color: rgb(13, 7, 58);
 
+}
+
+.h3 {
+  margin-left: 8%;
+  font-size: 25%;
+  color: #111
+}
 
