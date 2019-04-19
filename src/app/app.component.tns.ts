@@ -1,12 +1,14 @@
+import { Component, AfterViewInit, ChangeDetectorRef, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { Component, AfterViewInit, ChangeDetectorRef, ViewChild, OnInit } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
+import { RadSideDrawerComponent } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
+import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import { Router } from '@angular/router';
 import { AuthServiceService } from './Services/auth-service.service';
 import { Gracz } from './Models/Gracz';
 import { Role } from './Models/Role';
-import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
-import { RadSideDrawerComponent } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
+import { UIService } from './Services/ui.service';
 
 
 
@@ -17,38 +19,40 @@ import { RadSideDrawerComponent } from 'nativescript-ui-sidedrawer/angular/side-
    styleUrls: ['./app.component.css'],
 })
 
-export class AppComponent implements AfterViewInit, OnInit  {
-  private _mainContentText: string;
+export class AppComponent implements AfterViewInit, OnInit, OnDestroy  {
+ private drawerSub: Subscription;
+  private drawer: RadSideDrawer;
   currentUser: Gracz;
+
   constructor(page: Page,
+    private uiService: UIService,
     private router: RouterExtensions,
     private authenticationService: AuthServiceService,
     private _changeDetectionRef: ChangeDetectorRef ) {
   page.actionBarHidden = true;
-    this.authenticationService.currentUser.subscribe(s => this.currentUser = s);
+   this.authenticationService.currentUser.subscribe(s => this.currentUser = s);
   }
   @ViewChild(RadSideDrawerComponent) public drawerComponent: RadSideDrawerComponent;
-    private drawer: RadSideDrawer;
+
     public ngOnInit(){
-      this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
-  }
+
+      this.drawerSub = this.uiService.drawerState.subscribe(() => {
+        if (this.drawer) {
+          this.drawer.toggleDrawerState();
+        }
+       });
+
+      }
     ngAfterViewInit() {
-      this.drawer = this.drawerComponent.sideDrawer;
+
+      this.drawer =  this.drawerComponent.sideDrawer;
       this._changeDetectionRef.detectChanges();
+
   }
-
-
-
-  get mainContentText() {
-      return this._mainContentText;
-  }
-
-  set mainContentText(value: string) {
-      this._mainContentText = value;
-  }
-
-  public openDrawer() {
-      this.drawer.showDrawer();
+  ngOnDestroy(): void {
+    if(this.drawerSub){
+        this.drawerSub.unsubscribe();
+    }
   }
 
   public onCloseDrawerTap() {
@@ -60,8 +64,8 @@ export class AppComponent implements AfterViewInit, OnInit  {
   }
   logout() {
     this.authenticationService.logout();
-
-    this.router.navigate(['/login'],{clearHistory:true});
+    this.drawer.closeDrawer();
+    this.router.navigate(['/login']);
   }
 
 }

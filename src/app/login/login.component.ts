@@ -30,11 +30,11 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthServiceService,
     private alertService: AlertService,
     private formBuilder: FormBuilder) {
-       page.actionBarHidden = false;
-       page.actionBar.title="Sign in"
+      //  page.actionBarHidden = false;
+      //  page.actionBar.title="Sign in"
       // przekieruje do home jesli zalogowany
       if (this.authenticationService.currentUserValue) {
-        this.router.navigate(['/']);
+        this.router.navigate(['/'],{clearHistory:true});
     }
   }
   ngOnInit() {

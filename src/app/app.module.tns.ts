@@ -1,3 +1,4 @@
+import { UIService } from './Services/ui.service';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 require( 'nativescript-localstorage' );
@@ -84,7 +85,7 @@ import { AppComponent } from './app.component.tns';
     AuthServiceService,
     AlertService,
     ObliczeniaService,
-
+    //UIService,
     UserService,
   ],
   bootstrap: [AppComponent],
