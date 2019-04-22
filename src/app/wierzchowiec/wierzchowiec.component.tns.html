@@ -1,4 +1,26 @@
 <app-action-bar title="Zarządzaj wierzchowcami" [showBackButton]="true"></app-action-bar>
+<ListView [items]="koniki">
+  <ng-template let-konik="item" let-i="index" >
+    <GridLayout columns="70,*,*,*" rows="20,20,20" margin="8%">
+      <Label [text]="i+1" row="0" col="0" ></Label>
+      <Label [text]="konik.nazwaWierzchowca" row="1" col="0" ></Label>
+      <Label [text]="konik.rasa" row="0" col="1"></Label>
+      <Label [text]="konik.umaszczenie" row="1" col="1"></Label>
+      <Label [text]="konik.plec" row="0" col="2"></Label>
+      <Label [text]="konik.wlasciciel" row="1" col="2" colSpan="2"></Label>
+
+      <StackLayout row="0" col="3" orientation="horizontal">
+
+          <Label [text]="konik.wiek" ></Label>
+          <Label text=" lat(a) "></Label>
+      </StackLayout>
+      <Label text="Cecha:" row="2" col="0" colSpan="1"></Label>
+      <Label [text]="konik.znakiSzczegolne" row="2" col="1" colSpan="3"></Label>
+
+
+    </GridLayout>
+  </ng-template>
+</ListView>
 <!--
 Original Web template:
 
