@@ -14,7 +14,7 @@ declare var android: any;
 })
 export class ActionBarComponent implements OnInit {
   @Input() title: string;
-  @Input() hasMenu = false;
+  @Input() hasMenu = true;
   @Input() showBackButton = true;
 
   constructor(private page: Page,
@@ -30,6 +30,9 @@ export class ActionBarComponent implements OnInit {
 
   onGoBack() {
     this.router.backToPreviousPage();
+  }
+  get canMenu(){
+    return this.hasMenu;
   }
 
   onLoadedActionBar() {

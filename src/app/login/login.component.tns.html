@@ -1,4 +1,4 @@
-<app-action-bar title="Login" [hasMenu]="false" [showBackButton]="false"></app-action-bar>
+<app-action-bar title="Login" [hasMenu]="false"  [showBackButton]="false"></app-action-bar>
 <StackLayout class="form" [formGroup]="loginForm" style="padding:8%">
   <Label text="Login"> </Label>
   <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
@@ -10,8 +10,9 @@
   [ngClass]="{ 'is-invalid': submitted && f.Haslo.errors }"></TextField>
 
   <StackLayout class="hr-dark m-10"></StackLayout>
-  <Button [disabled]="loading"  text="Zaloguj" (tap)="onSubmit()"></Button>
-  <StackLayout>  <Label text="Nie masz jeszcze konta? Zarejestruj!" nsRouterLink="/register"> </Label>
+  <Button *ngIf="!loading"  text="Zaloguj" (tap)="onSubmit()"></Button>
+  <ActivityIndicator [busy]="loading"></ActivityIndicator>
+  <StackLayout *ngIf="!loading">  <Label text="Nie masz jeszcze konta? Zarejestruj!" nsRouterLink="/register"> </Label>
   </StackLayout>
 
 </StackLayout>

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthServiceService,
     private alertService: AlertService,
     private formBuilder: FormBuilder) {
-      //  page.actionBarHidden = false;
+        page.actionBarHidden = false;
       //  page.actionBar.title="Sign in"
       // przekieruje do home jesli zalogowany
       if (this.authenticationService.currentUserValue) {
@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
         console.log('zalogowany');
+        this.loading = false;
         this.router.navigate([this.returnUrl], {clearHistory: true});
 
       },
