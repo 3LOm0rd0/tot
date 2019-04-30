@@ -1,6 +1,13 @@
 <app-action-bar title="Gonitwy" [showBackButton]="true"></app-action-bar>
 
-<GridLayout rows="30,*" columns="*">
+<StackLayout>
+<StackLayout orientation="horizontal">
+    <Button text="<>" (tap)="pyk()" height="40" width="40"></Button>
+  <Label *ngIf="!przyszleGonitwy"  class="h3" text="Sprawdź szczegóły wyścigu:" ></Label>
+  <Label *ngIf="przyszleGonitwy"  class="h3"  text="Obstaw" ></Label>
+
+</StackLayout>
+<GridLayout  width="100%" rows="35,*" columns="*">
     <AbsoluteLayout orientation="horizontal" class="p-5" [backgroundColor]="i == 0 ? '#ccc' : 'white'">
         <Label class="h5" text="Numer" left="2*" ></Label>
         <Label class="h5"  text="Nazwa" left="57*"  textAlignment="left"></Label>
@@ -8,60 +15,37 @@
         <Label class="h5"  text="Data" left="165*"></Label>
         <Label class="h5"  text="Dystans" left="200*"></Label>
       </AbsoluteLayout>
+<!-- Lista Gonitw które się już odbyły -->
+<ListView *ngIf="!przyszleGonitwy" [items]="gonitwy" row="1" col="0"  (itemTap)="zobaczSzczegoly($event)"  >
 
-<ListView [items]="gonitwy" row="1" col="0">
+    <ng-template let-g="item" let-i="index" >
+      <AbsoluteLayout  orientation="horizontal" (tap)="onItemTap(g.nrGonitwyWSezonie)" >
 
-    <ng-template let-g="item" let-i="index">
-      <AbsoluteLayout orientation="horizontal">
-
-        <Label class="h4" left="15%" [text]="g.nrGonitwyWSezonie"></Label>
-        <Label class="h4" left="38%" [text]="g.nazwaNagrody" ></Label>
-        <Label class="h4" left="130%" [text]="g.godzinaRozpoczecia | slice:0:5" ></Label>
-        <Label class="h4" left="170%"  [text]="g.data | date:'shortDate'" ></Label>
-        <Label class="h4" left="220%"  [text]="g.dlugosc" ></Label>
+        <Label height="30" class="h4" top="15%" left="15%" [text]="g.nrGonitwyWSezonie" ></Label>
+        <Label class="h4" top="15%"  left="38%" [text]="g.nazwaNagrody"  ></Label>
+        <Label class="h4" top="15%"  left="130%" [text]="g.godzinaRozpoczecia | slice:0:5" ></Label>
+        <Label class="h4" top="15%"  left="170%"  [text]="g.data | date:'shortDate'" ></Label>
+        <Label class="h4" top="15%"  left="220%"  [text]="g.dlugosc" ></Label>
       </AbsoluteLayout>
-
     </ng-template>
   </ListView>
+  <!-- Lista Gonitw, które się odbędą -->
+  <ListView *ngIf="przyszleGonitwy" [items]="gonitwyFuture" row="1" col="0"  (itemTap)="zobaczSzczegoly($event)"  >
+
+      <ng-template let-g="item" let-i="index" >
+        <AbsoluteLayout orientation="horizontal" (tap)="onItemTapObstaw(g.nrGonitwyWSezonie)" >
+
+          <Label class="h4" height="30"  top="15%"  left="15%" [text]="g.nrGonitwyWSezonie" ></Label>
+          <Label class="h4" top="15%"  left="38%" [text]="g.nazwaNagrody"  ></Label>
+          <Label class="h4" top="15%"  left="130%" [text]="g.godzinaRozpoczecia | slice:0:5" ></Label>
+          <Label class="h4" top="15%"  left="170%"  [text]="g.data | date:'shortDate'" ></Label>
+          <Label class="h4" top="15%"  left="220%"  [text]="g.dlugosc" ></Label>
+        </AbsoluteLayout>
+      </ng-template>
+    </ListView>
 </GridLayout>
+</StackLayout>
 
- <!-- <GridLayout columns="25, 6*, 2*, 3*, 2*" class="p-5"  [backgroundColor]="i == 0 ? '#ccc' : 'white'"> -->
-        <!-- <Label class="h4" col="0" [text]="g.nrGonitwyWSezonie"></Label>
-        <Label class="h4" col="1" [text]="g.nazwaNagrody" textAlignment="left"></Label>
-        <Label class="h4" col="2" [text]="g.godzinaRozpoczecia | slice:0:5" textAlignment="left"></Label>
-        <Label class="h4" col="3" [text]="g.data | date:'shortDate'" textAlignment="center"></Label>
-        <Label class="h4" col="4" [text]="g.dlugosc" textAlignment="right"></Label> -->
-         <!-- </GridLayout> -->
 
-<!--
-<legend>Tabela gonitw które się odbedą</legend>
-<div class="table-wrapper-scroll-y">
-
-  <table class="table table-bordered table-striped table-hover table-dark">
-    <tr>
-      <td> Numer Sezonowy Gonitwy:</td>
-      <td>Wyscig o:</td>
-      <td>Warunki:</td>
-      <td>Godzina startu:</td>
-      <td>Data:</td>
-      <td>Dystans wyscigu(m):</td>
-      <td *ngIf="!isAdmin">Obstaw:</td>
-      <td *ngIf="isAdmin">Aktualizacja</td>
-      <td *ngIf="isAdmin">Usuń</td>
-    </tr>
-    <tr *ngFor="let g of gonitwyFuture">
-      <td>{{g.nrGonitwyWSezonie}}</td>
-      <td>{{g.nazwaNagrody}}</td>
-      <td>{{g.warunkiGonitwy}}</td>
-      <td>{{g.godzinaRozpoczecia}}</td>
-      <td>{{g.data| date:'dd-MM-yyyy'}}</td>
-      <td>{{g.dlugosc}}</td>
-      <td *ngIf="!isAdmin"><button class="btn btn-warning btn active" *ngIf="!isAdmin" [routerLink]="['/obstaw',g.nrGonitwyWSezonie]">Obstaw wynik</button> </td>
-      <td *ngIf="isAdmin"><button class="btn btn-primary btn-active" *ngIf="isAdmin" [routerLink]="['/aktual-gonitwy',g.nrGonitwyWSezonie]">Aktualizuj</button></td>
-      <td *ngIf="isAdmin"><button class="btn btn-danger btn active" *ngIf="isAdmin" (click)='usunGonitwe(g.nrGonitwyWSezonie)'>Usuń gonitwę</button> </td>
-    </tr>
-  </table>
-</div>
- <button class="btn btn-success btn-lg btn-block" *ngIf="isAdmin"(click)="ngDodajGonitwe()">Dodaj gonitwe</button> -->
 
 

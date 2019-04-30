@@ -17,6 +17,7 @@ export class WierzchowiecComponent implements OnInit {
   wierzchForm: FormGroup;
   loading = false;
   submitted = false;
+  tabela = true;
   koniki: Wierzchowiec[];
   kon:WierzchowiecInsert;
   selectedkoniki: Wierzchowiec;
@@ -34,19 +35,23 @@ export class WierzchowiecComponent implements OnInit {
       umaszczenie: ['',Validators.required],
       plec: ['',Validators.required],
       znakiSzczegolne:['',Validators.required],
-      wlasciciel: ['',Validators.required],     
+      wlasciciel: ['',Validators.required],
     });
     this.service.getWierzchowce().subscribe(s=>this.koniki=s);
   }
   get f(){return this.wierzchForm.controls;}
 
+  pyk(){
+    this.tabela = !this.tabela;
+  }
+
   onSubmit(){
     this.submitted=true;
     if(this.wierzchForm.invalid){
-      return; 
+      return;
     }
     this.kon=Object.assign({},this.wierzchForm.value);
-    
+
     this.loading=true;
     this.service.addHorse(this.kon)
     .pipe(first())

@@ -1,3 +1,4 @@
+import { RouterExtensions } from 'nativescript-angular/router';
 import { Component, OnInit } from '@angular/core';
 import {GonitwaAll, GonitwaInsert} from '../Models/Gonitwa';
 import { GonitwaServiceService } from '../Services/gonitwa-service.service';
@@ -16,8 +17,8 @@ import { Router } from '@angular/router';
 
 export class GonitwyComponent implements OnInit {
 
-   gonitwy: GonitwaAll[]=[];
-
+  gonitwy: GonitwaAll[]=[];
+  przyszleGonitwy =false;
   gInsert:GonitwaInsert;
   gonitwyFuture: GonitwaAll[]=[];
   currentUser:Gracz;
@@ -25,7 +26,7 @@ export class GonitwyComponent implements OnInit {
   constructor(private gonitwaService:GonitwaServiceService,
     private authenticationService:AuthServiceService,
     private alertService:AlertService,
-    private router:Router,
+    private router:RouterExtensions,
     private route:Router) {
       this.authenticationService.currentUser.subscribe(s=>this.currentUser=s); }
 
@@ -45,6 +46,16 @@ ngDodajGonitwe(){
  this.route.navigate(['/zarzadzaj-gonitwami']);
 }
 
+onItemTap(identyfikator:number){
+this.router.navigate(['/szczegoly-wyscigu', identyfikator]);
+}
+onItemTapObstaw(identyfikator:number){
+  console.log(identyfikator);
+  this.router.navigate(['/obstaw', identyfikator]);
+  }
+pyk(){
+  this.przyszleGonitwy = !this.przyszleGonitwy;
+}
 usunGonitwe(id:number){
   if(confirm("Jesteś pewien, że chcesz usunąć gonitwę?")){
 
