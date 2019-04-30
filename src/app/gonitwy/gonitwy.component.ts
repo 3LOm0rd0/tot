@@ -8,6 +8,8 @@ import { Gracz } from '../Models/Gracz';
 import{Role} from '../Models/Role';
 import { AlertService } from '../Services/alert.service';
 import { Router } from '@angular/router';
+import {setCurrentOrientation , orientationCleanup} from 'nativescript-screen-orientation';
+import { Page } from 'tns-core-modules/ui/page/page';
 
 @Component({
   selector: 'app-gonitwy',
@@ -27,8 +29,18 @@ export class GonitwyComponent implements OnInit {
     private authenticationService:AuthServiceService,
     private alertService:AlertService,
     private router:RouterExtensions,
-    private route:Router) {
-      this.authenticationService.currentUser.subscribe(s=>this.currentUser=s); }
+    private route:Router,
+    page: Page) {
+      this.authenticationService.currentUser.subscribe(s=>this.currentUser=s);
+      page.on("navigatedTo",function(){
+        setCurrentOrientation("portrait",function(){
+        console.log("portrait orientation");
+        });
+     });
+     page.on("navigatingFrom",function(){
+   orientationCleanup();
+        });
+     }
 
 
   ngOnInit() {
