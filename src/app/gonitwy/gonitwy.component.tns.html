@@ -1,10 +1,43 @@
 <app-action-bar title="Gonitwy" [showBackButton]="true"></app-action-bar>
+<TabView androidTabsPosition="bottom" selectedTabTextColor="black"
+androidSelectedTabHighlightColor="aquamarine" >
 
-<StackLayout>
+<ListView *tabItem="{title: 'Wyniki', iconSource: 'res://icon'}" [items]="gonitwy" row="1" col="0"  (itemTap)="zobaczSzczegoly($event)"  >
+  <ng-template let-g="item" let-i="index" >
+    <AbsoluteLayout  orientation="horizontal" (tap)="onItemTap(g.nrGonitwyWSezonie)" >
+      <Label height="30" class="h4" top="15%" left="15%" [text]="g.nrGonitwyWSezonie" ></Label>
+      <Label class="h4" top="15%"  left="38%" [text]="g.nazwaNagrody"  ></Label>
+      <Label class="h4" top="15%"  left="130%" [text]="g.godzinaRozpoczecia | slice:0:5" ></Label>
+      <Label class="h4" top="15%"  left="170%"  [text]="g.data | date:'shortDate'" ></Label>
+      <Label class="h4" top="15%"  left="220%"  [text]="g.dlugosc" ></Label>
+    </AbsoluteLayout>
+  </ng-template>
+</ListView>
+    <ListView *tabItem="{title: 'Obstaw', iconSource: 'res://icon'}" [items]="gonitwyFuture" row="1" col="0"  (itemTap)="zobaczSzczegoly($event)"  >
+
+      <ng-template let-g="item" let-i="index" >
+        <AbsoluteLayout orientation="horizontal" (tap)="onItemTapObstaw(g.nrGonitwyWSezonie)" >
+
+          <Label class="h4" height="30"  top="15%"  left="15%" [text]="g.nrGonitwyWSezonie" ></Label>
+          <Label class="h4" top="15%"  left="38%" [text]="g.nazwaNagrody"  ></Label>
+          <Label class="h4" top="15%"  left="130%" [text]="g.godzinaRozpoczecia | slice:0:5" ></Label>
+          <Label class="h4" top="15%"  left="170%"  [text]="g.data | date:'shortDate'" ></Label>
+          <Label class="h4" top="15%"  left="220%"  [text]="g.dlugosc" ></Label>
+        </AbsoluteLayout>
+      </ng-template>
+    </ListView>
+
+</TabView>
+
+
+
+
+
+<!-- <StackLayout>
 <StackLayout orientation="horizontal">
     <Button text="<>" (tap)="pyk()" height="40" width="40"></Button>
-  <Label *ngIf="!przyszleGonitwy"  class="h3" text="Sprawdź szczegóły wyścigu:" ></Label>
-  <Label *ngIf="przyszleGonitwy"  class="h3"  text="Obstaw" ></Label>
+  <Label *ngIf="przyszleGonitwy"  class="h3" text="Sprawdź szczegóły wyścigu:" ></Label>
+  <Label *ngIf="!przyszleGonitwy"  class="h3"  text="Obstaw" ></Label>
 
 </StackLayout>
 <GridLayout  width="100%" rows="35,*" columns="*">
@@ -15,8 +48,8 @@
         <Label class="h5"  text="Data" left="165*"></Label>
         <Label class="h5"  text="Dystans" left="200*"></Label>
       </AbsoluteLayout>
-<!-- Lista Gonitw które się już odbyły -->
-<ListView *ngIf="!przyszleGonitwy" [items]="gonitwy" row="1" col="0"  (itemTap)="zobaczSzczegoly($event)"  >
+
+<ListView *ngIf="przyszleGonitwy" [items]="gonitwy" row="1" col="0"  (itemTap)="zobaczSzczegoly($event)"  >
 
     <ng-template let-g="item" let-i="index" >
       <AbsoluteLayout  orientation="horizontal" (tap)="onItemTap(g.nrGonitwyWSezonie)" >
@@ -29,8 +62,8 @@
       </AbsoluteLayout>
     </ng-template>
   </ListView>
-  <!-- Lista Gonitw, które się odbędą -->
-  <ListView *ngIf="przyszleGonitwy" [items]="gonitwyFuture" row="1" col="0"  (itemTap)="zobaczSzczegoly($event)"  >
+
+  <ListView *ngIf="!przyszleGonitwy" [items]="gonitwyFuture" row="1" col="0"  (itemTap)="zobaczSzczegoly($event)"  >
 
       <ng-template let-g="item" let-i="index" >
         <AbsoluteLayout orientation="horizontal" (tap)="onItemTapObstaw(g.nrGonitwyWSezonie)" >
@@ -45,7 +78,7 @@
     </ListView>
 </GridLayout>
 </StackLayout>
-
+ -->
 
 
 

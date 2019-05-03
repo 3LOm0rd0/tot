@@ -1,5 +1,28 @@
 <app-action-bar title="Obstaw wyścig" [showBackButton]="true"></app-action-bar>
 
+<DockLayout stretchLastChild="true">
+  <Button dock="left" (tap)="selectBetType()" text="left" style="background-color: #0099CC; margin: 5;"></Button>
+  <Button dock="bottom" (tap)="selectType1()" text="bottom" style="background-color: #AA0078; margin: 5;"></Button>
+  <Button dock="top"  (tap)="setCash()" text="top" style="background-color: #B3B3D7; margin: 5;"></Button>
+  <Button text="fill" style="background-color: #CCFFFF; margin: 5;"></Button>
+
+
+</DockLayout>
+
+<!-- Kod do wyświetlenia listy wierzchowców wraz z kursem
+<ListView [items]="lista" separatorColor="yellow">
+  <ng-template let-l="item">
+      <StackLayout class="list-group-item">
+          <Label [text]="l.nazwaWierzchowca" class="list-group-item-heading"></Label>
+          <StackLayout orientation="horizontal">
+          <Label text="Kurs: " class="list-group-item-text" textWrap="true"></Label>
+          <Label [text]="l.kurs" class="list-group-item-text" textWrap="true"></Label>
+        </StackLayout>
+      </StackLayout>
+  </ng-template>
+</ListView> -->
+
+
 <!--
 Original Web template:
 

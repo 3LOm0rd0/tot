@@ -10,6 +10,8 @@ import { AlertService } from '../Services/alert.service';
 import { Router } from '@angular/router';
 import {setCurrentOrientation , orientationCleanup} from 'nativescript-screen-orientation';
 import { Page } from 'tns-core-modules/ui/page/page';
+import { TabView } from 'tns-core-modules/ui/tab-view';
+
 
 @Component({
   selector: 'app-gonitwy',

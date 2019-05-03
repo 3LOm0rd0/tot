@@ -8,19 +8,21 @@ import {Role} from '../Models/Role';
 import { Wynik } from '../Models/Wynik';
 import {first} from 'rxjs/operators';
 import { ObliczeniaService } from '../Services/obliczenia.service';
+
 @Component({
   selector: 'app-szczegoly-wyscigu',
   templateUrl: './szczegoly-wyscigu.component.html',
-  styleUrls: ['./szczegoly-wyscigu.component.css']
+  styleUrls: ['./szczegoly-wyscigu.component.tns.css']
 })
 export class SzczegolyWysciguComponent implements OnInit {
-  
+
   lista:GonitwaLista[];
   id:number;
   sth:any;
   private sub:any;
   currentUser:Gracz;
   wynik:Wynik;
+  kursy=false;
   constructor(private serviceGonitwy: GonitwaServiceService,
     private authenticationService:AuthServiceService,
     private oblicz:ObliczeniaService,
@@ -32,7 +34,7 @@ export class SzczegolyWysciguComponent implements OnInit {
     this.id=+params['id'];
     this.serviceGonitwy.getListaWysciguById(this.id).pipe(first()).subscribe(s=>this.lista=s);
     this.serviceGonitwy.getWynik(this.id).subscribe(s=>this.wynik=s);
-    
+
   })
   }
   ngOnDestory(){

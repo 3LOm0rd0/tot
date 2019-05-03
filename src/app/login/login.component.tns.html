@@ -1,22 +1,28 @@
 <app-action-bar title="Login" [hasMenu]="false"  [showBackButton]="false"></app-action-bar>
-<StackLayout class="form" [formGroup]="loginForm" style="padding:8%">
-  <Label text="Login"> </Label>
-  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
+<Image class="p-15" src="res://background"></Image>
+<ScrollView>
+    <StackLayout class="p-5 form">
+        <StackLayout class="form" [formGroup]="loginForm" >
+            <StackLayout class="input-field">
+                <Label text="Login" class="label" textWrap="true"></Label>
+                <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
   [ngClass]="{ 'is-invalid': submitted && f.Login.errors }"></TextField>
-
   <StackLayout class="hr-dark m-10"></StackLayout>
-  <Label text="Haslo"> </Label>
-  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Haslo" [secure]="true" hint="Min 5 znaków"
+            </StackLayout>
+            <StackLayout class="input-field">
+                <Label text="Haslo" class="label" textWrap="true"></Label>
+                <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Haslo" [secure]="true"
   [ngClass]="{ 'is-invalid': submitted && f.Haslo.errors }"></TextField>
-
   <StackLayout class="hr-dark m-10"></StackLayout>
-  <Button *ngIf="!loading"  text="Zaloguj" (tap)="onSubmit()"></Button>
-  <ActivityIndicator [busy]="loading"></ActivityIndicator>
-  <StackLayout *ngIf="!loading">  <Label text="Nie masz jeszcze konta? Zarejestruj!" nsRouterLink="/register"> </Label>
-  </StackLayout>
-
-</StackLayout>
-
+            </StackLayout>
+        </StackLayout>
+        <Button *ngIf="!loading" class="btn btn-primary btn-active" text="Zaloguj" (tap)="onSubmit()"></Button>
+        <!-- <Button *ngIf="!loading"text="Zarejestruj" nsRouterLink="/register" class="btn btn-primary btn-active"></Button> -->
+        <StackLayout *ngIf="!loading">  <Label text="Nie masz jeszcze konta? Zarejestruj!" nsRouterLink="/register"> </Label>
+        </StackLayout>
+        <ActivityIndicator [busy]="loading"></ActivityIndicator>
+    </StackLayout>
+</ScrollView>
 
 <!--
 Original Web template:

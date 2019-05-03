@@ -3,3 +3,20 @@ Add your NativeScript specific styles here.
 To learn more about styling in NativeScript see:
 https://docs.nativescript.org/angular/ui/styling
 */
+.atext {
+  color: rgba(20, 3, 39, 0.932);
+  text-align: center;
+  vertical-align: middle;
+
+}
+.heading {
+  /* background-color: #bc7474; */
+  color: rgba(20, 3, 39, 0.432);
+
+  font-size: 10;
+  padding: 8;
+  text-align: center;
+  vertical-align: top;
+  width: 90%;
+}
+

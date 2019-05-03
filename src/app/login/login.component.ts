@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   error = '';
+  firstPage=true;
 
   constructor(
     page: Page,

@@ -1,4 +1,89 @@
-<app-action-bar title="Szczegóły wyścigu" [showBackButton]="true"></app-action-bar>
+<app-action-bar title="Wynik" [showBackButton]="true"></app-action-bar>
+
+<TabView selectedTabTextColor="black"
+         tabBackgroundColor="white"
+         tabTextFontSize="12"
+         androidSelectedTabHighlightColor="aquamarine"
+         androidTabsPosition="top">
+         <StackLayout *tabItem="{title: 'Ranking',textTransform: 'uppercase'}">
+
+          <Label *ngIf="wynik?.konIMiejsce" text="I miejsce" fontSize="18" color="rgba(20, 3, 39, 0.832)" class="heading"></Label>
+          <Label [text]="wynik?.konIMiejsce" class="atext" color="rgba(20, 3, 39, 0.932)"  textWrap="true"></Label>
+
+          <Label *ngIf="wynik?.konIiMiejsce"  text="II miejsce" fontSize="14" color="rgba(20, 3, 39, 0.732)" class="heading"></Label>
+          <Label [text]="wynik?.konIiMiejsce" class="atext" textWrap="true"></Label>
+
+          <Label *ngIf="wynik?.konIiiMiejsce"  text="III miejsce" fontSize="12"  color="rgba(20, 3, 39, 0.532)" class="heading"></Label>
+          <Label [text]="wynik?.konIiiMiejsce" class="atext" textWrap="true"></Label>
+
+          <Label *ngIf="wynik?.konIvMiejsce"  text="IV miejsce" class="heading"></Label>
+          <Label [text]="wynik?.konIvMiejsce" class="atext" textWrap="true"></Label>
+
+          <Label *ngIf="wynik?.konVMiejsce"  text="V miejsce" class="heading"></Label>
+          <Label [text]="wynik?.konVMiejsce" class="atext" textWrap="true"></Label>
+
+          <Label *ngIf="wynik?.konViMiejsce"  text="VI miejsce" class="heading"></Label>
+          <Label [text]="wynik?.konViMiejsce" class="atext" textWrap="true"></Label>
+
+          <Label *ngIf="wynik?.konViiMiejsce"  text="VII miejsce" class="heading"></Label>
+          <Label [text]="wynik?.konViiMiejsce" class="atext" textWrap="true"></Label>
+
+          </StackLayout>
+
+      <ListView  *tabItem="{title: 'Kursy',  textTransform: 'uppercase'}"  class="list-group" [items]="lista" separatorColor="yellow">
+        <ng-template let-l="item">
+            <StackLayout class="list-group-item">
+                <Label [text]="l.nazwaWierzchowca" class="list-group-item-heading"></Label>
+                <StackLayout orientation="horizontal">
+                <Label text="Kurs: " class="list-group-item-text" textWrap="true"></Label>
+                <Label [text]="l.kurs" class="list-group-item-text" textWrap="true"></Label>
+              </StackLayout>
+            </StackLayout>
+        </ng-template>
+      </ListView>
+</TabView>
+
+<!-- <Button text="<>" (tap)="kursy=!kursy" height="40" width="40" horizontalAlignment="right" verticalAlignment="top"></Button> -->
+<!-- <StackLayout *ngIf="kursy" height="100%">
+<Label text="Lista wyścigowa:" margin="2%" marginLeft="15%" class="h2"></Label>
+<ListView class="list-group" [items]="lista" (itemTap)="onItemTapSecondList($event)" separatorColor="yellow">
+  <ng-template let-l="item">
+      <StackLayout class="list-group-item">
+          <Label [text]="l.nazwaWierzchowca" class="list-group-item-heading"></Label>
+          <StackLayout orientation="horizontal">
+          <Label text="Kurs: " class="list-group-item-text" textWrap="true"></Label>
+          <Label [text]="l.kurs" class="list-group-item-text" textWrap="true"></Label>
+        </StackLayout>
+      </StackLayout>
+  </ng-template>
+</ListView>
+</StackLayout>
+
+<StackLayout *ngIf="!kursy" margin="2%">
+
+    <Label *ngIf="wynik?.konIMiejsce" text="I miejsce" fontSize="18" color="rgba(20, 3, 39, 0.832)" class="heading"></Label>
+   <Label [text]="wynik?.konIMiejsce" class="atext" color="rgba(20, 3, 39, 0.932)"  textWrap="true"></Label>
+
+   <Label *ngIf="wynik?.konIiMiejsce"  text="II miejsce" fontSize="14" color="rgba(20, 3, 39, 0.732)" class="heading"></Label>
+   <Label [text]="wynik?.konIiMiejsce" class="atext" textWrap="true"></Label>
+
+   <Label *ngIf="wynik?.konIiiMiejsce"  text="III miejsce" fontSize="12"  color="rgba(20, 3, 39, 0.532)" class="heading"></Label>
+   <Label [text]="wynik?.konIiiMiejsce" class="atext" textWrap="true"></Label>
+
+   <Label *ngIf="wynik?.konIvMiejsce"  text="IV miejsce" class="heading"></Label>
+   <Label [text]="wynik?.konIvMiejsce" class="atext" textWrap="true"></Label>
+
+   <Label *ngIf="wynik?.konVMiejsce"  text="V miejsce" class="heading"></Label>
+   <Label [text]="wynik?.konVMiejsce" class="atext" textWrap="true"></Label>
+
+   <Label *ngIf="wynik?.konViMiejsce"  text="VI miejsce" class="heading"></Label>
+   <Label [text]="wynik?.konViMiejsce" class="atext" textWrap="true"></Label>
+
+   <Label *ngIf="wynik?.konViiMiejsce"  text="VII miejsce" class="heading"></Label>
+   <Label [text]="wynik?.konViiMiejsce" class="atext" textWrap="true"></Label>
+
+</StackLayout> -->
+
 
 <!--
 Original Web template:
