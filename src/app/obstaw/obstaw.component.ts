@@ -19,21 +19,27 @@ import { alert, confirm, prompt, login, action, inputType } from "tns-core-modul
 })
 export class ObstawComponent implements OnInit {
   idP: number = 0;
-  zakladForm: FormGroup;
+  // zakladForm: FormGroup;
+  // rodzaj: WidokRodzajZaklad;
+  //  rodzajselected: number;
+  // konto: number;
   lista: GonitwaLista[];
   id: number;
   private sub: any;
   zaklad: InsertZaklad;
   rodzaje: WidokRodzajZaklad[];
-  rodzaj: WidokRodzajZaklad;
-  rodzajselected: number;
   loading = false;
   submitted = false;
-  konto: number;
   currentUser: Gracz;
   answer: boolean = true;
   options = [];
-  rodzajeKuponu = []
+  rodzajeKuponu = [];
+  typeBet="Zakład"
+  type1 = 'Wybierz';
+  type2 = 'Wybierz';
+  type3 = 'Wybierz';
+  type4 = 'Wybierz';
+  stawka = 0;
 
   constructor(private ZakladService: ZakladService,
     private formBuilder: FormBuilder,
@@ -53,60 +59,61 @@ export class ObstawComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
       this.serviceGonitwy.getListaWysciguById(this.id).subscribe(s => {
-      this.lista = s;
+        this.lista = s;
         this.lista.forEach(element => {
           this.options.push(element.nazwaWierzchowca);
         });
       });
       this.ZakladService.showZakladTypes().pipe(first()).subscribe(s => {
-      this.rodzaje = s;
+        this.rodzaje = s;
         this.rodzaje.forEach(element => {
           // Przypisanie rodzaju zakładu z listy obiektów do tablicy
           this.rodzajeKuponu.push(element.nazwaZakladu);
         });
       });
 
-      this.zakladForm = this.formBuilder.group({
-        RodzajZakladu: ['', Validators.required],
-        IdGonitwy: [this.id, Validators.required],
-        IdGracza: [this.currentUser.id, Validators.required],
-        Stawka: ['', Validators.required],
-        Typowanie1: ['null', Validators.required],
-        Typowanie2: ['nie dotyczy', Validators.required],
-        Typowanie3: ['nie dotyczy', Validators.required],
-        Typowanie4: ['nie dotyczy', Validators.required],
-      });
+      // this.zakladForm = this.formBuilder.group({
+      //   RodzajZakladu: ['', Validators.required],
+      //   IdGonitwy: [this.id, Validators.required],
+      //   IdGracza: [this.currentUser.id, Validators.required],
+      //   Stawka: ['', Validators.required],
+      //   Typowanie1: ['null', Validators.required],
+      //   Typowanie2: ['nie dotyczy', Validators.required],
+      //   Typowanie3: ['nie dotyczy', Validators.required],
+      //   Typowanie4: ['nie dotyczy', Validators.required],
+      // });
     })
   }
 
 
-  onChange(id) {
-    this.idP = id.target.value;
-    this.zakladForm.controls['Typowanie1'].setValue('nie dotyczy');
-    this.zakladForm.controls['Typowanie2'].setValue('nie dotyczy');
-    this.zakladForm.controls['Typowanie3'].setValue('nie dotyczy');
-    this.zakladForm.controls['Typowanie4'].setValue('nie dotyczy');
-  }
+  // onChange(id) {
+  //   this.idP = id.target.value;
+  //   this.zakladForm.controls['Typowanie1'].setValue('nie dotyczy');
+  //   this.zakladForm.controls['Typowanie2'].setValue('nie dotyczy');
+  //   this.zakladForm.controls['Typowanie3'].setValue('nie dotyczy');
+  //   this.zakladForm.controls['Typowanie4'].setValue('nie dotyczy');
+  // }
   ngOnDestory() {
     this.sub.unsubscribe();
   }
-  get f() { return this.zakladForm.controls; }
+  // get f() { return this.zakladForm.controls; }
 
   onSubmit() {
 
     this.submitted = true;
-    if (this.zakladForm.invalid) {
-      return;
-    }
-    this.zaklad = Object.assign({}, this.zakladForm.value)
+    // if (this.zakladForm.invalid) {
+    //   return;
+    // }
+    //  this.zaklad = Object.assign({}, this.zakladForm.value)
     this.loading = true;
     this.userService.getById(this.currentUser.id).pipe(first()).subscribe(u => {
-    this.currentUser = u;
+      this.currentUser = u;
       if (this.zaklad.Stawka > u.konto) {
-        this.alertService.success("Za duża stawka.Twoje konto nie jest tak bogate. Doładuj je!", true);
+        // this.alertService.success("Za duża stawka.Twoje konto nie jest tak bogate. Doładuj je!", true);
         return this.answer = false;
       }
     });
+
     if (this.answer == true) {
       this.ZakladService.dodajZaklad(this.zaklad)
         .pipe(first())
@@ -119,64 +126,74 @@ export class ObstawComponent implements OnInit {
     }
     this.router.navigate(['/gonitwy']);
   }
+
   selectBetType() {
     action({
-      message: "Wybierz psa",
+      message: "Wybierz typ zakładu:",
       cancelButtonText: "Anuluj",
       actions: this.rodzajeKuponu
     }).then((result) => {
-      console.log(result)
+      this.typeBet=result;
+      this.idP = this.rodzajeKuponu.indexOf(result) + 1;
+      this.type1 = this.type2 = this.type3 = this.type4 = 'Wybierz';
+
     });
   }
-  selectType1(){
+  selectType1() {
     action({
       message: "Typ 1",
       cancelButtonText: "Anuluj",
       actions: this.options
     }).then((result) => {
-      console.log(result)
+      console.log(result);
+      this.type1 = result;
     });
   }
-  selectType2(){
+  selectType2() {
     action({
       message: "Typ 2",
       cancelButtonText: "Anuluj",
       actions: this.options
     }).then((result) => {
+      this.type2 = result;
       console.log(result)
     });
   }
-  selectType3(){
+  selectType3() {
     action({
       message: "Typ 3",
       cancelButtonText: "Anuluj",
       actions: this.options
     }).then((result) => {
+      this.type3 = result;
       console.log(result)
     });
   }
-  selectType4(){
+  selectType4() {
     action({
       message: "Typ 4",
       cancelButtonText: "Anuluj",
       actions: this.options
     }).then((result) => {
+      this.type4 = result;
       console.log(result)
     });
   }
 
   setCash() {
     prompt({
-        title: "Stawka",
-        message: "O ile zagramy?",
-        okButtonText: "Zatwierdź",
-        cancelButtonText: "Odrzuć",
-        defaultText: "200",
-        inputType: inputType.number
+      title: "Stawka",
+      message: "O ile zagramy?",
+      okButtonText: "Zatwierdź",
+      cancelButtonText: "Odrzuć",
+      defaultText: "200",
+      inputType: inputType.number
     }).then((result) => {
-        // The result property is true if the dialog is closed with the OK button, false if closed with the Cancel button or undefined if closed with a neutral button.
-        console.log("Dialog result: " + result.result);
-        console.log("Text: " + result.text);
+      // The result property is true if the dialog is closed with the OK button, false if closed with the Cancel button or undefined if closed with a neutral button.
+      console.log("Dialog result: " + result.result);
+      console.log("Text: " + result.text);
+      this.stawka = +result.text;
+      console.log(this.stawka);
     })
-}
+  }
 }
