@@ -5,8 +5,10 @@
          tabTextFontSize="12"
          androidSelectedTabHighlightColor="aquamarine"
          androidTabsPosition="top">
-         <StackLayout *tabItem="{title: 'Ranking',textTransform: 'uppercase'}">
 
+         <!-- <StackLayout > -->
+          <ScrollView *tabItem="{title: 'Ranking',textTransform: 'uppercase'}">
+              <StackLayout>
           <Label *ngIf="wynik?.konIMiejsce" text="I miejsce" fontSize="18" color="rgba(20, 3, 39, 0.832)" class="heading"></Label>
           <Label [text]="wynik?.konIMiejsce" class="atext" color="rgba(20, 3, 39, 0.932)"  textWrap="true"></Label>
 
@@ -27,8 +29,9 @@
 
           <Label *ngIf="wynik?.konViiMiejsce"  text="VII miejsce" class="heading"></Label>
           <Label [text]="wynik?.konViiMiejsce" class="atext" textWrap="true"></Label>
-
-          </StackLayout>
+              </StackLayout>
+        </ScrollView>
+          <!-- </StackLayout> -->
 
       <ListView  *tabItem="{title: 'Kursy',  textTransform: 'uppercase'}"  class="list-group" [items]="lista" separatorColor="yellow">
         <ng-template let-l="item">

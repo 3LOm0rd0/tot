@@ -1,4 +1,30 @@
 <app-action-bar title="Moje konto" [showBackButton]="true"></app-action-bar>
+
+
+  <GridLayout columns="*,*" rows="20,20,20,20,20,20,20" margin="8%">
+      <Label text="Imie" row="0" col="0" ></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.imie}}" row="0" col="1" ></Label>
+
+      <Label text="Nazwisko" row="1" col="0" ></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.nazwisko}}" row="1" col="1" ></Label>
+
+      <Label text="Login" row="2" col="0" ></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.login}}" row="2" col="1" ></Label>
+
+      <Label text="E-mail" row="3" col="0" ></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.email}}" textWrap="true"  row="3" col="1" ></Label>
+
+      <Label text="Wiek" row="4" col="0" ></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.wiek}}" row="4" col="1" ></Label>
+
+      <Label text="Wykształcenie" row="5" col="0" ></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.wyksztalcenie}}" row="5" col="1" ></Label>
+
+      <Label text="Stan konta" row="6" col="0" ></Label>
+      <Label *ngIf="graczApi"  text="{{graczApi.konto | currency:''}} zł" row="6" col="1" ></Label>
+     </GridLayout>
+
+
 <!--
 Original Web template:
 

@@ -15,7 +15,7 @@ import { alert, confirm, prompt, login, action, inputType } from "tns-core-modul
 @Component({
   selector: 'app-obstaw',
   templateUrl: './obstaw.component.html',
-  styleUrls: ['./obstaw.component.css']
+  styleUrls: ['./obstaw.component.tns.css']
 })
 export class ObstawComponent implements OnInit {
   idP: number = 1;
