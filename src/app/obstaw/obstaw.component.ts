@@ -18,7 +18,7 @@ import { alert, confirm, prompt, login, action, inputType } from "tns-core-modul
   styleUrls: ['./obstaw.component.css']
 })
 export class ObstawComponent implements OnInit {
-  idP: number = 0;
+  idP: number = 1;
   // zakladForm: FormGroup;
   // rodzaj: WidokRodzajZaklad;
   //  rodzajselected: number;
@@ -26,7 +26,7 @@ export class ObstawComponent implements OnInit {
   lista: GonitwaLista[];
   id: number;
   private sub: any;
-  zaklad: InsertZaklad;
+  zaklad: InsertZaklad = new InsertZaklad;
   rodzaje: WidokRodzajZaklad[];
   loading = false;
   submitted = false;
@@ -34,11 +34,11 @@ export class ObstawComponent implements OnInit {
   answer: boolean = true;
   options = [];
   rodzajeKuponu = [];
-  typeBet="Zakład"
-  type1 = 'Wybierz';
-  type2 = 'Wybierz';
-  type3 = 'Wybierz';
-  type4 = 'Wybierz';
+  typeBet = 'zwyczajny';
+  type1 = 'nie dotyczy';
+  type2 = 'nie dotyczy';
+  type3 = 'nie dotyczy';
+  type4 = 'nie dotyczy';
   stawka = 0;
 
   constructor(private ZakladService: ZakladService,
@@ -83,6 +83,7 @@ export class ObstawComponent implements OnInit {
       //   Typowanie4: ['nie dotyczy', Validators.required],
       // });
     })
+    //console.log(this.id);
   }
 
 
@@ -105,10 +106,21 @@ export class ObstawComponent implements OnInit {
     //   return;
     // }
     //  this.zaklad = Object.assign({}, this.zakladForm.value)
+    console.log(this.id);
+    this.zaklad.IdGonitwy = this.id ;
+    this.zaklad.IdGracza = this.currentUser.id;
+    this.zaklad.RodzajZakladu = this.idP;
+    this.zaklad.Stawka = this.stawka;
+    this.zaklad.Typowanie1 = this.type1;
+    this.zaklad.Typowanie2 = this.type2;
+    this.zaklad.Typowanie3 = this.type3;
+    this.zaklad.Typowanie4 = this.type4;
+
+
     this.loading = true;
     this.userService.getById(this.currentUser.id).pipe(first()).subscribe(u => {
       this.currentUser = u;
-      if (this.zaklad.Stawka > u.konto) {
+      if (this.stawka > u.konto) {
         // this.alertService.success("Za duża stawka.Twoje konto nie jest tak bogate. Doładuj je!", true);
         return this.answer = false;
       }
@@ -133,16 +145,18 @@ export class ObstawComponent implements OnInit {
       cancelButtonText: "Anuluj",
       actions: this.rodzajeKuponu
     }).then((result) => {
-      this.typeBet=result;
-      this.idP = this.rodzajeKuponu.indexOf(result) + 1;
-      this.type1 = this.type2 = this.type3 = this.type4 = 'Wybierz';
-
+      if (result != 'Anuluj') {
+        this.typeBet = result;
+        this.idP = this.rodzajeKuponu.indexOf(result) + 1;
+        this.type1 = this.type2 = this.type3 = this.type4 = 'nie dotyczy';
+        console.log(this.idP);
+      }
     });
   }
   selectType1() {
     action({
       message: "Typ 1",
-      cancelButtonText: "Anuluj",
+      // cancelButtonText: "Anuluj",
       actions: this.options
     }).then((result) => {
       console.log(result);
@@ -152,7 +166,7 @@ export class ObstawComponent implements OnInit {
   selectType2() {
     action({
       message: "Typ 2",
-      cancelButtonText: "Anuluj",
+      // cancelButtonText: "Anuluj",
       actions: this.options
     }).then((result) => {
       this.type2 = result;
@@ -162,7 +176,7 @@ export class ObstawComponent implements OnInit {
   selectType3() {
     action({
       message: "Typ 3",
-      cancelButtonText: "Anuluj",
+      // cancelButtonText: "Anuluj",
       actions: this.options
     }).then((result) => {
       this.type3 = result;
@@ -172,7 +186,7 @@ export class ObstawComponent implements OnInit {
   selectType4() {
     action({
       message: "Typ 4",
-      cancelButtonText: "Anuluj",
+      // cancelButtonText: "Anuluj",
       actions: this.options
     }).then((result) => {
       this.type4 = result;
@@ -185,7 +199,7 @@ export class ObstawComponent implements OnInit {
       title: "Stawka",
       message: "O ile zagramy?",
       okButtonText: "Zatwierdź",
-      cancelButtonText: "Odrzuć",
+      // cancelButtonText: "Odrzuć",
       defaultText: "200",
       inputType: inputType.number
     }).then((result) => {
@@ -193,7 +207,7 @@ export class ObstawComponent implements OnInit {
       console.log("Dialog result: " + result.result);
       console.log("Text: " + result.text);
       this.stawka = +result.text;
-      console.log(this.stawka);
+
     })
   }
 }

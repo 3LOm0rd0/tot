@@ -1,9 +1,9 @@
 <app-action-bar title="Obstaw wyścig" [showBackButton]="true"></app-action-bar>
-
+<ScrollView>
 <DockLayout stretchLastChild="true">
   <StackLayout>
       <Label   text="Kursy:" class="atext" textWrap="true" style="margin-bottom:5; margin-top: 5; margin-left: 8" ></Label>
-      <ListView dock="left"  [items]="lista" separatorColor="#AA0078" height="65%" width="30%" style="margin-left: 13" >
+      <ListView dock="left"  [items]="lista" separatorColor="#AA0078" height="55%" width="30%" style="margin-left: 13" >
           <ng-template let-l="item">
               <StackLayout class="list-group-item">
                   <Label [text]="l.nazwaWierzchowca" class="list-group-item-heading"></Label>
@@ -14,10 +14,11 @@
               </StackLayout>
           </ng-template>
         </ListView>
-        <Label text="Wybierz rodzaj:" class="list-group-item-text" textWrap="true"></Label>
-        <Button dock="left" (tap)="selectBetType()" text="{{typeBet}}" style="background-color: #0099CC; margin: 5;"></Button>
+        <Label text="Wybierz rodzaj:" class="list-group-item-text" textWrap="true" style=" margin-left: 8"></Label>
+        <Button dock="left" (tap)="selectBetType()" text="{{typeBet}}" style="background-color: #0099CC; margin-top: 1;"></Button>
+        <Button dock="left" (tap)="onSubmit()" text="Zatwierdź" style="background-color: rgb(109, 109, 109); margin-top: 5;"></Button>
       </StackLayout>
-
+      <!-- horizontalAlignment="right" verticalAlignment="bottom"  -->
 <StackLayout dock="bottom" height="88%" width="100%">
     <Label   text="Typ 1" class="atext" textWrap="true"></Label>
   <Button  (tap)="selectType1()" text="{{type1}}" style="background-color: #AA0078; margin-left: 15;" ></Button>
@@ -35,7 +36,7 @@
 
 
 </DockLayout>
-
+</ScrollView>
 <!-- Kod do wyświetlenia listy wierzchowców wraz z kursem -->
 <!-- <ListView [items]="lista" separatorColor="yellow">
   <ng-template let-l="item">

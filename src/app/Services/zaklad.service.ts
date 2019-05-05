@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';  
+import {HttpClient} from '@angular/common/http';
 import {Gracz,GraczHaslo} from '../Models/Gracz';
 import { Observable } from 'rxjs';
 import { WidokRodzajZaklad, InsertZaklad, WidokZaklad, WidokZakladWynik } from '../Models/Zaklad';
