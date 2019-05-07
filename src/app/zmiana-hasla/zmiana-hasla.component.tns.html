@@ -1,9 +1,29 @@
 <app-action-bar title="Zmiana hasło" [showBackButton]="true"></app-action-bar>
-<StackLayout>
-  <Label text="zmiana-hasla works" textWrap="true"></Label>
-  <Label text="This is a migrated component" textWrap="true"></Label>
-  <Label text="Update it to provide the UI elements required in your mobile app" textWrap="true"></Label>
-</StackLayout>
+<ScrollView>
+  <Label text="Wprowadź dane" class="h5" textWrap="true"></Label>
+  <StackLayout class="form" [formGroup]="hasloForm" style="padding:8%">
+    <StackLayout class="input-field">
+      <TextField
+        class="input"
+        returnKeyType="done"
+        [autocorrect]="false"
+        autocapitalizationType="none"
+        formControlName="Haslo"
+        [ngClass]="{ 'is-invalid': submitted && f.Haslo.errors }"
+      ></TextField>
+      <StackLayout class="hr-dark m-2"></StackLayout>
+      <Label text="Wprowadź hasło" class="label" textWrap="true"></Label>
+    </StackLayout>
+
+    <StackLayout>
+      <Button
+        class="btn btn-primary btn-active"
+        text="Zmień hasło"
+        (tap)="onSubmit()"
+      ></Button>
+    </StackLayout>
+  </StackLayout>
+</ScrollView>
 
 <!--
 Original Web template:

@@ -29,7 +29,7 @@ export class MojeZakladyComponent implements OnInit {
   info:string;
   constructor(private alertService:AlertService,
     private ZakladService:ZakladService,
-    private authenticationService: AuthServiceService) { 
+    private authenticationService: AuthServiceService) {
       this.currentUser=this.authenticationService.currentUserValue;}
 
   ngOnInit() {
@@ -38,6 +38,7 @@ export class MojeZakladyComponent implements OnInit {
     .pipe(first())
     .subscribe(s=>{this.zakladyPrzed=s
       console.log("cos");
+      console.log(s);
       this.alertService.success("załadowano zakłady",false)});
 
     this.ZakladService.pokazMojeZakladyPo(this.currentUser.id)
@@ -47,12 +48,13 @@ export class MojeZakladyComponent implements OnInit {
   }
 
   usunZaklad(id:number, kwota:number)
-  {    
+  {
     if(confirm("Jesteś pewnien?")){
     this.ZakladService.usunZaklad(id).pipe(first())
     .subscribe(data=>{
       this.alertService.success('Usunieto',true);
       location.reload();
+
     })
   }
   }

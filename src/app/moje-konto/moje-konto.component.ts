@@ -17,7 +17,7 @@ export class MojeKontoComponent implements OnInit {
   constructor(private userService: UserService,
     private authenticationService: AuthServiceService) {
       this.currentUser=this.authenticationService.currentUserValue;
-      console.log(this.authenticationService.currentUserValue)
+
     }
     get isAdmin(){
       return this.currentUser && this.currentUser.rola==Role.Admin;}
