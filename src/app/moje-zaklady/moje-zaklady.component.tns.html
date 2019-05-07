@@ -32,17 +32,38 @@ androidSelectedTabHighlightColor="aquamarine" >
   </ng-template>
 </ListView>
     <ListView *tabItem="{title: 'Po'}" [items]="zakladyPo"    >
-<!--
       <ng-template let-g="item" let-i="index" >
-        <StackLayout orientation="horizontal" >
-
-          <Label class="h4" height="30"  [text]="g.nrGonitwyWSezonie" ></Label>
-          <Label class="h4" [text]="g.nazwaNagrody"  ></Label>
-          <Label class="h4" [text]="g.godzinaRozpoczecia | slice:0:5" ></Label>
-          <Label class="h4" [text]="g.data | date:'shortDate'" ></Label>
-          <Label class="h4" [text]="g.dlugosc" ></Label>
-        </StackLayout>
-      </ng-template> -->
+        <GridLayout  columns="20,40,*,*,*,*,*,20" rows="5,30,30,30,30" style="background-color: rgb(196, 202, 204);" >
+          <Label row="1" col="1"  class="h4" [text]="g.idGonitwy"  ></Label>
+        <Label row="1" col="3" colSpan="2"  class="h4" [text]="g.nazwaZakladu" ></Label>
+        <Label row="1" col="6" colSpan="2" class="h4" text="{{g.stawka | currency: ' '}} zł"></Label>
+        <StackLayout row="2" col="1" colSpan="3" orientation="horizontal"  >
+            <Label   class="h4" text="I " ></Label>
+        <Label   class="h4" [text]="g.typowanie1" ></Label>
+      </StackLayout>
+      <StackLayout row="2" col="4" colSpan="3" orientation="horizontal" >
+          <Label   class="h4" text="III " ></Label>
+        <Label   class="h4" [text]="g.typowanie3" ></Label>
+      </StackLayout>
+      <StackLayout row="3" col="1" colSpan="3" orientation="horizontal" >
+          <Label   class="h4" text="II " ></Label>
+        <Label  class="h4" [text]="g.typowanie2" orientation="horizontal"  ></Label>
+      </StackLayout>
+      <StackLayout row="3" col="4" colSpan="3" orientation="horizontal" >
+          <Label   class="h4" text="IV " ></Label>
+        <Label   class="h4" [text]="g.typowanie4" ></Label>
+      </StackLayout>
+      <!-- nowe -->
+      <StackLayout row="4" col="1" colSpan="3" orientation="horizontal" >
+        <Label   class="h4" text="Status" ></Label>
+      <Label  class="h4" [text]="g.status" orientation="horizontal"  ></Label>
+    </StackLayout>
+    <StackLayout row="4" col="4" colSpan="3" orientation="horizontal" >
+        <Label   class="h4" text="Wygrana" ></Label>
+      <Label   class="h4" [text]="g.wygrana" ></Label>
+    </StackLayout>
+      </GridLayout>
+      </ng-template>
     </ListView>
 
 </TabView>
