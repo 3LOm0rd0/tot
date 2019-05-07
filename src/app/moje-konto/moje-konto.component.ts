@@ -11,12 +11,13 @@ import{Role} from '../Models/Role';
   styleUrls: ['./moje-konto.component.css']
 })
 export class MojeKontoComponent implements OnInit {
- 
+
   graczApi: Gracz;
   currentUser: Gracz;
   constructor(private userService: UserService,
-    private authenticationService: AuthServiceService) { 
+    private authenticationService: AuthServiceService) {
       this.currentUser=this.authenticationService.currentUserValue;
+      console.log(this.authenticationService.currentUserValue)
     }
     get isAdmin(){
       return this.currentUser && this.currentUser.rola==Role.Admin;}
@@ -26,5 +27,5 @@ export class MojeKontoComponent implements OnInit {
 
 }
 
-  
+
 

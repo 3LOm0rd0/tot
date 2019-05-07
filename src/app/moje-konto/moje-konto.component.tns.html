@@ -1,7 +1,7 @@
 <app-action-bar title="Moje konto" [showBackButton]="true"></app-action-bar>
 
 
-  <GridLayout columns="*,*" rows="20,20,20,20,20,20,20" margin="8%">
+  <GridLayout flexWrap="wrap" columns="*,*" rows="20,20,20,20,20,20,20,*,*" margin="8%">
       <Label text="Imie" row="0" col="0" ></Label>
       <Label *ngIf="graczApi" text="{{graczApi.imie}}" row="0" col="1" ></Label>
 
@@ -22,6 +22,12 @@
 
       <Label text="Stan konta" row="6" col="0" ></Label>
       <Label *ngIf="graczApi"  text="{{graczApi.konto | currency:''}} zł" row="6" col="1" ></Label>
+
+      <Button row="7" col="0" text="Aktualizuj dane" nsRouterLink="/aktualizacja" style="background-color: #0099CC; margin: 1;"></Button>
+      <Button row="7" col="1"   text="Zmiana hasla" nsRouterLink="/zmiana-hasla" style="background-color: #0099CC; margin: 1;"></Button>
+
+      <Button row="8" col="0"   text="Moje zaklady" nsRouterLink="/moje-zaklady" style="background-color: #0099CC; margin: 1;"></Button>
+      <Button row="8" col="1"   text="Doładuj konto" nsRouterLink="/doladuj" style="background-color: #0099CC; margin: 1;"></Button>
      </GridLayout>
 
 

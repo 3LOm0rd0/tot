@@ -1,15 +1,67 @@
-<StackLayout>
-  <Label text="aktualizacja works" textWrap="true"></Label>
-  <Label text="This is a migrated component" textWrap="true"></Label>
-  <Label text="Update it to provide the UI elements required in your mobile app" textWrap="true"></Label>
+<app-action-bar title="Aktualizacja" [showBackButton]="true"></app-action-bar>
+<ScrollView>
+    <Label text="Wprowadź dane" class="h5" textWrap="true"></Label>
+<StackLayout class="form" [formGroup]="updateForm" style="padding:8%">
+    <StackLayout class="input-field">
+    <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Imie"
+  [ngClass]="{ 'is-invalid': submitted && f.Imie.errors }"></TextField>
+  <StackLayout class="hr-dark m-2"></StackLayout>
+  <Label text="Imie" class="label" textWrap="true"></Label>
 </StackLayout>
+
+<StackLayout class="input-field">
+  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Nazwisko"
+  [ngClass]="{ 'is-invalid': submitted && f.Nazwisko.errors }" ></TextField>
+  <StackLayout class="hr-dark m-2"></StackLayout>
+  <Label text="Nazwisko" class="label" textWrap="true"></Label>
+</StackLayout>
+
+  <StackLayout class="input-field">
+  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
+  [ngClass]="{ 'is-invalid': submitted && f.Login.errors }"></TextField>
+  <StackLayout class="hr-dark m-2"></StackLayout>
+  <Label text="Login" class="label" textWrap="true"></Label>
+
+</StackLayout>
+
+<StackLayout class="input-field">
+    <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Email" keyboardType="email"
+    [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"></TextField>
+    <StackLayout class="hr-dark m-2"></StackLayout>
+    <Label text="Email" class="label" textWrap="true"></Label>
+
+  </StackLayout>
+
+
+  <StackLayout class="input-field">
+      <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Wiek" keyboardType="number"
+      [ngClass]="{ 'is-invalid': submitted && f.Wiek.errors }"></TextField>
+      <StackLayout class="hr-dark m-2"></StackLayout>
+      <Label text="Wiek" class="label" textWrap="true"></Label>
+
+    </StackLayout>
+
+    <StackLayout class="input-field">
+        <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Wyksztalcenie"
+        [ngClass]="{ 'is-invalid': submitted && f.Wyksztalcenie.errors }"></TextField>
+        <StackLayout class="hr-dark m-2"></StackLayout>
+        <Label text="Wyksztalcenie" class="label" textWrap="true"></Label>
+
+      </StackLayout>
+<StackLayout>
+  <Button  class="btn btn-primary btn-active"  text="Aktualizuj" (tap)="onSubmit()"></Button>
+
+
+</StackLayout>
+</StackLayout>
+</ScrollView>
 
 <!--
 Original Web template:
 
 <h1>Aktualizacja danych</h1>
 <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" >
-  
+
   <div class="form-group">
     <label for="Imie">Imie</label>
     <input type="text" formControlName="Imie" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Imie.errors }"/>
@@ -29,7 +81,7 @@ Original Web template:
 
   </div>
   <div class="form-group">
-    <label for="Login">Login</label> 
+    <label for="Login">Login</label>
     <input type="text" formControlName="Login" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Nazwisko.errors }"/>
     <div *ngIf="submitted && f.Login.errors" class="invalid-feedback">
       <div class="required_link" *ngIf="f.Login.errors.required">Login jest wymagany</div>
