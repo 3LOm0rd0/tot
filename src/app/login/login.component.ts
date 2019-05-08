@@ -1,7 +1,8 @@
+import { AppComponent } from './../../../.tmp_backup/platforms/android/app/build/intermediates/merged_assets/debug/mergeDebugAssets/out/app/app/app.component.tns';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../Services/auth-service.service';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, NavigationStart } from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {AlertService} from '../Services/alert.service';
@@ -59,8 +60,10 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
         console.log('zalogowany');
+
         this.loading = false;
         this.router.navigate([this.returnUrl], {clearHistory: true});
+
 
       },
       error => {

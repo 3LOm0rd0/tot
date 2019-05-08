@@ -3,9 +3,9 @@
 <!-- <page-router-outlet></page-router-outlet> -->
 <!-- <app-admin></app-admin> -->
 
-<RadSideDrawer >
+<RadSideDrawer  >
 
-  <GridLayout tkDrawerContent rows="auto,*" class="drawer-container">
+  <GridLayout tkDrawerContent rows="auto,*" class="drawer-container" (tap)="pyk()">
       <ScrollView height="100%">
 
     <StackLayout class="sideStackLayout" row="1" >
@@ -16,7 +16,7 @@
         <Label class="sideLabel" text="Moje Konto" nsRouterLink="moje-konto" (tap)="onCloseDrawerTap()" ></Label>
         <Label class="sideLabel" text="O wyścigach" nsRouterLink="historia" (tap)="onCloseDrawerTap()"></Label>
         <Label class="sideLabel" text="Panel administratora" nsRouterLink="/admin" (tap)="onCloseDrawerTap()" ></Label>
-        <Label  class="sideLabel" text="Wyloguj"  [clearHistory]="true"(tap)="logout()"></Label>
+        <Label *ngIf="currentUser!=null" class="sideLabel" text="Wyloguj"  [clearHistory]="true"(tap)="logout()"></Label>
         <!-- <Label  class="sideLabel" text="Zaloguj" *ngIf="!currentUser" (tap)="onCloseDrawerTap()" ></Label> -->
 
     </StackLayout>

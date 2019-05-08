@@ -16,8 +16,10 @@ export class MojeKontoComponent implements OnInit {
   currentUser: Gracz;
   constructor(private userService: UserService,
     private authenticationService: AuthServiceService) {
-      this.currentUser=this.authenticationService.currentUserValue;
-
+      // this.currentUser=this.authenticationService.currentUserValue;
+      // console.log(this.authenticationService.currentUserValue);
+      // console.log( JSON.parse(localStorage.getItem('currentUser')));
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
     get isAdmin(){
       return this.currentUser && this.currentUser.rola==Role.Admin;}

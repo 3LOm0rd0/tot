@@ -22,8 +22,9 @@ export class AktualizacjaComponent implements OnInit {
     private userService:UserService,
     private router: Router,
     private alertService:AlertService,
-    private authenticationService: AuthServiceService) { 
-      this.currentUser=this.authenticationService.currentUserValue;
+    private authenticationService: AuthServiceService) {
+      // this.currentUser=this.authenticationService.currentUserValue;
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
   ngOnInit() {
@@ -33,7 +34,7 @@ export class AktualizacjaComponent implements OnInit {
       Login: ['',Validators.required],
       Email: ['',[Validators.email,Validators.required]],
       Wiek: ['',Validators.required],
-      Wyksztalcenie:['',Validators.required]     
+      Wyksztalcenie:['',Validators.required]
     });
   }
   get f(){return this.updateForm.controls;}
@@ -41,10 +42,10 @@ export class AktualizacjaComponent implements OnInit {
   onSubmit(){
     this.submitted=true;
     if(this.updateForm.invalid){
-      return; 
+      return;
     }
     this.gracz=Object.assign({},this.updateForm.value);
-    
+
     this.loading=true;
     this.userService.updateUser(this.currentUser.id,this.gracz)
     .pipe(first())

@@ -41,16 +41,17 @@ export class WynikComponent implements OnInit {
     private recordsService:RecordsService,
     private authenticationService: AuthServiceService,
     private serviceGonitwy: GonitwaServiceService) {
-      this.currentUser=this.authenticationService.currentUserValue;
+      // this.currentUser=this.authenticationService.currentUserValue;
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
      }
 
   ngOnInit() {
     this.sub=this.route.params.subscribe(params=>{
       this.id=+params['id'];
-      
+
       this.serviceGonitwy.getListaWysciguById(this.id).pipe(first()).subscribe(s=>{this.lista=s;});
-      
-    
+
+
 
     this.wynikForm=this.formBuilder.group({
       NrGonitwyWSezonie:[this.id,Validators.required],
@@ -60,9 +61,9 @@ export class WynikComponent implements OnInit {
       konIvMiejsce: ['nie dotyczy',Validators.required],
       konVMiejsce: ['nie dotyczy',Validators.required],
       konViMiejsce: ['nie dotyczy',Validators.required],
-      konViiMiejsce: ['nie dotyczy',Validators.required],   
+      konViiMiejsce: ['nie dotyczy',Validators.required],
     });
-  
+
 
 })
 
@@ -71,12 +72,12 @@ export class WynikComponent implements OnInit {
 
     this.submitted=true;
     if(this.wynikForm.invalid){
-      return; 
+      return;
     }
     this.wynik=Object.assign({},this.wynikForm.value);
-    
+
     this.loading=true;
-    
+
     this.serviceGonitwy.postWynik(this.wynik)
     .pipe(first())
     .subscribe(

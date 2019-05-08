@@ -32,6 +32,7 @@ constructor(private http: HttpClient) {
       if (gracz && gracz.token) {
         localStorage.setItem('currentUser', JSON.stringify(gracz));
         this.currentUserSubject.next(gracz);
+        console.log(this.currentUserSubject.value );
       }
 
       return gracz;

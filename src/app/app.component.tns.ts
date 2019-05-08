@@ -22,7 +22,7 @@ import { UIService } from './Services/ui.service';
 export class AppComponent implements AfterViewInit, OnInit, OnDestroy  {
  private drawerSub: Subscription;
   private drawer: RadSideDrawer;
-  currentUser: Gracz;
+  currentUser: Gracz = new Gracz;
 
   constructor(page: Page,
     private uiService: UIService,
@@ -30,7 +30,8 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy  {
     private authenticationService: AuthServiceService,
     private _changeDetectionRef: ChangeDetectorRef ) {
   page.actionBarHidden = true;
-   this.authenticationService.currentUser.subscribe(s => this.currentUser = s);
+  //  this.authenticationService.currentUser.subscribe(s => this.currentUser = s);
+  this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
   @ViewChild(RadSideDrawerComponent) public drawerComponent: RadSideDrawerComponent;
 
@@ -39,6 +40,7 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy  {
       this.drawerSub = this.uiService.drawerState.subscribe(() => {
         if (this.drawer) {
           this.drawer.toggleDrawerState();
+          this.currentUser = JSON.parse(localStorage.getItem('currentUser'))
         }
        });
 
@@ -48,6 +50,8 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy  {
       this.drawer =  this.drawerComponent.sideDrawer;
       this._changeDetectionRef.detectChanges();
 
+
+
   }
   ngOnDestroy(): void {
     if(this.drawerSub){
@@ -56,6 +60,7 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy  {
   }
 
   public onCloseDrawerTap() {
+
       this.drawer.closeDrawer();
   }
 
@@ -67,5 +72,5 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy  {
     this.drawer.closeDrawer();
     this.router.navigate(['/login']);
   }
-
+  pyk() {this.currentUser = JSON.parse(localStorage.getItem('currentUser'));}
 }

@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserService,
     private authenticationService: AuthServiceService) {
 
-    this.currentUser=this.authenticationService.currentUserValue;
-
+    // this.currentUser=this.authenticationService.currentUserValue;
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
    }
 
   ngOnInit() {

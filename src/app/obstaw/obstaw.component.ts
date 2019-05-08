@@ -50,8 +50,8 @@ export class ObstawComponent implements OnInit {
     private authenticationService: AuthServiceService,
     private serviceGonitwy: GonitwaServiceService
   ) {
-    this.currentUser = this.authenticationService.currentUserValue;
-
+    // this.currentUser = this.authenticationService.currentUserValue;
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
   }
 
@@ -72,41 +72,20 @@ export class ObstawComponent implements OnInit {
         });
       });
 
-      // this.zakladForm = this.formBuilder.group({
-      //   RodzajZakladu: ['', Validators.required],
-      //   IdGonitwy: [this.id, Validators.required],
-      //   IdGracza: [this.currentUser.id, Validators.required],
-      //   Stawka: ['', Validators.required],
-      //   Typowanie1: ['null', Validators.required],
-      //   Typowanie2: ['nie dotyczy', Validators.required],
-      //   Typowanie3: ['nie dotyczy', Validators.required],
-      //   Typowanie4: ['nie dotyczy', Validators.required],
-      // });
     })
-    //console.log(this.id);
+
   }
 
 
-  // onChange(id) {
-  //   this.idP = id.target.value;
-  //   this.zakladForm.controls['Typowanie1'].setValue('nie dotyczy');
-  //   this.zakladForm.controls['Typowanie2'].setValue('nie dotyczy');
-  //   this.zakladForm.controls['Typowanie3'].setValue('nie dotyczy');
-  //   this.zakladForm.controls['Typowanie4'].setValue('nie dotyczy');
-  // }
   ngOnDestory() {
     this.sub.unsubscribe();
   }
-  // get f() { return this.zakladForm.controls; }
+
 
   onSubmit() {
 
     this.submitted = true;
-    // if (this.zakladForm.invalid) {
-    //   return;
-    // }
-    //  this.zaklad = Object.assign({}, this.zakladForm.value)
-    console.log(this.id);
+
     this.zaklad.IdGonitwy = this.id ;
     this.zaklad.IdGracza = this.currentUser.id;
     this.zaklad.RodzajZakladu = this.idP;
