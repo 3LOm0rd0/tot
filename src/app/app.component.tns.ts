@@ -12,6 +12,7 @@ import { UIService } from './Services/ui.service';
 
 
 
+
 @Component({
   moduleId: module.id,
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy  {
  private drawerSub: Subscription;
   private drawer: RadSideDrawer;
   currentUser: Gracz = new Gracz;
+
 
   constructor(page: Page,
     private uiService: UIService,

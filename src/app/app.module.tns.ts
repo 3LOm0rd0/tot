@@ -1,3 +1,4 @@
+
 import { UIService } from './Services/ui.service';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
@@ -18,6 +19,7 @@ import { AuthServiceService } from './Services/auth-service.service';
 import { ObliczeniaService } from './Services/obliczenia.service';
 import { AlertService } from './Services/alert.service';
 import { UserService } from './Services/user-service.service';
+import { DatabaseService } from './Services/sqlite.service';
 
 import { AdminComponent } from './admin/admin.component';
 import { AktualGonitwyComponent } from './aktual-gonitwy/aktual-gonitwy.component';
@@ -87,6 +89,7 @@ import { AppComponent } from './app.component.tns';
     ObliczeniaService,
     //UIService,
     UserService,
+    DatabaseService
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]

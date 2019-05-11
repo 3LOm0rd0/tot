@@ -9,6 +9,7 @@ export class Gracz{
     email:string;
     wiek: number;
     wyksztalcenie:string;
+    konto;
 }
 export class GraczHaslo{
     haslo:string;
