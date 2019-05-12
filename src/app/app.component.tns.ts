@@ -70,9 +70,10 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy  {
     return this.currentUser && this.currentUser.rola === Role.Admin;
   }
   logout() {
+    this.router.navigate(['/login']);
     this.authenticationService.logout();
     this.drawer.closeDrawer();
-    this.router.navigate(['/login']);
+
   }
   pyk() {this.currentUser = JSON.parse(localStorage.getItem('currentUser'));}
 }

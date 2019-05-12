@@ -26,7 +26,7 @@ androidSelectedTabHighlightColor="aquamarine" >
         <Label   class="h4" text="IV " ></Label>
       <Label   class="h4" [text]="g.typowanie4" ></Label>
     </StackLayout>
-    <Button row="1" col="6" rowSpan="3" colSpan="2"  text="KOSZ" (tap)="usunZaklad(g.idZakladu, g.stawka)" value="Usuń"
+    <Button *ngIf="connected" row="1" col="6" rowSpan="3" colSpan="2"  text="KOSZ" (tap)="usunZaklad(g.idZakladu, g.stawka)" value="Usuń"
     style="background-color: rgb(175, 6, 6); margin-left: 8; margin-bottom: 5; margin-top: 13; margin-right: 3;"></Button>
     </GridLayout>
   </ng-template>

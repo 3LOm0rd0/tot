@@ -11,7 +11,7 @@ import { DatabaseService } from '../Services/sqlite.service';
   templateUrl: './moje-konto.component.html',
   styleUrls: ['./moje-konto.component.css']
 })
-export class MojeKontoComponent  {
+export class MojeKontoComponent {
 
   // tslint:disable-next-line:max-line-length
   private userCreation = 'CREATE TABLE IF NOT EXISTS user (idGracza INTEGER PRIMARY KEY, imie TEXT, nazwisko TEXT, login TEXT, rola TEXT, email TEXT, wiek INTEGER, wyksztalcenie TEXT, konto FLOAT)'
@@ -19,9 +19,9 @@ export class MojeKontoComponent  {
   graczApi: Gracz = new Gracz;
   currentUser: Gracz;
   constructor(private userService: UserService,
-
     private sqliteService: DatabaseService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.fetch();
     sqliteService.getdbConnection().then(db => {
       this.database = db;
     }, error => {
@@ -32,7 +32,6 @@ export class MojeKontoComponent  {
 
       this.insert(this.graczApi);
     }, error => {
-      this.fetch();
       console.log('BRAK DOSTĘPU DO INTERNETU')
     });
 
@@ -45,8 +44,8 @@ export class MojeKontoComponent  {
   }
 
   public insert(gracz: Gracz) {
-    console.log('jestem offline')
-    this.database.execSQL('DROP TABLE user');
+    console.log('jestem w insercie moje konto')
+    this.database.execSQL('DROP TABLE IF EXISTS user');
     // tslint:disable-next-line:max-line-length
     this.database.execSQL(this.userCreation)
       .then(x => {// tslint:disable-next-line:max-line-length
@@ -64,20 +63,22 @@ export class MojeKontoComponent  {
   }
 
   public fetch() {
-    this.database.all('SELECT * FROM user').then(rows => {
+    this.sqliteService.getdbConnection().then(db => {
+      db.all('SELECT * FROM user').then(rows => {
 
-      this.graczApi.id = rows[0][0];
-      this.graczApi.imie = rows[0][1];
-      this.graczApi.nazwisko = rows[0][2];
-      this.graczApi.login = rows[0][3];
-      this.graczApi.rola = rows[0][4];
-      this.graczApi.email = rows[0][5];
-      this.graczApi.wiek = rows[0][6];
-      this.graczApi.wyksztalcenie = rows[0][7];
-      this.graczApi.konto = rows[0][8];
+        this.graczApi.id = rows[0][0];
+        this.graczApi.imie = rows[0][1];
+        this.graczApi.nazwisko = rows[0][2];
+        this.graczApi.login = rows[0][3];
+        this.graczApi.rola = rows[0][4];
+        this.graczApi.email = rows[0][5];
+        this.graczApi.wiek = rows[0][6];
+        this.graczApi.wyksztalcenie = rows[0][7];
+        this.graczApi.konto = rows[0][8];
 
-    }, error => {
-      console.log('SELECT ERROR', error);
+      }, error => {
+        console.log('SELECT ERROR', error);
+      });
     });
     this.sqliteService.closedbConnection();
   }

@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
       Imie:['',Validators.required],
       Nazwisko: ['',Validators.required],
       Login: ['',Validators.required],
-      Haslo: ['',[Validators.required, Validators.minLength(6)]],
+      Haslo: ['',[Validators.required, Validators.minLength(3)]],
       Rola:['user',[Validators.required]]
     });
   }
@@ -37,10 +37,10 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
     this.submitted=true;
     if(this.registerForm.invalid){
-      return; 
+      return;
     }
     this.gracz=Object.assign({},this.registerForm.value);
-    
+
     this.loading=true;
     this.userService.register(this.gracz)
     .pipe(first())
@@ -51,5 +51,5 @@ export class RegisterComponent implements OnInit {
       }
     )
   }
-  
+
 }

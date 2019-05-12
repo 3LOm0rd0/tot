@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  // baseUrl: 'https://backend20190407012400.azurewebsites.net/api/' //Native
+
   // baseUrl: 'http://10.0.2.2:5000/api' //Angular
   baseUrl: 'https://backend20190508075223.azurewebsites.net/api/',
 };
