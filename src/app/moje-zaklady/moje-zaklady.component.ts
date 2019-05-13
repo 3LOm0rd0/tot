@@ -55,7 +55,7 @@ export class MojeZakladyComponent {
         this.insert(this.zakladyPrzed),
           this.alertService.success('załadowano zakłady', false)
       }, error => {
-        // TUTAJ FETCH
+        this.connectionAlert();
         this.connected =false;
         console.log('BRAK DOSTĘPU DO INTERNETU. NIE MOŻNA POBRAĆ NIEROZSTRZYGNIĘTYCH ZAKŁADÓW')
       });
@@ -64,7 +64,7 @@ export class MojeZakladyComponent {
       .pipe(first())
       .subscribe(s => {
         // INSERT
-        this.zakladyPo = s
+        this.zakladyPo = s;
       }, error => {
         // FETCH
         console.log('BRAK DOSTĘPU DO INTERNETU. NIE MOŻNA POBRAĆ HISTORYCZNYCH ZAKŁADÓW')
@@ -116,7 +116,6 @@ export class MojeZakladyComponent {
     this.sqliteService.getdbConnection().then(db => {
       db.all('SELECT * FROM bets').then(rows => {
         this.zakladyPrzed = [];
-        this.zaklad = new WidokZaklad;
         // tslint:disable-next-line:forin
         for (let row in rows) {
           this.zakladyPrzed.push({
@@ -136,6 +135,17 @@ export class MojeZakladyComponent {
       });
     });
     this.sqliteService.closedbConnection();
+  }
+
+  connectionAlert() {
+    alert({
+      title: 'Alert',
+      message: 'Brak połaczenia z internetem',
+      okButtonText:'OK'
+    }).then(() => {
+      console.log('Zadziałałem');
+
+    });
   }
 
 }
