@@ -1,7 +1,3 @@
-<!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
-
-<!-- <page-router-outlet></page-router-outlet> -->
-<!-- <app-admin></app-admin> -->
 
 <RadSideDrawer  >
 
@@ -13,11 +9,11 @@
         <Label class="sideLabel" text="Jak Grać" nsRouterLink="jak-grac" (tap)="onCloseDrawerTap()"></Label>
         <Label class="sideLabel" text="Strona Główna" nsRouterLink="/home" (tap)="onCloseDrawerTap()" ></Label>
         <Label class="sideLabel" text="Gonitwy" nsRouterLink="gonitwy" (tap)="onCloseDrawerTap()" ></Label>
+        <Label class="sideLabel" text="Moje zakłady" nsRouterLink="/moje-zaklady" (tap)="onCloseDrawerTap()" ></Label>
         <Label class="sideLabel" text="Moje Konto" nsRouterLink="moje-konto" (tap)="onCloseDrawerTap()" ></Label>
         <Label class="sideLabel" text="O wyścigach" nsRouterLink="historia" (tap)="onCloseDrawerTap()"></Label>
-        <Label class="sideLabel" text="Panel administratora" nsRouterLink="/admin" (tap)="onCloseDrawerTap()" ></Label>
         <Label *ngIf="currentUser!=null" class="sideLabel" text="Wyloguj"  [clearHistory]="true"(tap)="logout()"></Label>
-        <!-- <Label  class="sideLabel" text="Zaloguj" *ngIf="!currentUser" (tap)="onCloseDrawerTap()" ></Label> -->
+
 
     </StackLayout>
   </ScrollView>
@@ -26,7 +22,3 @@
 
   <page-router-outlet tkMainContent></page-router-outlet>
 </RadSideDrawer>
-
-<!-- <StackLayout><page-router-outlet
-  ></page-router-outlet></StackLayout> -->
-

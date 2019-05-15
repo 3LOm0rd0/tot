@@ -74,7 +74,8 @@ export class GonitwyComponent {
       console.log('BRAK DOSTĘPU DO INTERNETU. NIE MOŻNA POBRAĆ NIEROZSTRZYGNIĘTYCH ZAKŁADÓW');
     });
 
-    this.gonitwaService.getAllFuture().pipe(first()).subscribe(s =>{ this.gonitwyFuture = s;
+    this.gonitwaService.getAllFuture().pipe(first()).subscribe(s => {
+      this.gonitwyFuture = s;
       this.insertGonitwyFuture(this.gonitwyFuture);
     }, error => {
       this.connected = false;
@@ -175,16 +176,23 @@ export class GonitwyComponent {
   }
 
   onItemTap(identyfikator: number) {
-    this.router.navigate(['/szczegoly-wyscigu', identyfikator]);
+    if (this.connected) {
+      this.router.navigate(['/szczegoly-wyscigu', identyfikator]);
+    } else {
+      this.enterError();
+    }
   }
   onItemTapObstaw(identyfikator: number) {
-    if(this.connected){
-    this.router.navigate(['/obstaw', identyfikator]);
-  }}
-  
+    if (this.connected) {
+      this.router.navigate(['/obstaw', identyfikator]);
+    } else {
+      this.enterError();
+    }
+  }
   pyk() {
     this.przyszleGonitwy = !this.przyszleGonitwy;
   }
+
   usunGonitwe(id: number) {
     if (confirm('Jesteś pewien, że chcesz usunąć gonitwę?')) {
       this.gonitwaService.usunGonitwe(id).pipe(first()).subscribe(data => {
@@ -197,10 +205,14 @@ export class GonitwyComponent {
     alert({
       title: 'Alert',
       message: 'Brak połaczenia z internetem',
-      okButtonText:'OK'
-    }).then(() => {
-      console.log('Zadziałałem');
-
+      okButtonText: 'OK'
+    });
+  }
+  enterError() {
+    alert({
+      title: 'Błąd',
+      message: 'Aby zobaczyć szczegóły, połącz się z internetem',
+      okButtonText: 'OK'
     });
   }
 }

@@ -17,7 +17,6 @@ androidSelectedTabHighlightColor="aquamarine" >
 
       <ng-template let-g="item" let-i="index" >
         <AbsoluteLayout orientation="horizontal" (tap)="onItemTapObstaw(g.nrGonitwyWSezonie)" >
-
           <Label class="h4" height="30"  top="15%"  left="15%" [text]="g.nrGonitwyWSezonie" ></Label>
           <Label class="h4" top="15%"  left="38%" [text]="g.nazwaNagrody"  ></Label>
           <Label class="h4" top="15%"  left="130%" [text]="g.godzinaRozpoczecia | slice:0:5" ></Label>

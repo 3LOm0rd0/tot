@@ -1,5 +1,5 @@
 <app-action-bar title="Login" [hasMenu]="false"  [showBackButton]="false"></app-action-bar>
-<Image class="p-15" src="res://background"></Image>
+<!-- <Image class="p-15" src="res://background"></Image> -->
 <ScrollView>
     <StackLayout class="p-5 form">
         <StackLayout class="form" [formGroup]="loginForm" >
@@ -17,35 +17,8 @@
             </StackLayout>
         </StackLayout>
         <Button *ngIf="!loading" class="btn btn-primary btn-active" text="Zaloguj" (tap)="onSubmit()"></Button>
-        <!-- <Button *ngIf="!loading"text="Zarejestruj" nsRouterLink="/register" class="btn btn-primary btn-active"></Button> -->
         <StackLayout *ngIf="!loading">  <Label text="Nie masz jeszcze konta? Zarejestruj!" nsRouterLink="/register"> </Label>
         </StackLayout>
         <ActivityIndicator [busy]="loading"></ActivityIndicator>
     </StackLayout>
 </ScrollView>
-
-<!--
-Original Web template:
-
-<h2 class="title_head">Logowanie</h2>
-<form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="Login">Login</label>
-        <input placeholder="Login" type="text" formControlName="Login" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Login.errors }" />
-        <div *ngIf="submitted && f.Login.errors" class="invalid-feedback">
-            <div *ngIf="f.Login.errors.required">Login jest wymagany</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="Haslo">Hasło</label>
-        <input placeholder="Hasło" type="password" formControlName="Haslo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Haslo.errors }" />
-        <div *ngIf="submitted && f.Haslo.errors" class="invalid-feedback">
-            <div *ngIf="f.Haslo.errors.required">Haslo jest wymagane</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">Zaloguj</button>
-        <a routerLink="/register" class="btn btn-link">Zarejestruj<br/></a>
-    </div>
-</form>
--->

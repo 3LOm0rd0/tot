@@ -1,4 +1,3 @@
-import { AppComponent } from './../../../.tmp_backup/platforms/android/app/build/intermediates/merged_assets/debug/mergeDebugAssets/out/app/app/app.component.tns';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../Services/auth-service.service';
@@ -6,9 +5,8 @@ import { ActivatedRoute, NavigationStart } from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {AlertService} from '../Services/alert.service';
- import { Page } from 'tns-core-modules/ui/page/page';
-
-
+import { Page } from 'tns-core-modules/ui/page/page';
+import { alert} from 'tns-core-modules/ui/dialogs';
 
 @Component({
   selector: 'app-login',
@@ -33,14 +31,12 @@ export class LoginComponent implements OnInit {
     private alertService: AlertService,
     private formBuilder: FormBuilder) {
         page.actionBarHidden = false;
-      //  page.actionBar.title="Sign in"
-      // przekieruje do home jesli zalogowany
       if (this.authenticationService.currentUserValue) {
         this.router.navigate(['/'],{clearHistory:true});
     }
   }
   ngOnInit() {
-    console.log("Wywołuje login");
+    console.log('Wywołuje login');
     this.loginForm = this.formBuilder.group({
       Login: ['', Validators.required],
       Haslo: ['', Validators.required]
@@ -60,20 +56,24 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
         console.log('zalogowany');
-
         this.loading = false;
         this.router.navigate([this.returnUrl], {clearHistory: true});
-
-
       },
       error => {
-        console.log("BŁĄD LOGOWANIA: ", error)
-        this.error = error;
         this.loading = false;
+        this.loginAlert();
       }
     );
   }
-
+  loginAlert() {
+    alert({
+      title: 'Błąd logowania',
+      message: 'Login albo Hasło niepoprawne',
+      okButtonText: 'OK'
+    }).then(() => {
+      console.log('Zadziałałem');
+    });
+  }
 }
 
 
