@@ -1,33 +1,32 @@
 <app-action-bar title="Moje zakłady" [showBackButton]="true"></app-action-bar>
 
-
 <TabView androidTabsPosition="bottom" selectedTabTextColor="black"
 androidSelectedTabHighlightColor="aquamarine" >
 <!-- (itemTap)="zobaczSzczegoly($event)"  -->
 <ListView *tabItem="{title: 'Przed'}" [items]="zakladyPrzed" padding  >
   <ng-template let-g="item" let-i="index" >
-    <GridLayout  columns="20,40,*,*,*,*,*,20" rows="5,30,30,30" style="background-color: rgb(196, 202, 204);" >
-        <Label row="1" col="1"  class="h4" [text]="g.idGonitwy"  ></Label>
+    <GridLayout columns="20,40,*,*,*,*,*,20" rows="5,30,30,30" style="background-color: rgb(196, 202, 204);" >
+      <Label row="1" col="1"  class="h4" [text]="g.idGonitwy"  ></Label>
       <Label row="1" col="3" colSpan="2"  class="h4" [text]="g.nazwaZakladu" ></Label>
       <Label row="1" col="6" colSpan="2" class="h4" text="{{g.stawka | currency: ' '}} zł"></Label>
       <StackLayout row="2" col="1" colSpan="3" orientation="horizontal"  >
-          <Label   class="h4" text="I " ></Label>
-      <Label   class="h4" [text]="g.typowanie1" ></Label>
-    </StackLayout>
-    <StackLayout row="2" col="4" colSpan="3" orientation="horizontal" >
-        <Label   class="h4" text="III " ></Label>
-      <Label   class="h4" [text]="g.typowanie3" ></Label>
-    </StackLayout>
-    <StackLayout row="3" col="1" colSpan="3" orientation="horizontal" >
-        <Label   class="h4" text="II " ></Label>
-      <Label  class="h4" [text]="g.typowanie2" orientation="horizontal"  ></Label>
-    </StackLayout>
-    <StackLayout row="3" col="4" colSpan="3" orientation="horizontal" >
-        <Label   class="h4" text="IV " ></Label>
-      <Label   class="h4" [text]="g.typowanie4" ></Label>
-    </StackLayout>
-    <Button *ngIf="connected" row="1" col="6" rowSpan="3" colSpan="2"  text="KOSZ" (tap)="usunZaklad(g.idZakladu, g.stawka)" value="Usuń"
-    style="background-color: rgb(175, 6, 6); margin-left: 8; margin-bottom: 5; margin-top: 13; margin-right: 3;"></Button>
+          <Label class="h4" text="I " ></Label>
+          <Label class="h4" [text]="g.typowanie1" ></Label>
+      </StackLayout>
+      <StackLayout row="2" col="4" colSpan="3" orientation="horizontal" >
+        <Label class="h4" text="III " ></Label>
+        <Label class="h4" [text]="g.typowanie3" ></Label>
+      </StackLayout>
+      <StackLayout row="3" col="1" colSpan="3" orientation="horizontal" >
+        <Label class="h4" text="II " ></Label>
+        <Label class="h4" [text]="g.typowanie2" orientation="horizontal"  ></Label>
+      </StackLayout>
+      <StackLayout row="3" col="4" colSpan="3" orientation="horizontal" >
+        <Label class="h4" text="IV " ></Label>
+        <Label class="h4" [text]="g.typowanie4" ></Label>
+      </StackLayout>
+      <Button *ngIf="connected" row="1" col="6" rowSpan="3" colSpan="2"  text="KOSZ" (tap)="usunZaklad(g.idZakladu, g.stawka)" value="Usuń"
+      style="background-color: rgb(175, 6, 6); margin-left: 8; margin-bottom: 5; margin-top: 13; margin-right: 3;"></Button>
     </GridLayout>
   </ng-template>
 </ListView>
@@ -35,94 +34,35 @@ androidSelectedTabHighlightColor="aquamarine" >
       <ng-template let-g="item" let-i="index" >
         <GridLayout  columns="20,40,*,*,*,*,*,20" rows="5,30,30,30,30" style="background-color: rgb(196, 202, 204);" >
           <Label row="1" col="1"  class="h4" [text]="g.idGonitwy"  ></Label>
-        <Label row="1" col="3" colSpan="2"  class="h4" [text]="g.nazwaZakladu" ></Label>
-        <Label row="1" col="6" colSpan="2" class="h4" text="{{g.stawka | currency: ' '}} zł"></Label>
-        <StackLayout row="2" col="1" colSpan="3" orientation="horizontal"  >
-            <Label   class="h4" text="I " ></Label>
-        <Label   class="h4" [text]="g.typowanie1" ></Label>
-      </StackLayout>
-      <StackLayout row="2" col="4" colSpan="3" orientation="horizontal" >
-          <Label   class="h4" text="III " ></Label>
-        <Label   class="h4" [text]="g.typowanie3" ></Label>
-      </StackLayout>
-      <StackLayout row="3" col="1" colSpan="3" orientation="horizontal" >
-          <Label   class="h4" text="II " ></Label>
-        <Label  class="h4" [text]="g.typowanie2" orientation="horizontal"  ></Label>
-      </StackLayout>
-      <StackLayout row="3" col="4" colSpan="3" orientation="horizontal" >
-          <Label   class="h4" text="IV " ></Label>
-        <Label   class="h4" [text]="g.typowanie4" ></Label>
-      </StackLayout>
+          <Label row="1" col="3" colSpan="2"  class="h4" [text]="g.nazwaZakladu" ></Label>
+          <Label row="1" col="6" colSpan="2" class="h4" text="{{g.stawka | currency: ' '}} zł"></Label>
+          <StackLayout row="2" col="1" colSpan="3" orientation="horizontal"  >
+            <Label class="h4" text="I " ></Label>
+            <Label class="h4" [text]="g.typowanie1" ></Label>
+          </StackLayout>
+          <StackLayout row="2" col="4" colSpan="3" orientation="horizontal" >
+            <Label class="h4" text="III " ></Label>
+            <Label class="h4" [text]="g.typowanie3" ></Label>
+          </StackLayout>
+          <StackLayout row="3" col="1" colSpan="3" orientation="horizontal" >
+            <Label class="h4" text="II " ></Label>
+            <Label class="h4" [text]="g.typowanie2" orientation="horizontal"  ></Label>
+          </StackLayout>
+          <StackLayout row="3" col="4" colSpan="3" orientation="horizontal" >
+             <Label class="h4" text="IV " ></Label>
+            <Label class="h4" [text]="g.typowanie4" ></Label>
+          </StackLayout>
       <!-- nowe -->
-      <StackLayout row="4" col="1" colSpan="3" orientation="horizontal" >
-        <Label   class="h4" text="Status" ></Label>
-      <Label  class="h4" [text]="g.status" orientation="horizontal"  ></Label>
-    </StackLayout>
-    <StackLayout row="4" col="4" colSpan="3" orientation="horizontal" >
-        <Label   class="h4" text="Wygrana" ></Label>
-      <Label   class="h4" [text]="g.wygrana" ></Label>
-    </StackLayout>
-      </GridLayout>
+          <StackLayout row="4" col="1" colSpan="3" orientation="horizontal" >
+            <Label class="h4" text="Status" ></Label>
+            <Label class="h4" [text]="g.status" orientation="horizontal"  ></Label>
+          </StackLayout>
+          <StackLayout row="4" col="4" colSpan="3" orientation="horizontal" >
+            <Label class="h4" text="Wygrana" ></Label>
+            <Label class="h4" [text]="g.wygrana" ></Label>
+          </StackLayout>
+        </GridLayout>
       </ng-template>
     </ListView>
 
 </TabView>
-
-<!--
-Original Web template:
-
-<legend>Lista zakladow przed rozegranymi wyscigami</legend>
-<table class="table table-bordered table-striped table-hover table-dark">
-    <tr>
-        <td>Nazwa zakladu:</td>
-        <td>Numer gonitwy w sezonie:</td>
-        <td>Postawione pieniadze</td>
-        <td>Typowanie 1</td>
-        <td >Typowanie 2</td>
-        <td >Typowanie 3</td>
-        <td >Typowanie 4</td>
-        <td>Odwołaj:</td>
-      </tr>
-      <tr *ngFor="let g of zakladyPrzed">
-        <td>{{g.nazwaZakladu}}</td>
-        <td>{{g.idGonitwy}}</td>
-        <td>{{g.stawka | currency: " "}} zł</td>
-        <td >{{g.typowanie1}}</td>
-        <td >{{g.typowanie2}}</td>
-        <td >{{g.typowanie3}}</td>
-        <td >{{g.typowanie4}}</td>
-        <td ><button class="btn btn-active btn-danger btn-lg" style="cursor:pointer" value="Usuń"  (click)="usunZaklad(g.idZakladu, g.stawka)">Usuń</button> </td>
-      </tr>
-    </table>
-    <br>
-     <legend>Lista zakladow po rozegranych wyscigach</legend>
-    <table class="table table-bordered table-striped table-hover table-dark">
-
-          <tr>
-              <td>Nazwa zakladu:</td>
-              <td>Numer gonitwy w sezonie:</td>
-              <td>Postawione pieniadze</td>
-              <td>Typowanie 1</td>
-              <td >Typowanie 2</td>
-              <td >Typowanie 3</td>
-              <td >Typowanie 4</td>
-              <td> Status</td>
-              <td>Wygrane pieniądze:</td>
-            </tr>
-            <tr *ngFor="let g of zakladyPo">
-              <td>{{g.nazwaZakladu}}</td>
-              <td>{{g.idGonitwy}}</td>
-              <td>{{g.stawka}}</td>
-              <td >{{g.typowanie1}}</td>
-              <td >{{g.typowanie2}}</td>
-              <td >{{g.typowanie3}}</td>
-              <td >{{g.typowanie4}}</td>
-              <td> {{g.status}}</td>
-              <td>{{g.wygrana}}</td>
-            </tr>
-          </table>
-
-
-
-
--->

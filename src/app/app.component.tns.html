@@ -3,9 +3,8 @@
 
   <GridLayout tkDrawerContent rows="auto,*" class="drawer-container" (tap)="pyk()">
       <ScrollView height="100%">
-
     <StackLayout class="sideStackLayout" row="1" >
-        <Label nsRouterLink="/moje-zaklady"  (tap)="onCloseDrawerTap()" class="h3" text="Menu"></Label>
+        <Label (tap)="onCloseDrawerTap()" class="h3" text="Menu"></Label>
         <Label class="sideLabel" text="Jak Grać" nsRouterLink="jak-grac" (tap)="onCloseDrawerTap()"></Label>
         <Label class="sideLabel" text="Strona Główna" nsRouterLink="/home" (tap)="onCloseDrawerTap()" ></Label>
         <Label class="sideLabel" text="Gonitwy" nsRouterLink="gonitwy" (tap)="onCloseDrawerTap()" ></Label>
@@ -13,12 +12,9 @@
         <Label class="sideLabel" text="Moje Konto" nsRouterLink="moje-konto" (tap)="onCloseDrawerTap()" ></Label>
         <Label class="sideLabel" text="O wyścigach" nsRouterLink="historia" (tap)="onCloseDrawerTap()"></Label>
         <Label *ngIf="currentUser!=null" class="sideLabel" text="Wyloguj"  [clearHistory]="true"(tap)="logout()"></Label>
-
-
     </StackLayout>
   </ScrollView>
   </GridLayout>
-
 
   <page-router-outlet tkMainContent></page-router-outlet>
 </RadSideDrawer>

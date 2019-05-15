@@ -2,10 +2,6 @@
 
 <StackLayout class="container" style="padding-left: 5%; padding-right: 5%" >
     <Label class="h5" height="8%" text="Lista zarejestrowanych graczy:"></Label>
-    <!-- <Label col="0" text="ID" class="h4" textWrap="true"></Label>
-    <Label col="1" text="Login" class="h4" textWrap="true"></Label>
-    <Label col="2" text="Imie" class="h4" textWrap="true"></Label>
-    <Label col="3" text="Nazwisko" class="h4" textWrap="true"></Label> -->
     <StackLayout class="hr-dark m-10" style="margin:0"></StackLayout>
 
 <ListView [items]="gracze" class="list-group" height="65%"  >
@@ -25,30 +21,3 @@
     <Button col="1" width="50%" class="btn btn-primary btn-rounded-mg" text="Zarządzaj gonitwami" nsRouterLink="/gonitwy"></Button>
 </GridLayout>
 </StackLayout>
-
-
-
-<!--
-Original Web template:
-
-
-<div class="align-middle">
-
-  <h3>gracze zarejestrowani:</h3>
-<table class="table table-bordered table-striped table-hover table-dark">
-  <tr *ngFor="let gracz of gracze">
-    <td>{{gracz.login}}</td>
-    <td>{{gracz.imie}} </td>
-    <td>{{gracz.nazwisko}}</td>
-  </tr>
-</table>
-
-  <p><button routerLink="/wierzchowiec" class="btn btn-primary btn-lg btn-active" style="cursor:pointer">Zarządzanie wierzchowcami <br/></button></p>
-
-  <p><button routerLink="/gonitwy" class="btn btn-active btn-primary btn-lg">Zarządzaj gonitwami</button></p>
-
-
-</div>
-
-
--->
