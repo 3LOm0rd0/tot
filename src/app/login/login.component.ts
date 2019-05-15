@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
     }
   }
   ngOnInit() {
-    console.log('Wywołuje login');
     this.loginForm = this.formBuilder.group({
       Login: ['', Validators.required],
       Haslo: ['', Validators.required]
@@ -55,7 +54,6 @@ export class LoginComponent implements OnInit {
     .pipe(first())
     .subscribe(
       data => {
-        console.log('zalogowany');
         this.loading = false;
         this.router.navigate([this.returnUrl], {clearHistory: true});
       },
@@ -70,8 +68,6 @@ export class LoginComponent implements OnInit {
       title: 'Błąd logowania',
       message: 'Login albo Hasło niepoprawne',
       okButtonText: 'OK'
-    }).then(() => {
-      console.log('Zadziałałem');
     });
   }
 }

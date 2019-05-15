@@ -50,7 +50,6 @@ export class MojeZakladyComponent {
       .pipe(first())
       .subscribe(s => {
         this.zakladyPrzed = s;
-        console.log('SUBSCRIBE: ', s);
         // TUTAJ INSERT
         this.insert(this.zakladyPrzed),
           this.alertService.success('załadowano zakłady', false)
@@ -83,7 +82,6 @@ export class MojeZakladyComponent {
             this.wczytajZaklady();
             // this.alertService.success('Usunieto', true);
           }, error => {
-            console.log('jestem błędem');
             this.wczytajZaklady();
           });
       }
@@ -91,7 +89,6 @@ export class MojeZakladyComponent {
   }
 
   private insert(zaklady: WidokZaklad[]) {
-    console.log('jestem offline')
     this.database.execSQL('DROP TABLE IF EXISTS bets').then(afterDropin => {
       this.database.execSQL(this.betsCreation).then(pech => {
         // tslint:disable-next-line:forin
@@ -142,9 +139,6 @@ export class MojeZakladyComponent {
       title: 'Alert',
       message: 'Brak połaczenia z internetem',
       okButtonText:'OK'
-    }).then(() => {
-      console.log('Zadziałałem');
-
     });
   }
 

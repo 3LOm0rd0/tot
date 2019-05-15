@@ -9,9 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from '../Services/alert.service';
 import { AuthServiceService } from '../Services/auth-service.service';
 import { first } from 'rxjs/operators';
-import { ObliczeniaService } from '../Services/obliczenia.service';
 import { UserService } from '../Services/user-service.service';
-import { alert, confirm, prompt, login, action, inputType } from "tns-core-modules/ui/dialogs";
+import { alert, prompt, action, inputType } from 'tns-core-modules/ui/dialogs';
 @Component({
   selector: 'app-obstaw',
   templateUrl: './obstaw.component.html',
@@ -31,7 +30,7 @@ export class ObstawComponent implements OnInit {
   loading = false;
   submitted = false;
   currentUser: Gracz;
-  answer: boolean = true;
+  answer: Boolean = true;
   options = [];
   rodzajeKuponu = [];
   typeBet = 'zwyczajny';
@@ -50,9 +49,8 @@ export class ObstawComponent implements OnInit {
     private authenticationService: AuthServiceService,
     private serviceGonitwy: GonitwaServiceService
   ) {
-    // this.currentUser = this.authenticationService.currentUserValue;
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
+    console.log(this.currentUser);
   }
 
   ngOnInit() {
@@ -71,22 +69,14 @@ export class ObstawComponent implements OnInit {
           this.rodzajeKuponu.push(element.nazwaZakladu);
         });
       });
-
-    })
-
+    });
   }
-
-
   ngOnDestory() {
     this.sub.unsubscribe();
   }
-
-
   onSubmit() {
-
     this.submitted = true;
-
-    this.zaklad.IdGonitwy = this.id ;
+    this.zaklad.IdGonitwy = this.id;
     this.zaklad.IdGracza = this.currentUser.id;
     this.zaklad.RodzajZakladu = this.idP;
     this.zaklad.Stawka = this.stawka;
@@ -97,12 +87,14 @@ export class ObstawComponent implements OnInit {
 
 
     this.loading = true;
+
     this.userService.getById(this.currentUser.id).pipe(first()).subscribe(u => {
       this.currentUser = u;
-      if (this.stawka > u.konto) {
-        // this.alertService.success("Za duża stawka.Twoje konto nie jest tak bogate. Doładuj je!", true);
-        return this.answer = false;
+      if (this.stawka > this.currentUser.konto) {
+        this.cashAlert();
+        this.answer = false;
       }
+
     });
 
     if (this.answer == true) {
@@ -110,83 +102,76 @@ export class ObstawComponent implements OnInit {
         .pipe(first())
         .subscribe(
           data => {
-            this.alertService.success("Dodano zaklad", true);
+            this.alertService.success('Dodano zaklad', true);
             this.router.navigate(['/gonitwy']);
           }
-        )
+        );
     }
-    this.router.navigate(['/gonitwy']);
   }
 
   selectBetType() {
     action({
-      message: "Wybierz typ zakładu:",
-      cancelButtonText: "Anuluj",
+      message: 'Wybierz typ zakładu:',
+      cancelButtonText: 'Anuluj',
       actions: this.rodzajeKuponu
     }).then((result) => {
-      if (result != 'Anuluj') {
+      if (result !== 'Anuluj') {
         this.typeBet = result;
         this.idP = this.rodzajeKuponu.indexOf(result) + 1;
         this.type1 = this.type2 = this.type3 = this.type4 = 'nie dotyczy';
-        console.log(this.idP);
       }
     });
   }
   selectType1() {
     action({
-      message: "Typ 1",
-      // cancelButtonText: "Anuluj",
+      message: 'Typ 1',
       actions: this.options
     }).then((result) => {
-      console.log(result);
       this.type1 = result;
     });
   }
   selectType2() {
     action({
-      message: "Typ 2",
-      // cancelButtonText: "Anuluj",
+      message: 'Typ 2',
       actions: this.options
     }).then((result) => {
       this.type2 = result;
-      console.log(result)
     });
   }
   selectType3() {
     action({
-      message: "Typ 3",
-      // cancelButtonText: "Anuluj",
+      message: 'Typ 3',
       actions: this.options
     }).then((result) => {
       this.type3 = result;
-      console.log(result)
     });
   }
   selectType4() {
     action({
-      message: "Typ 4",
-      // cancelButtonText: "Anuluj",
+      message: 'Typ 4',
       actions: this.options
     }).then((result) => {
       this.type4 = result;
-      console.log(result)
+    });
+  }
+
+  cashAlert() {
+    alert({
+      title: 'Brak środków',
+      message: 'Doładuj konto',
+      okButtonText: 'OK'
     });
   }
 
   setCash() {
     prompt({
-      title: "Stawka",
-      message: "O ile zagramy?",
-      okButtonText: "Zatwierdź",
-      // cancelButtonText: "Odrzuć",
-      defaultText: "200",
+      title: 'Stawka',
+      message: 'O ile zagramy?',
+      okButtonText: 'Zatwierdź',
+      defaultText: '200',
       inputType: inputType.number
     }).then((result) => {
-      // The result property is true if the dialog is closed with the OK button, false if closed with the Cancel button or undefined if closed with a neutral button.
-      console.log("Dialog result: " + result.result);
-      console.log("Text: " + result.text);
       this.stawka = +result.text;
-
-    })
+    });
   }
 }

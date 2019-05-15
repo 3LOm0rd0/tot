@@ -12,7 +12,6 @@ import { DatabaseService } from '../Services/sqlite.service';
   styleUrls: ['./moje-konto.component.css']
 })
 export class MojeKontoComponent {
-
   // tslint:disable-next-line:max-line-length
   private userCreation = 'CREATE TABLE IF NOT EXISTS user (idGracza INTEGER PRIMARY KEY, imie TEXT, nazwisko TEXT, login TEXT, rola TEXT, email TEXT, wiek INTEGER, wyksztalcenie TEXT, konto FLOAT)'
   private database: any;
@@ -29,13 +28,10 @@ export class MojeKontoComponent {
     });
     this.userService.getById(this.currentUser.id).pipe(first()).subscribe(u => {
       this.graczApi = u;
-
       this.insert(this.graczApi);
     }, error => {
       console.log('BRAK DOSTĘPU DO INTERNETU')
     });
-
-
   }
   // koniec konstruktora
 
@@ -44,7 +40,6 @@ export class MojeKontoComponent {
   }
 
   public insert(gracz: Gracz) {
-    console.log('jestem w insercie moje konto')
     this.database.execSQL('DROP TABLE IF EXISTS user');
     // tslint:disable-next-line:max-line-length
     this.database.execSQL(this.userCreation)
@@ -57,15 +52,12 @@ export class MojeKontoComponent {
           }, error => {
             console.log('INSERT ERROR', error);
           });
-
-      })
-
+      });
   }
 
   public fetch() {
     this.sqliteService.getdbConnection().then(db => {
       db.all('SELECT * FROM user').then(rows => {
-
         this.graczApi.id = rows[0][0];
         this.graczApi.imie = rows[0][1];
         this.graczApi.nazwisko = rows[0][2];
@@ -75,7 +67,6 @@ export class MojeKontoComponent {
         this.graczApi.wiek = rows[0][6];
         this.graczApi.wyksztalcenie = rows[0][7];
         this.graczApi.konto = rows[0][8];
-
       }, error => {
         console.log('SELECT ERROR', error);
       });

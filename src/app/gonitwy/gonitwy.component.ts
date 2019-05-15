@@ -10,7 +10,6 @@ import { AlertService } from '../Services/alert.service';
 import { Router } from '@angular/router';
 import { setCurrentOrientation, orientationCleanup } from 'nativescript-screen-orientation';
 import { Page } from 'tns-core-modules/ui/page/page';
-import { TabView } from 'tns-core-modules/ui/tab-view';
 import { DatabaseService } from '../Services/sqlite.service';
 import { alert, confirm, prompt, login, action, inputType } from 'tns-core-modules/ui/dialogs';
 
@@ -66,7 +65,6 @@ export class GonitwyComponent {
   wczytajGonitwy() {
     this.gonitwaService.getAll().pipe(first()).subscribe(s => {
       this.gonitwy = s;
-      console.log('SUBSCRIBE: ', s);
       this.insertGonitwy(this.gonitwy);
     }, error => {
       this.connected = false;
