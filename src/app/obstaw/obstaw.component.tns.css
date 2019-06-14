@@ -1,6 +1,42 @@
-/*
-Add your NativeScript specific styles here.
-To learn more about styling in NativeScript see:
-https://docs.nativescript.org/angular/ui/styling
-*/
+.btn:active {
+    background-color: yellow;
+    transform: translateY(4px);
+}
+.btn{
+    background-color:orange;
+    border-radius: 20;
+    color: black;
+    font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
+    font-size: 10;
 
+    width: 100;
+}
+.btn-typowanie{
+    background-color:orange;
+    border-radius: 20;
+    color: black;
+    font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
+    font-size: 10;
+
+    width: 30%;
+}
+.btn-cash{
+    background-color:orange;
+    border-radius: 20;
+    color: black;
+    font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
+    font-size: 10;
+
+    width: 30%;
+}
+ScrollView{
+    background-color: Black;
+}
+.list-group-item-heading{
+    color:rgb(255, 136, 0);
+    font-size: 16;
+}
+.list-group-item-text{
+    color:orange;
+    font-size: 12;
+}

@@ -51,4 +51,7 @@ li a:hover{
   font-size: 25%;
   color: #111
 }
+.fa{
+  font-family: 'FontAwesome', 'Font-Awesome';
+}
 

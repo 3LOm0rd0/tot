@@ -6,7 +6,18 @@ https://docs.nativescript.org/angular/ui/styling
 
 
 AbsoluteLayout{
-  border-color:green;
-  border-width:1;
+  border-bottom-color: orange;
+  border-width: 1;
+}
 
+
+.table{
+  background-color: black;
+  color:white;
+  border-bottom-color:orange;
+}
+.h4{
+  background-color: black;
+  color:white;
+  border-bottom-color:orange;
 }

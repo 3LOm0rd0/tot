@@ -1,37 +1,47 @@
 <app-action-bar title="Obstaw wyścig" [showBackButton]="true"></app-action-bar>
 <ScrollView>
 <DockLayout stretchLastChild="false">
-  <StackLayout>
+
+  <StackLayout dock="top" dock="left" height="600">
+     <!-- Lista psów i kursów  -->
       <Label   text="Kursy:" class="atext" textWrap="true" style="margin-bottom:5; margin-top: 5; margin-left: 8" ></Label>
-      <ListView dock="left"  [items]="lista" separatorColor="#AA0078" height="55%" width="30%" style="margin-left: 13" >
+      <ListView dock="left"  [items]="lista" separatorColor="white" height="100%" width="50%" style="margin-left: 13" >
           <ng-template let-l="item">
               <StackLayout class="list-group-item">
-                  <Label [text]="l.nazwaWierzchowca" class="list-group-item-heading"></Label>
+                  <Label text="Nazwa wierzchowca: "[text]="l.nazwaWierzchowca" class="list-group-item-heading"></Label>
                   <StackLayout orientation="horizontal">
-                  <!-- <Label text="Kurs: " class="list-group-item-text" textWrap="true"></Label> -->
                   <Label [text]="l.kurs" class="list-group-item-text" textWrap="true"></Label>
                 </StackLayout>
               </StackLayout>
           </ng-template>
         </ListView>
-        <Label text="Wybierz rodzaj:" class="list-group-item-text" textWrap="true" style=" margin-left: 8"></Label>
-        <Button dock="left" (tap)="selectBetType()" text="{{typeBet}}" style="background-color: #0099CC; margin-top: 1;"></Button>
-        <Button dock="left" (tap)="onSubmit()" text="Zatwierdź" style="background-color: rgb(109, 109, 109); margin-top: 5;"></Button>
+        <!-- Koniec Lista psów i kursów  -->
       </StackLayout>
-      <!-- horizontalAlignment="right" verticalAlignment="bottom"  -->
-<StackLayout dock="bottom" height="88%" width="100%">
-    <Label   text="Typ 1" class="atext" textWrap="true"></Label>
-  <Button  (tap)="selectType1()" text="{{type1}}" style="background-color: #AA0078; margin-left: 15;" ></Button>
+     
+
+<StackLayout dock="top" height="30%" width="100%">
+  <!-- Przyciski do wyboru psow i rodzaju  -->
+    <Label text="Wybierz rodzaj:" class="list-group-item-text" textWrap="true" style=" margin-left: 8"></Label>
+    <Button dock="left" (tap)="selectBetType()" class="btn" text="{{typeBet}}" ></Button>
+    <Button dock="left" (tap)="onSubmit()" class="btn" text="Zatwierdź" ></Button>
+  <!-- Koniec Przyciski do wyboru psow i rodzaju  -->
+
+  <!-- Typowanie  -->
+  <Label   text="Typ 1" class="atext" textWrap="true"></Label>
+  <Button  (tap)="selectType1()" text="{{type1}}" class="btn" ></Button>
   <Label   text="Typ 2" class="atext" textWrap="true" *ngIf="idP==2 || idP==3 ||idP==4 || idP==5"></Label>
-  <Button (tap)="selectType2()" text="{{type2}}"style="background-color: #AA0078; margin-left: 15;" *ngIf="idP==2 || idP==3 ||idP==4 || idP==5"></Button>
+  <Button (tap)="selectType2()" text="{{type2}}" class="btn" *ngIf="idP==2 || idP==3 ||idP==4 || idP==5"></Button>
   <Label   text="Typ 3" class="atext" textWrap="true" *ngIf="idP==4 || idP==5"></Label>
-  <Button (tap)="selectType3()" text="{{type3}}" style="background-color: #AA0078; margin-left: 15;" *ngIf="idP==4 || idP==5"></Button>
+  <Button (tap)="selectType3()" text="{{type3}}" class="btn"  *ngIf="idP==4 || idP==5"></Button>
   <Label   text="Typ 4" class="atext" textWrap="true" *ngIf=" idP==5"></Label>
-  <Button (tap)="selectType4()" text="{{type4}}" style="background-color: #AA0078; margin-left: 15;" *ngIf=" idP==5"></Button>
+  <Button (tap)="selectType4()" text="{{type4}}" class="btn-typowanie" *ngIf=" idP==5"></Button>
+  <!--Koniec Typowanie  -->
 </StackLayout>
-<StackLayout dock="top" height="12%" orientation="horizontal">
+<StackLayout dock="top" height="12%" orientation="vertical">
+  <!-- Stawka  -->
   <Label   text="Stawka: {{stawka}} zł" class="atext" textWrap="true" style="margin-top: 10;" ></Label>
-  <Button (tap)="setCash()" text="$$" style="background-color: #B3B3D7;"></Button>
+  <Button (tap)="setCash()" text="$$" class="btn-cash"></Button>
+  <!-- Koniec Stawka  -->
 </StackLayout>
 
 </DockLayout>

@@ -1,5 +1,16 @@
-/*
-Add your NativeScript specific styles here.
-To learn more about styling in NativeScript see:
-https://docs.nativescript.org/angular/ui/styling
-*/
+ListView{
+    background-color: rgb(54, 54, 54);
+    color: orange;
+}
+GridLayout{
+    background-color: black;
+}
+.h4{
+    color: orange;
+
+}
+.fa{
+    font-family: 'FontAwesome', 'Font-Awesome';
+    color: orange;
+    font-size: 30%;
+}

@@ -1,45 +1,53 @@
 <app-action-bar title="Aktualizacja" [showBackButton]="true"></app-action-bar>
 <ScrollView>
-  <Label text="Wprowadź dane" class="h5" textWrap="true"></Label>
-  <StackLayout class="form" [formGroup]="updateForm" style="padding:8%">
-    <StackLayout class="input-field">
-      <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Imie"
-      [ngClass]="{ 'is-invalid': submitted && f.Imie.errors }"></TextField>
-      <StackLayout class="hr-dark m-2"></StackLayout>
-      <Label text="Imie" class="label" textWrap="true"></Label>
-    </StackLayout>
-    <StackLayout class="input-field">
-      <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Nazwisko"
-      [ngClass]="{ 'is-invalid': submitted && f.Nazwisko.errors }" ></TextField>
-      <StackLayout class="hr-dark m-2"></StackLayout>
-      <Label text="Nazwisko" class="label" textWrap="true"></Label>
-    </StackLayout>
-      <StackLayout class="input-field">
-      <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
-      [ngClass]="{ 'is-invalid': submitted && f.Login.errors }"></TextField>
-      <StackLayout class="hr-dark m-2"></StackLayout>
-      <Label text="Login" class="label" textWrap="true"></Label>
-    </StackLayout>
-    <StackLayout class="input-field">
-      <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Email" keyboardType="email"
-      [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"></TextField>
-      <StackLayout class="hr-dark m-2"></StackLayout>
-      <Label text="Email" class="label" textWrap="true"></Label>
-    </StackLayout>
-    <StackLayout class="input-field">
-        <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Wiek" keyboardType="number"
-        [ngClass]="{ 'is-invalid': submitted && f.Wiek.errors }"></TextField>
-        <StackLayout class="hr-dark m-2"></StackLayout>
-        <Label text="Wiek" class="label" textWrap="true"></Label>
-    </StackLayout>
-    <StackLayout class="input-field">
-        <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Wyksztalcenie"
-        [ngClass]="{ 'is-invalid': submitted && f.Wyksztalcenie.errors }"></TextField>
-        <StackLayout class="hr-dark m-2"></StackLayout>
-        <Label text="Wyksztalcenie" class="label" textWrap="true"></Label>
+    <Label text="Wprowadź dane" class="h5" textWrap="true"></Label>
+
+    <StackLayout class="form" [formGroup]="updateForm" style="padding:8%">
+          <StackLayout class="input-field">
+            <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Imie"
+            [ngClass]="{ 'is-invalid': submitted && f.Imie.errors }"></TextField>
+            <StackLayout class="hr-dark m-2"></StackLayout>
+            <Label text="Imie" class="label" textWrap="true"></Label>
+          </StackLayout>
+
+          <StackLayout class="input-field">
+            <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Nazwisko"
+            [ngClass]="{ 'is-invalid': submitted && f.Nazwisko.errors }" ></TextField>
+            <StackLayout class="hr-dark m-2"></StackLayout>
+            <Label text="Nazwisko" class="label" textWrap="true"></Label>
+          </StackLayout>
+
+          <StackLayout class="input-field">
+            <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
+            [ngClass]="{ 'is-invalid': submitted && f.Login.errors }"></TextField>
+            <StackLayout class="hr-dark m-2"></StackLayout>
+            <Label text="Login" class="label" textWrap="true"></Label>
+          </StackLayout>
+
+          <StackLayout class="input-field">
+            <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Email" keyboardType="email"
+            [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"></TextField>
+            <StackLayout class="hr-dark m-2"></StackLayout>
+            <Label text="Email" class="label" textWrap="true"></Label>
+          </StackLayout>
+
+          <StackLayout class="input-field">
+              <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Wiek" keyboardType="number"
+              [ngClass]="{ 'is-invalid': submitted && f.Wiek.errors }"></TextField>
+              <StackLayout class="hr-dark m-2"></StackLayout>
+              <Label text="Wiek" class="label" textWrap="true"></Label>
+          </StackLayout>
+
+          <StackLayout class="input-field">
+              <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Wyksztalcenie"
+              [ngClass]="{ 'is-invalid': submitted && f.Wyksztalcenie.errors }"></TextField>
+              <StackLayout class="hr-dark m-2"></StackLayout>
+              <Label text="Wyksztalcenie" class="label" textWrap="true"></Label>
+              </StackLayout>
+          <StackLayout>
+
+          <Button  class="btn"  text="Aktualizuj" (tap)="onSubmit()"></Button>
+          
         </StackLayout>
-    <StackLayout>
-      <Button  class="btn btn-primary btn-active"  text="Aktualizuj" (tap)="onSubmit()"></Button>
-    </StackLayout>
   </StackLayout>
 </ScrollView>

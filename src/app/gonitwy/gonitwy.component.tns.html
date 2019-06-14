@@ -1,8 +1,9 @@
 <app-action-bar title="Gonitwy" [showBackButton]="true"></app-action-bar>
-<TabView androidTabsPosition="bottom" selectedTabTextColor="black"
-androidSelectedTabHighlightColor="aquamarine" >
 
-<ListView *tabItem="{title: 'Wyniki', iconSource: 'res://icon'}" [items]="gonitwy"   (itemTap)="zobaczSzczegoly($event)"  >
+<TabView tabBackgroundColor="black" androidTabsPosition="bottom" selectedTabTextColor="orange" tabTextColor="white"
+androidSelectedTabHighlightColor="black" >
+
+<ListView *tabItem="{title: 'Wyniki', iconSource: 'res://icon'}" class="table" [items]="gonitwy"   (itemTap)="zobaczSzczegoly($event)"  >
   <ng-template let-g="item" let-i="index" >
     <AbsoluteLayout  orientation="horizontal" (tap)="onItemTap(g.nrGonitwyWSezonie)" >
       <Label height="30" class="h4" top="15%" left="15%" [text]="g.nrGonitwyWSezonie" ></Label>
@@ -13,10 +14,10 @@ androidSelectedTabHighlightColor="aquamarine" >
     </AbsoluteLayout>
   </ng-template>
 </ListView>
-    <ListView *tabItem="{title: 'Obstaw', iconSource: 'res://icon'}" [items]="gonitwyFuture"(itemTap)="zobaczSzczegoly($event)"  >
+    <ListView *tabItem="{title: 'Obstaw', iconSource: 'res://icon'}" class="table" [items]="gonitwyFuture"(itemTap)="zobaczSzczegoly($event)"  >
 
       <ng-template let-g="item" let-i="index" >
-        <AbsoluteLayout orientation="horizontal" (tap)="onItemTapObstaw(g.nrGonitwyWSezonie)" >
+        <AbsoluteLayout  orientation="horizontal" (tap)="onItemTapObstaw(g.nrGonitwyWSezonie)" >
           <Label class="h4" height="30"  top="15%"  left="15%" [text]="g.nrGonitwyWSezonie" ></Label>
           <Label class="h4" top="15%"  left="38%" [text]="g.nazwaNagrody"  ></Label>
           <Label class="h4" top="15%"  left="130%" [text]="g.godzinaRozpoczecia | slice:0:5" ></Label>

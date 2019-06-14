@@ -1,5 +1,26 @@
-/*
-Add your NativeScript specific styles here.
-To learn more about styling in NativeScript see:
-https://docs.nativescript.org/angular/ui/styling
-*/
+.label-title{
+color: orange;
+font-size: 15;
+}
+.label-value{
+    color: rgb(243, 231, 60);
+    font-size: 15;
+
+}
+.stack{
+    background-color: black;
+}
+.btn{
+    background-color:orange;
+    border-radius: 20;
+    color: black;
+    font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
+    font-size: 15;
+    width: 80%;
+    
+}
+
+.btn:active {
+  background-color: yellow;
+  transform: translateY(4px);
+}

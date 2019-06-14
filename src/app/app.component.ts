@@ -27,4 +27,5 @@ logout(){
   this.authenticationService.logout();
   this.router.navigate(['/login']);
 }
+
 }

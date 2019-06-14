@@ -1,45 +1,46 @@
 <app-action-bar title="Wynik" [showBackButton]="true"></app-action-bar>
 
-<TabView selectedTabTextColor="black"
-         tabBackgroundColor="white"
+<TabView selectedTabTextColor="orange"
+         tabBackgroundColor="black"
          tabTextFontSize="12"
-         androidSelectedTabHighlightColor="aquamarine"
+         androidSelectedTabHighlightColor="orange" tabTextColor="white"
          androidTabsPosition="top">
 
          <!-- <StackLayout > -->
           <ScrollView *tabItem="{title: 'Ranking',textTransform: 'uppercase'}">
               <StackLayout>
-          <Label *ngIf="wynik?.konIMiejsce" text="I miejsce" fontSize="18" color="rgba(20, 3, 39, 0.832)" class="heading"></Label>
-          <Label [text]="wynik?.konIMiejsce" class="atext" color="rgba(20, 3, 39, 0.932)"  textWrap="true"></Label>
+                      
+                <Label *ngIf="wynik?.konIMiejsce" text="I miejsce"   class="heading"></Label>
+                <Label [text]="wynik?.konIMiejsce" class="atext"   textWrap="true"></Label>
+                              
+                <Label *ngIf="wynik?.konIiMiejsce"  text="II miejsce"   class="heading"></Label>
+                <Label [text]="wynik?.konIiMiejsce" class="atext" textWrap="true"></Label>
 
-          <Label *ngIf="wynik?.konIiMiejsce"  text="II miejsce" fontSize="14" color="rgba(20, 3, 39, 0.732)" class="heading"></Label>
-          <Label [text]="wynik?.konIiMiejsce" class="atext" textWrap="true"></Label>
+                <Label *ngIf="wynik?.konIiiMiejsce"  text="III miejsce"   class="heading"></Label>
+                <Label [text]="wynik?.konIiiMiejsce" class="atext" textWrap="true"></Label>
 
-          <Label *ngIf="wynik?.konIiiMiejsce"  text="III miejsce" fontSize="12"  color="rgba(20, 3, 39, 0.532)" class="heading"></Label>
-          <Label [text]="wynik?.konIiiMiejsce" class="atext" textWrap="true"></Label>
+                <Label *ngIf="wynik?.konIvMiejsce"  text="IV miejsce" class="heading"></Label>
+                <Label [text]="wynik?.konIvMiejsce" class="atext" textWrap="true"></Label>
 
-          <Label *ngIf="wynik?.konIvMiejsce"  text="IV miejsce" class="heading"></Label>
-          <Label [text]="wynik?.konIvMiejsce" class="atext" textWrap="true"></Label>
+                <Label *ngIf="wynik?.konVMiejsce"  text="V miejsce" class="heading"></Label>
+                <Label [text]="wynik?.konVMiejsce" class="atext" textWrap="true"></Label>
 
-          <Label *ngIf="wynik?.konVMiejsce"  text="V miejsce" class="heading"></Label>
-          <Label [text]="wynik?.konVMiejsce" class="atext" textWrap="true"></Label>
+                <Label *ngIf="wynik?.konViMiejsce"  text="VI miejsce" class="heading"></Label>
+                <Label [text]="wynik?.konViMiejsce" class="atext" textWrap="true"></Label>
 
-          <Label *ngIf="wynik?.konViMiejsce"  text="VI miejsce" class="heading"></Label>
-          <Label [text]="wynik?.konViMiejsce" class="atext" textWrap="true"></Label>
-
-          <Label *ngIf="wynik?.konViiMiejsce"  text="VII miejsce" class="heading"></Label>
-          <Label [text]="wynik?.konViiMiejsce" class="atext" textWrap="true"></Label>
+                <Label *ngIf="wynik?.konViiMiejsce"  text="VII miejsce" class="heading"></Label>
+                <Label [text]="wynik?.konViiMiejsce" class="atext" textWrap="true"></Label>
               </StackLayout>
         </ScrollView>
           <!-- </StackLayout> -->
 
-      <ListView  *tabItem="{title: 'Kursy',  textTransform: 'uppercase'}"  class="list-group" [items]="lista" separatorColor="yellow">
+      <ListView  *tabItem="{title: 'Kursy',  textTransform: 'uppercase'}"  class="list-group" [items]="lista" separatorColor="orange">
         <ng-template let-l="item">
             <StackLayout class="list-group-item">
                 <Label [text]="l.nazwaWierzchowca" class="list-group-item-heading"></Label>
                 <StackLayout orientation="horizontal">
                 <Label text="Kurs: " class="list-group-item-text" textWrap="true"></Label>
-                <Label [text]="l.kurs" class="list-group-item-text" textWrap="true"></Label>
+                <Label [text]="l.kurs" class="list-group-item-text1" textWrap="true"></Label>
               </StackLayout>
             </StackLayout>
         </ng-template>

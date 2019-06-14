@@ -1,24 +1,36 @@
 <app-action-bar title="Login" [hasMenu]="false"  [showBackButton]="false"></app-action-bar>
 <!-- <Image class="p-15" src="res://background"></Image> -->
 <ScrollView>
+
     <StackLayout class="p-5 form">
+
         <StackLayout class="form" [formGroup]="loginForm" >
+            
             <StackLayout class="input-field">
-                <Label text="Login" class="label" textWrap="true"></Label>
+                <Label text="Login" class="label" textWrap="true" color="orange"></Label>
                 <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
                 [ngClass]="{ 'is-invalid': submitted && f.Login.errors }"></TextField>
                 <StackLayout class="hr-dark m-10"></StackLayout>
             </StackLayout>
+
             <StackLayout class="input-field">
-                <Label text="Haslo" class="label" textWrap="true"></Label>
+                <Label text="Haslo" class="label" textWrap="true" color="orange"></Label>
                 <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Haslo" [secure]="true"
                  [ngClass]="{ 'is-invalid': submitted && f.Haslo.errors }"></TextField>
                 <StackLayout class="hr-dark m-10"></StackLayout>
+            
             </StackLayout>
         </StackLayout>
-          <Button *ngIf="!loading" class="btn btn-primary btn-active" text="Zaloguj" (tap)="onSubmit()"></Button>
-          <StackLayout *ngIf="!loading">  <Label text="Nie masz jeszcze konta? Zarejestruj!" nsRouterLink="/register"> </Label>
+
+          <Button *ngIf="!loading" class="btn" text="Zaloguj" (tap)="onSubmit()"></Button>
+
+          <StackLayout *ngIf="!loading"> 
+               <Label class="text" text="Nie masz jeszcze konta?"  > </Label>
+               <button class="btn-reg" text="Zarejestruj!" nsRouterLink="/register"> </button>
           </StackLayout>
+
           <ActivityIndicator [busy]="loading"></ActivityIndicator>
+
     </StackLayout>
+
 </ScrollView>

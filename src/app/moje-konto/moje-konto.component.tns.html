@@ -1,33 +1,34 @@
 <app-action-bar title="Moje konto" [showBackButton]="true"></app-action-bar>
+<ScrollView class="stack">
 
+  <GridLayout flexWrap="wrap" columns="*,*" rows="20,20,20,20,20,20,20,20,20,20,*,*,*,*" margin="8%">
+      <Label text="Imie" row="0" col="0" class="label-title" ></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.imie}}" row="0" col="1" class="label-value"></Label>
 
-  <GridLayout flexWrap="wrap" columns="*,*" rows="20,20,20,20,20,20,20,*,*" margin="8%">
-      <Label text="Imie" row="0" col="0" ></Label>
-      <Label *ngIf="graczApi" text="{{graczApi.imie}}" row="0" col="1" ></Label>
+      <Label text="Nazwisko" row="1" col="0" class="label-title"></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.nazwisko}}" row="1" col="1" class="label-value"></Label>
 
-      <Label text="Nazwisko" row="1" col="0" ></Label>
-      <Label *ngIf="graczApi" text="{{graczApi.nazwisko}}" row="1" col="1" ></Label>
+      <Label text="Login" row="2" col="0" class="label-title"></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.login}}" row="2" col="1" class="label-value"></Label>
 
-      <Label text="Login" row="2" col="0" ></Label>
-      <Label *ngIf="graczApi" text="{{graczApi.login}}" row="2" col="1" ></Label>
+      <Label text="E-mail" row="3" col="0" class="label-title"></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.email}}" textWrap="true"  row="3" col="1" class="label-value"></Label>
 
-      <Label text="E-mail" row="3" col="0" ></Label>
-      <Label *ngIf="graczApi" text="{{graczApi.email}}" textWrap="true"  row="3" col="1" ></Label>
+      <Label text="Wiek" row="4" col="0" class="label-title"></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.wiek}}" row="4" col="1" class="label-value"></Label>
 
-      <Label text="Wiek" row="4" col="0" ></Label>
-      <Label *ngIf="graczApi" text="{{graczApi.wiek}}" row="4" col="1" ></Label>
+      <Label text="Wykształcenie" row="5" col="0" class="label-title"></Label>
+      <Label *ngIf="graczApi" text="{{graczApi.wyksztalcenie}}" row="5" col="1" class="label-value"></Label>
 
-      <Label text="Wykształcenie" row="5" col="0" ></Label>
-      <Label *ngIf="graczApi" text="{{graczApi.wyksztalcenie}}" row="5" col="1" ></Label>
+      <Label text="Stan konta" row="6" col="0" class="label-title"></Label>
+      <Label *ngIf="graczApi"  text="{{graczApi.konto | currency:''}} zł" row="6" col="1" class="label-value"></Label>
 
-      <Label text="Stan konta" row="6" col="0" ></Label>
-      <Label *ngIf="graczApi"  text="{{graczApi.konto | currency:''}} zł" row="6" col="1" ></Label>
+      <Button row="10" col="0"   text="Aktualizuj dane" nsRouterLink="/aktualizacja" class="btn"></Button>
+      <Button row="11" col="0"   text="Zmiana hasla" nsRouterLink="/zmiana-hasla"class="btn"></Button>
 
-      <Button row="7" col="0" text="Aktualizuj dane" nsRouterLink="/aktualizacja" style="background-color: #0099CC; margin: 1;"></Button>
-      <Button row="7" col="1"   text="Zmiana hasla" nsRouterLink="/zmiana-hasla" style="background-color: #0099CC; margin: 1;"></Button>
-
-      <Button row="8" col="0"   text="Moje zaklady" nsRouterLink="/moje-zaklady" style="background-color: #0099CC; margin: 1;"></Button>
-      <Button row="8" col="1"   text="Doładuj konto" nsRouterLink="/doladuj" style="background-color: #0099CC; margin: 1;"></Button>
-
+      <Button row="12" col="0"   text="Moje zaklady" nsRouterLink="/moje-zaklady" class="btn"></Button>
+      <Button row="13" col="0"   text="Doładuj konto" nsRouterLink="/doladuj" class="btn"></Button>
 
      </GridLayout>
+
+</ScrollView>>

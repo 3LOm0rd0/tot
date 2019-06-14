@@ -1,5 +1,25 @@
-/*
-Add your NativeScript specific styles here.
-To learn more about styling in NativeScript see:
-https://docs.nativescript.org/angular/ui/styling
-*/
+action-bar{
+    background-color: black;
+    color: orange;
+}
+ScrollView{
+    background-color: black;
+    color: orange;
+}
+.label1{
+    text-align: center;
+}
+.btn-reg{
+    background-color:orange;
+    border-radius: 20;
+    color: black;
+    font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
+    font-size: 15;
+    vertical-align: left;
+    width: 50%;
+    
+}
+.btn-reg:active {
+    background-color: yellow;
+    transform: translateY(4px);
+  }

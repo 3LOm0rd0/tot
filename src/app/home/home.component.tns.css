@@ -1,5 +1,48 @@
-/*
-Add your NativeScript specific styles here.
-To learn more about styling in NativeScript see:
-https://docs.nativescript.org/angular/ui/styling
-*/
+.startMenu{
+    color: black;
+    font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
+
+}
+.stackLayout{
+    background-image: url("res://dog");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.div1{
+    border-style: solid;
+    border-color: orange;
+
+}
+.h5{
+    color: yellow;
+    font-size: 13;
+    text-align: center;
+}
+.h4{
+    color: orange;
+    font-size: 12;
+    text-align: center;
+}
+.hr{
+    display: block;
+    color: aliceblue;
+    background-color: aliceblue;
+    border-width: 1px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+
+}
+.button{
+    background-color:orange;
+    border-radius: 20;
+    color: white;
+    font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
+    font-size: 15;
+    vertical-align: middle;
+    width: 80%;
+
+}

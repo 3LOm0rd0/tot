@@ -1,12 +1,19 @@
 
-<app-action-bar  title="Strona Główna" [showBackButton]="true"></app-action-bar>
+<app-action-bar  class="startMenu" title="Strona Główna" [showBackButton]="true" ></app-action-bar>
 
 
-<StackLayout (tap)="onTap($event)" style="padding:9cm">
+<StackLayout class="stackLayout" (tap)="onTap($event)" style="padding:9cm">
 
-  <Label class="h4" text="Witaj w totalizatorze wyścigów konnych. Nasz totalizator dostarczy Tobie niesamowitych wrażeń. Życzymy samych wygranych !!!" textWrap="true"  ></Label>
-<Label class="h5"  text="Jak zacząć grę w naszym totalizatorze?"></Label>
-<Label class="h4"  text="W celu uzyskania dalszych informacji przejdź do samouczka" textWrap="true" ></Label>
-<Button col="1" width="50%"  class="btn btn-primary btn-rounded-lg" text="Samouczek" nsRouterLink="/jak-grac"></Button>
+  
+    
+      <Label class="h4" text="Witaj w totalizatorze wyścigów psów. Nasz totalizator dostarczy Tobie niesamowitych wrażeń." textWrap="true"  ></Label>
+      <Label class="h5" text=" Życzymy samych wygranych !!!" textWrap="true"  ></Label>
+  <GridLayout rows="7*,*" horizontalAlignment="left" verticalAlignment="top" >
+    <StackLayout row="1">
+      <Label class="h4"  text="W celu uzyskania dalszych informacji przejdź do samouczka" textWrap="true" ></Label>
+      <Button   width="50%"  class="button" text="Samouczek" nsRouterLink="/jak-grac"></Button>
+    </StackLayout>
+  </GridLayout>
+
 </StackLayout>
 

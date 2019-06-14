@@ -4,19 +4,44 @@ To learn more about styling in NativeScript see:
 https://docs.nativescript.org/angular/ui/styling
 */
 .atext {
-  color: rgba(20, 3, 39, 0.932);
+  color: rgb(243, 231, 60);
+  font-size: 15;
   text-align: center;
-  vertical-align: middle;
 
 }
 .heading {
   /* background-color: #bc7474; */
-  color: rgba(20, 3, 39, 0.432);
-
-  font-size: 10;
-  padding: 8;
+  color:orange;
+  font-size: 20;
   text-align: center;
-  vertical-align: top;
-  width: 90%;
-}
 
+}
+.stack{
+  background-color: black;
+  color:white;
+  border-bottom-color:orange;
+
+
+}
+.list-group{
+  background-color: black;
+  color:white;
+  border-bottom-color:orange;
+
+}
+ScrollView{
+  background-color: black;
+  color: orange;
+}
+.list-group-item-text{
+  color: orange;
+  font-size: 20;
+}
+.list-group-item-text1{
+  color: rgb(243, 231, 60);
+  font-size: 15;
+}
+.list-group-item-heading{
+  font-size: 20;
+  color: orange;
+}

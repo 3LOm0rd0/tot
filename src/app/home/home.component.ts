@@ -38,11 +38,11 @@ export class HomeComponent implements OnInit {
     let grid = <StackLayout>args.object;
     grid.rotate = 0;
     grid.animate({
-      backgroundColor: new Color("Aquamarine"),
+      backgroundColor: new Color("Black"),
         rotate: 360,
         duration: 1000
     }).then(() => {
-      grid.animate({backgroundColor: new Color("White")}),
+      grid.animate({backgroundColor: new Color("Black")}),
       console.log("Animation finished.");
   }).then(() => grid.animate({ opacity: 1, duration: 300 }))
   .then(() => grid.animate({ translate: { x: 200, y: 200 }, duration: 300 }))

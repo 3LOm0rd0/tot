@@ -1,40 +1,41 @@
 <ActionBar title="Zarejestruj" icon="" class="action-bar">
   <NavigationButton text="Back" android.systemIcon="ic_menu_back" nsRouterLink="/login"></NavigationButton>
 </ActionBar>
-<ScrollView>
-    <Label text="Wprowadź dane" class="h5" textWrap="true"></Label>
+<ScrollView >
+    <Label text="Wprowadź dane" class="h5" textWrap="true" color="white"></Label>
 <StackLayout class="form" [formGroup]="registerForm" style="padding:8%">
     <StackLayout class="input-field">
-    <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Imie"
+    <TextField  class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Imie" 
   [ngClass]="{ 'is-invalid': submitted && f.Imie.errors }"></TextField>
   <StackLayout class="hr-dark m-2"></StackLayout>
-  <Label text="Imie" class="label" textWrap="true"></Label>
+  <Label color="orange" text="Imie" class="label" textWrap="true"></Label>
 </StackLayout>
 
 <StackLayout class="input-field">
-  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Nazwisko"
+  <TextField  class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Nazwisko"
   [ngClass]="{ 'is-invalid': submitted && f.Nazwisko.errors }" ></TextField>
   <StackLayout class="hr-dark m-2"></StackLayout>
-  <Label text="Nazwisko" class="label" textWrap="true"></Label>
+  <Label color="orange" text="Nazwisko" class="label" textWrap="true"></Label>
 </StackLayout>
 
   <StackLayout class="input-field">
-  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
+  <TextField  class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Login"
   [ngClass]="{ 'is-invalid': submitted && f.Login.errors }"></TextField>
   <StackLayout class="hr-dark m-2"></StackLayout>
-  <Label text="Login" class="label" textWrap="true"></Label>
+  <Label color="orange" text="Login" class="label" textWrap="true"></Label>
 
 </StackLayout>
 
   <StackLayout class="input-field">
-  <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Haslo" [secure]="true"
+  <TextField  class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="Haslo" [secure]="true"
   [ngClass]="{ 'is-invalid': submitted && f.Haslo.errors }"></TextField>
   <StackLayout class="hr-dark m-2"></StackLayout>
-  <Label text="Haslo" class="label" textWrap="true"></Label>
+  <Label color="orange" text="Haslo" class="label" textWrap="true"></Label>
 </StackLayout>
 <StackLayout>
-  <Button [disabled]="loading" class="btn btn-primary btn-active"  text="Zarejestruj" (tap)="onSubmit()"></Button>
-  <Label marginLeft="14%" text="Masz już konto? Zaloguj się!" nsRouterLink="/login" > </Label>
+  <Button  [disabled]="loading" class="btn-reg"  text="Zarejestruj" (tap)="onSubmit()"></Button>
+  <Label class="label1" text="Masz już konto?"> </Label>
+  <button class="btn-reg" text="Zaloguj!" nsRouterLink="/login"> </button>
 
 </StackLayout>
 </StackLayout>

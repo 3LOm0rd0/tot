@@ -8,7 +8,8 @@ selectors and properties you can use to style UI components.
   @import '~nativescript-theme-core/css/core.light.css';
 
 ActionBar{
-  background: purple
+  background: black;
+  color: orange;
 
 }
 
@@ -23,7 +24,9 @@ ActionBar{
   }
 
   .sideStackLayout {
-    background-color: rgb(192, 192, 192);
+    background-color: rgb(51, 50, 50);
+    color: white;
+    
   }
 
   .sideTitleStackLayout {
@@ -34,11 +37,20 @@ ActionBar{
 
   .sideLabel {
     padding: 10;
+    font-size: 15;
+    color: orange;
   }
 
   .sideLightGrayLabel {
-    background-color: lightgray;
+    background-color: #d3d3d3;
   }
+  .fa{
+    font-family: 'FontAwesome', 'Font-Awesome';
+    color: orange;
+    font-size: 30%;
+}
+
+
 
 /*
 In many cases you may want to use the NativeScript core theme instead
