@@ -21,7 +21,7 @@
       <Label *ngIf="graczApi" text="{{graczApi.wyksztalcenie}}" row="5" col="1" class="label-value"></Label>
 
       <Label text="Stan konta" row="6" col="0" class="label-title"></Label>
-      <Label *ngIf="graczApi"  text="{{graczApi.konto | currency:''}} zł" row="6" col="1" class="label-value"></Label>
+      <Label *ngIf="graczApi"  text="{{graczApi.konto | currency:''}}" row="6" col="1" class="label-value"></Label>
 
       <Button row="10" col="0"   text="Aktualizuj dane" nsRouterLink="/aktualizacja" class="btn"></Button>
       <Button row="11" col="0"   text="Zmiana hasla" nsRouterLink="/zmiana-hasla"class="btn"></Button>

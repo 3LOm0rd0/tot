@@ -14,7 +14,8 @@ import { AuthServiceService } from '../Services/auth-service.service';
 })
 export class AktualizacjaComponent implements OnInit {
   updateForm: FormGroup;
-  gracz: Gracz;
+  gracz: Gracz = new Gracz;
+
   loading = false;
   submitted = false;
   currentUser: Gracz;
@@ -25,6 +26,12 @@ export class AktualizacjaComponent implements OnInit {
     private authenticationService: AuthServiceService) {
     // this.currentUser=this.authenticationService.currentUserValue;
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.userService.getById(this.currentUser.id).pipe(first()).subscribe(u => {
+      this.gracz = u;
+      console.log(u)
+;    }, error => {
+      console.log('BRAK DOSTĘPU DO INTERNETU')
+    });
   }
 
   ngOnInit() {
@@ -41,10 +48,10 @@ export class AktualizacjaComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    if (this.updateForm.invalid) {
-      console.log('FORM IS WRONG');
-      return;
-    }
+    // if (this.updateForm.invalid) {
+    //   console.log('FORM IS WRONG');
+    //   return;
+    // }
     this.gracz = Object.assign({}, this.updateForm.value);
 
     this.loading = true;
