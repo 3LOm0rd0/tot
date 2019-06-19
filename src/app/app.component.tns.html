@@ -3,6 +3,7 @@
 
   <GridLayout tkDrawerContent rows="auto,*" class="drawer-container" (tap)="pyk()">
       <ScrollView height="100%">
+<<<<<<< Updated upstream
     <StackLayout class="sideStackLayout" row="1" >
         <Label (tap)="onCloseDrawerTap()" class="h3" text="Menu"></Label>
         <Label class="sideLabel" text="Jak Grać" nsRouterLink="jak-grac" (tap)="onCloseDrawerTap()"></Label>
@@ -11,6 +12,45 @@
         <Label class="sideLabel" text="Moje zakłady" nsRouterLink="/moje-zaklady" (tap)="onCloseDrawerTap()" ></Label>
         <Label class="sideLabel" text="Moje Konto" nsRouterLink="moje-konto" (tap)="onCloseDrawerTap()" ></Label>
         <Label class="sideLabel" text="O wyścigach" nsRouterLink="historia" (tap)="onCloseDrawerTap()"></Label>
+=======
+    <StackLayout  class="sideStackLayout" row="1"  >
+
+            <Label  marginLeft="10" marginTop="10"  (tap)="onCloseDrawerTap()" class="h3" text="Menu" style="color: orange; font-size: 30"></Label>
+
+        <StackLayout height="1" margin="8" backgroundColor="#d3d3d3"></StackLayout>
+        <StackLayout marginLeft="24" orientation="horizontal" >
+          <Label class="fa" text="&#xf059;" ></Label>
+          <Label class="sideLabel" text="Jak grać?" nsRouterLink="jak-grac" (tap)="onCloseDrawerTap()"></Label>
+        </StackLayout>
+        <StackLayout height="1" margin="8"  backgroundColor="#d3d3d3"></StackLayout>
+        <StackLayout marginLeft="30" orientation="horizontal" >
+          <Label class="fa" text="&#xf0f3;"  ></Label>
+          <Label class="sideLabel" text="Strona Główna" nsRouterLink="/home" (tap)="onCloseDrawerTap()" ></Label>
+        </StackLayout>
+        <StackLayout height="1" margin="8"  backgroundColor="#d3d3d3"></StackLayout>
+        <StackLayout marginLeft="30" orientation="horizontal" >
+          <Label class="fa" text="&#xf073;" ></Label>
+          <Label class="sideLabel" text="Gonitwy" nsRouterLink="gonitwy" (tap)="onCloseDrawerTap()" ></Label>
+        </StackLayout>
+        <StackLayout height="1" margin="8"  backgroundColor="#d3d3d3"></StackLayout>
+        <StackLayout marginLeft="30" orientation="horizontal" >
+          <Label class="fa" text="&#xf044;"  ></Label>
+          <Label class="sideLabel" text="Moje zakłady" nsRouterLink="/moje-zaklady" (tap)="onCloseDrawerTap()" ></Label>
+        </StackLayout>
+        <StackLayout height="1" margin="8"  backgroundColor="#d3d3d3"></StackLayout>
+      <StackLayout marginLeft="30" orientation="horizontal">
+        <Label class="fa" text="&#xf007;"  ></Label>
+        <Label class="sideLabel" text="Moje Konto" nsRouterLink="moje-konto" (tap)="onCloseDrawerTap()" ></Label>
+      </StackLayout>
+      <StackLayout height="1" margin="8"  backgroundColor="#d3d3d3"></StackLayout>
+        <StackLayout marginLeft="30" orientation="horizontal">
+          <Label class="fa" text="&#xf024;" ></Label>
+          <Label class="sideLabel" text="O wyścigach" nsRouterLink="historia" (tap)="onCloseDrawerTap()"></Label>
+        </StackLayout>
+        <StackLayout height="1" margin="8"  backgroundColor="#d3d3d3"></StackLayout>
+        <StackLayout marginLeft="24" orientation="horizontal">
+        <Label class="fa" text="&#xf14d;" ></Label>
+>>>>>>> Stashed changes
         <Label *ngIf="currentUser!=null" class="sideLabel" text="Wyloguj"  [clearHistory]="true"(tap)="logout()"></Label>
     </StackLayout>
   </ScrollView>

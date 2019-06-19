@@ -17,8 +17,13 @@
       <Label text="Wiek" row="4" col="0" ></Label>
       <Label *ngIf="graczApi" text="{{graczApi.wiek}}" row="4" col="1" ></Label>
 
+<<<<<<< Updated upstream
       <Label text="Wykształcenie" row="5" col="0" ></Label>
       <Label *ngIf="graczApi" text="{{graczApi.wyksztalcenie}}" row="5" col="1" ></Label>
+=======
+      <Label text="Stan konta" row="6" col="0" class="label-title"></Label>
+      <Label *ngIf="graczApi"  text="{{graczApi.konto | currency:''}}" row="6" col="1" class="label-value"></Label>
+>>>>>>> Stashed changes
 
       <Label text="Stan konta" row="6" col="0" ></Label>
       <Label *ngIf="graczApi"  text="{{graczApi.konto | currency:''}} zł" row="6" col="1" ></Label>
@@ -30,4 +35,8 @@
       <Button row="8" col="1"   text="Doładuj konto" nsRouterLink="/doladuj" style="background-color: #0099CC; margin: 1;"></Button>
 
 
+<<<<<<< Updated upstream
      </GridLayout>
+=======
+</ScrollView>>
+>>>>>>> Stashed changes
