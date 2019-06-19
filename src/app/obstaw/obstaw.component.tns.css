@@ -9,7 +9,7 @@
     font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
     font-size: 10;
 
-    width: 100;
+    width: auto;
 }
 .btn-typowanie{
     background-color:orange;
@@ -18,7 +18,7 @@
     font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
     font-size: 10;
 
-    width: 30%;
+    width: auto;
 }
 .btn-cash{
     background-color:orange;
@@ -26,9 +26,22 @@
     color: black;
     font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
     font-size: 10;
-
-    width: 30%;
+    width: auto;
 }
+
+.btn-zatw{
+    background-color:yellow;
+    border-radius: 20;
+    color: black;
+    font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
+    font-size: 10;
+    width: auto;
+}
+.btn-zatw:active {
+    background-color: orange;
+    transform: translateY(4px);
+}
+
 ScrollView{
     background-color: Black;
 }
@@ -39,4 +52,7 @@ ScrollView{
 .list-group-item-text{
     color:orange;
     font-size: 12;
+}
+.atext{
+    color: orange;
 }

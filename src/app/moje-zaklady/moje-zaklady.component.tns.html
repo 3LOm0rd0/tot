@@ -8,7 +8,7 @@ androidSelectedTabHighlightColor="orange" tabBackgroundColor="black" tabTextColo
     <GridLayout columns="20,40,*,*,*,*,*,20" rows="5,30,30,30" >
       <Label row="1" col="1"  class="h4" [text]="g.idGonitwy"  ></Label>
       <Label row="1" col="3" colSpan="2"  class="h4" [text]="g.nazwaZakladu" ></Label>
-      <Label row="1" col="6" colSpan="2" class="h4" text="{{g.stawka | currency: ' '}} zł"></Label>
+      <Label row="1" col="5" colSpan="2" class="h4" text="{{g.stawka | currency: ' '}} zł"></Label>
       <StackLayout row="2" col="1" colSpan="3" orientation="horizontal"  >
           <Label class="h4" text="I " ></Label>
           <Label class="h4" [text]="g.typowanie1" ></Label>
@@ -25,8 +25,10 @@ androidSelectedTabHighlightColor="orange" tabBackgroundColor="black" tabTextColo
         <Label class="h4" text="IV " ></Label>
         <Label class="h4" [text]="g.typowanie4" ></Label>
       </StackLayout>
-      <Button class="fa"  text="&#xf2ed;" *ngIf="connected" row="1" col="6" rowSpan="3" colSpan="2"   (tap)="usunZaklad(g.idZakladu, g.stawka)" value="Usuń" 
-></Button>
+      <StackLayout row="1" col="6" rowSpan="3" colSpan="2"  orientation="horizontal" >
+        <Button class="btn" text="usuń" *ngIf="connected"   (tap)="usunZaklad(g.idZakladu, g.stawka)" value="Usuń" 
+        ></Button>
+      </StackLayout>
     </GridLayout>
   </ng-template>
 </ListView>

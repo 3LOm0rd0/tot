@@ -1,5 +1,28 @@
-/*
-Add your NativeScript specific styles here.
-To learn more about styling in NativeScript see:
-https://docs.nativescript.org/angular/ui/styling
-*/
+ScrollView{
+    background-color: black;
+    color: orange;
+}
+.h2{
+    color:orange;
+    font-size: 24;
+}
+.h3{
+    color: orange;
+    font-size:20;
+}
+.h4{
+    color: orange;
+    
+}
+.h5{
+    color: orange;
+}
+.btn{
+        background-color:orange;
+        border-radius: 20;
+        color: black;
+        font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
+        font-size: 15;
+        width: 80%;
+        
+ }

@@ -14,7 +14,7 @@ androidSelectedTabHighlightColor="black" >
     </AbsoluteLayout>
   </ng-template>
 </ListView>
-    <ListView *tabItem="{title: 'Obstaw', iconSource: 'res://icon'}" class="table" [items]="gonitwyFuture"(itemTap)="zobaczSzczegoly($event)"  >
+    <ListView *tabItem="{title: 'Obstaw', iconSource: 'res://piesek'}" class="table" [items]="gonitwyFuture"(itemTap)="zobaczSzczegoly($event)"  >
 
       <ng-template let-g="item" let-i="index" >
         <AbsoluteLayout  orientation="horizontal" (tap)="onItemTapObstaw(g.nrGonitwyWSezonie)" >

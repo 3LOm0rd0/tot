@@ -23,16 +23,16 @@
   <!-- Przyciski do wyboru psow i rodzaju  -->
     <Label text="Wybierz rodzaj:" class="list-group-item-text" textWrap="true" style=" margin-left: 8"></Label>
     <Button dock="left" (tap)="selectBetType()" class="btn" text="{{typeBet}}" ></Button>
-    <Button dock="left" (tap)="onSubmit()" class="btn" text="Zatwierdź" ></Button>
+    
   <!-- Koniec Przyciski do wyboru psow i rodzaju  -->
 
   <!-- Typowanie  -->
   <Label   text="Typ 1" class="atext" textWrap="true"></Label>
-  <Button  (tap)="selectType1()" text="{{type1}}" class="btn" ></Button>
+  <Button  (tap)="selectType1()" text="{{type1}}" class="btn-typowanie" ></Button>
   <Label   text="Typ 2" class="atext" textWrap="true" *ngIf="idP==2 || idP==3 ||idP==4 || idP==5"></Label>
-  <Button (tap)="selectType2()" text="{{type2}}" class="btn" *ngIf="idP==2 || idP==3 ||idP==4 || idP==5"></Button>
+  <Button (tap)="selectType2()" text="{{type2}}" class="btn-typowanie" *ngIf="idP==2 || idP==3 ||idP==4 || idP==5"></Button>
   <Label   text="Typ 3" class="atext" textWrap="true" *ngIf="idP==4 || idP==5"></Label>
-  <Button (tap)="selectType3()" text="{{type3}}" class="btn"  *ngIf="idP==4 || idP==5"></Button>
+  <Button (tap)="selectType3()" text="{{type3}}" class="btn-typowanie"  *ngIf="idP==4 || idP==5"></Button>
   <Label   text="Typ 4" class="atext" textWrap="true" *ngIf=" idP==5"></Label>
   <Button (tap)="selectType4()" text="{{type4}}" class="btn-typowanie" *ngIf=" idP==5"></Button>
   <!--Koniec Typowanie  -->
@@ -40,8 +40,11 @@
 <StackLayout dock="top" height="12%" orientation="vertical">
   <!-- Stawka  -->
   <Label   text="Stawka: {{stawka}} zł" class="atext" textWrap="true" style="margin-top: 10;" ></Label>
-  <Button (tap)="setCash()" text="$$" class="btn-cash"></Button>
+  <Button (tap)="setCash()" text="Kwota" class="btn-cash"></Button>
   <!-- Koniec Stawka  -->
+  <label text="           "></label>
+    <Button dock="left" (tap)="onSubmit()" class="btn-zatw" text="Zatwierdź" ></Button>
+ 
 </StackLayout>
 
 </DockLayout>

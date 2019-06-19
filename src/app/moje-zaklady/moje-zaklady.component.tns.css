@@ -9,8 +9,15 @@ GridLayout{
     color: orange;
 
 }
-.fa{
-    font-family: 'FontAwesome', 'Font-Awesome';
-    color: orange;
-    font-size: 30%;
+.btn{
+    background-color:rgb(226, 57, 14);
+    border-radius: 20;
+    color: black;
+    font-family: 'Oswald', 'Oswald-Regular','Oswald-Bold';
+    font-size: 15;
+    width: 80%;
 }
+.btn:active {
+    background-color: yellow;
+    transform: translateY(4px);
+  }
